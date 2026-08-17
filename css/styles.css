@@ -376,6 +376,7 @@ ul { list-style: none; }
   margin-top: clamp(1.8rem, 3.6vw, 2.8rem);
   padding-top: clamp(1.1rem, 2.2vw, 1.6rem);
   border-top: 1px solid rgba(231, 236, 244, 0.14);
+  padding-bottom: 20px;
 }
 
 .hero-offices { display: flex; align-items: center; gap: 1.6rem; justify-self: start; text-align: left; }
@@ -438,7 +439,7 @@ ul { list-style: none; }
 /* short viewports: keep the ledger above the fold */
 @media (max-height: 780px) and (min-width: 761px) {
   .hero { padding-top: 6.6rem; }
-  .hero-inner { padding-top: clamp(0.5rem, 2.4vh, 1.5rem); }
+  .hero-inner { padding-top: clamp(6.5rem, 2.4vh, 1.5rem); }
   .hero-title { font-size: clamp(2.2rem, 4.4vw, 3.4rem); }
   .hero-lede { font-size: 0.95rem; }
   .hero-ornament { margin-block: 1.2rem; }
