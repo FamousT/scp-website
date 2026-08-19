@@ -1975,3 +1975,48 @@ body[data-page="people"] .people-grid {
   padding: 1.5rem 0 2.5rem;
 }
 .people-group.is-hidden { display: none !important; }
+
+/* ---------- Team photos ---------- */
+.person-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+/* ---------- Office contact actions ---------- */
+.office-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: auto; padding-top: 0.2rem; }
+.office-actions .btn { flex: 0 1 auto; padding: 0.85rem 1.4rem; font-size: 0.72rem; }
+.btn--whatsapp { background: #1FA855; color: #fff; border-color: #1FA855; }
+.btn--whatsapp:hover { background: #17853f; border-color: #17853f; }
+.btn--outline-ink { border-color: var(--line); color: var(--ink); background: none; }
+.btn--outline-ink:hover { border-color: var(--navy); background: rgba(16, 27, 56, 0.05); }
+.office-row dd a, .footer-office-phone a { color: inherit; border-bottom: 1px solid transparent; transition: border-color 0.3s var(--ease); }
+.office-row dd a:hover, .footer-office-phone a:hover { border-bottom-color: currentColor; }
+@media (max-width: 560px) { .office-actions .btn { flex: 1 1 100%; } }
+
+/* ============================================================
+   PRACTICE AREAS — team grid: three columns
+   ============================================================ */
+body[data-page="practice"] #team .people-grid,
+body[data-page="abuja"] #team .people-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.4rem, 2.8vw, 2.2rem);
+}
+@media (max-width: 900px) {
+  body[data-page="practice"] #team .people-grid,
+body[data-page="abuja"] #team .people-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  body[data-page="practice"] #team .people-grid,
+body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Footer: two office columns ---------- */
+.footer-grid { grid-template-columns: 1.7fr 1.15fr 1.15fr; }
+.footer-offices h4 + .footer-office { margin-top: 0; }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .footer-grid { grid-template-columns: 1fr; } }
