@@ -901,6 +901,10 @@ ul { list-style: none; }
 .person-areas { font-size: 0.82rem; color: var(--muted); margin-top: 0.6rem; line-height: 1.6; }
 .person-link { margin-top: 0.8rem; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy); border-bottom: 1px solid var(--line); padding-bottom: 3px; align-self: flex-start; transition: border-color 0.3s var(--ease); }
 .person:hover .person-link { border-color: var(--navy); }
+.person-photo-link { display: block; text-decoration: none; }
+.person-photo-link .person-photo { transition: opacity 0.3s var(--ease); }
+.person-photo-link:hover .person-photo, .person-photo-link:focus-visible .person-photo { opacity: 0.88; }
+.person-photo-link:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 3px; }
 
 .alumni-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.4rem 2rem; }
 .alumni-list li { font-size: 0.9rem; color: var(--body); padding: 0.5rem 0; border-bottom: 1px solid var(--line-navy); }
