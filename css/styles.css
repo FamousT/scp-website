@@ -2258,3 +2258,22 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
 @media (prefers-reduced-motion: reduce) {
   .wa-float, .wa-float-label { transition: none; }
 }
+
+/* ---------- Profile: send-email button ---------- */
+.profile-contact { display: flex; flex-direction: column; gap: 0.55rem; }
+.profile-email-btn {
+  width: 100%;
+  gap: 0.6rem;
+  padding: 0.95rem 1.4rem;
+  text-decoration: none;
+}
+.profile-email-btn .profile-email-ico { width: 16px; height: 16px; flex: 0 0 auto; }
+.profile-email-addr {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  text-align: center;
+  color: var(--muted);
+  word-break: break-word;
+}
+.profile-email-addr a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
+.profile-email-addr a:hover { color: var(--ink); border-bottom-color: var(--ink); }
