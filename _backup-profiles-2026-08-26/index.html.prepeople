@@ -410,6 +410,44 @@
     </div>
   </section>
 
+  <!-- ============ SENIOR PARTNERS ============ -->
+  <section class="section section--white" id="people">
+    <div class="container">
+      <div class="section-head section-head--split reveal">
+        <div>
+          <p class="eyebrow"><span class="rule"></span>Our People</p>
+          <h2 class="section-title">The partners who lead the practice.</h2>
+        </div>
+        <a href="our-people.html" class="link-underline">Everyone at the firm</a>
+      </div>
+      <div class="people-grid">
+        <a class="partner-card reveal" href="people/dapo-akinosun.html">
+          <div class="partner-photo">
+            <img src="images/team/Oladapo%20Akinosun.JPG" alt="Dapo Akinosun, SAN" loading="lazy" />
+          </div>
+          <div class="partner-body">
+            <p class="partner-role">Founding Partner</p>
+            <h3 class="partner-name">Dapo Akinosun, SAN</h3>
+            <p class="partner-desc">Founded the firm and leads its energy and corporate restructuring practices. Advises sponsors, lenders and boards on project development, PIA compliance and balance-sheet repair across West Africa.</p>
+            <span class="partner-more">View profile <span aria-hidden="true">&#8594;</span></span>
+          </div>
+        </a>
+
+        <a class="partner-card reveal" href="people/ikem-isiekwena.html">
+          <div class="partner-photo">
+            <img src="images/team/Ikem%20001.jpg" alt="Ikem Isiekwena" loading="lazy" />
+          </div>
+          <div class="partner-body">
+            <p class="partner-role">Managing Partner</p>
+            <h3 class="partner-name">Ikem Isiekwena</h3>
+            <p class="partner-desc">Manages the firm and practises across competition, energy, dispute resolution, corporate restructuring and international trade. Advises boards on merger control, market-conduct investigations and cross-border strategy.</p>
+            <span class="partner-more">View profile <span aria-hidden="true">&#8594;</span></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ OFFICES ============ -->
   <section class="section section--paper" id="offices">
     <div class="container">
