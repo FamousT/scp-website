@@ -2281,3 +2281,61 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
 }
 .profile-email-addr a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
 .profile-email-addr a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ============================================================
+   SCROLL + HOVER ANIMATION LAYER
+   Sections fade and rise as they enter the viewport (hero and
+   page banners excluded). Cards and pictures lift and zoom on
+   hover. All of it is disabled under prefers-reduced-motion.
+   ============================================================ */
+
+/* ---------- Sections on scroll ---------- */
+.section-anim { opacity: 0; transform: translateY(30px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.section-anim.is-inview { opacity: 1; transform: none; }
+
+/* ---------- Cards: lift on hover ---------- */
+.person,
+.matter,
+.plan,
+.office-card,
+.form-card,
+.partner-card,
+.job-item {
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
+}
+.person:hover,
+.matter:hover,
+.plan:hover,
+.office-card:hover,
+.form-card:hover,
+.partner-card:hover,
+.job-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 44px -28px rgba(41, 36, 28, 0.45);
+}
+.matter:hover, .plan:hover, .office-card:hover, .form-card:hover, .job-item:hover { border-color: var(--navy); }
+.section--navy .plan:hover, .section--navy .office-card:hover { box-shadow: 0 26px 50px -28px rgba(0, 0, 0, 0.6); }
+
+/* ---------- Pictures: zoom on hover ---------- */
+.person-photo, .partner-photo, .il-img, .card-img, .pa-peek { overflow: hidden; }
+.person-photo img, .partner-photo img { transition: transform 0.8s var(--ease); }
+.person:hover .person-photo img,
+.person-photo:hover img,
+.person-photo-link:hover .person-photo img,
+.person-photo-link:focus-visible .person-photo img,
+.partner-card:hover .partner-photo img { transform: scale(1.06); }
+.person-photo-link:hover .person-photo, .person-photo-link:focus-visible .person-photo { opacity: 1; }
+
+/* Any other picture on the page still responds to the pointer */
+.profile-aside .person-photo:hover img { transform: scale(1.06); }
+
+@media (prefers-reduced-motion: reduce) {
+  .section-anim { opacity: 1; transform: none; transition: none; }
+  .person, .matter, .plan, .office-card, .form-card, .partner-card, .job-item,
+  .person-photo img, .partner-photo img { transition: none; }
+  .person:hover, .matter:hover, .plan:hover, .office-card:hover, .form-card:hover,
+  .partner-card:hover, .job-item:hover { transform: none; box-shadow: none; }
+  .person:hover .person-photo img, .person-photo:hover img,
+  .person-photo-link:hover .person-photo img,
+  .partner-card:hover .partner-photo img { transform: none; }
+}

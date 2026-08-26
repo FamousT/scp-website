@@ -128,6 +128,36 @@
     reveals.forEach((el) => el.classList.add("in"));
   }
 
+  /* ---------- Section reveal on scroll ---------- */
+  /* Every section animates in as it enters the viewport, except the
+     hero and the page banners, which are above the fold. */
+  const animSections = Array.prototype.filter.call(
+    document.querySelectorAll("main section, main > .cta-band, footer.site-footer"),
+    (el) => !el.classList.contains("hero") && !el.classList.contains("page-banner")
+  );
+  if (animSections.length && "IntersectionObserver" in window) {
+    animSections.forEach((el) => el.classList.add("section-anim"));
+    const sio = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-inview");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0, rootMargin: "0px 0px -8% 0px" }
+    );
+    animSections.forEach((el) => sio.observe(el));
+    /* Anything already on screen at load shows immediately. */
+    requestAnimationFrame(() => {
+      animSections.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add("is-inview");
+      });
+    });
+  }
+
   /* ---------- Count-up stats ---------- */
   const stats = document.querySelectorAll(".stat-num");
   const runCount = (el) => {
