@@ -95,7 +95,89 @@
     </div>
   </section>
 
-  <section class="section section--white" id="apply">
+  <section class="section section--white" id="openings">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="rule"></span>Current Openings</p>
+        <h2 class="section-title">Roles open now.</h2>
+      </div>
+      <div class="filter-bar reveal" data-filter-group="office">
+        <span class="filter-label">Office</span>
+        <button class="chip is-active" type="button" data-filter="office" data-value="all">All</button>
+        <button class="chip" type="button" data-filter="office" data-value="Lagos">Lagos</button>
+        <button class="chip" type="button" data-filter="office" data-value="Abuja">Abuja</button>
+      </div>
+      <div class="filter-bar reveal" data-filter-group="area">
+        <span class="filter-label">Area</span>
+        <button class="chip is-active" type="button" data-filter="area" data-value="all">All</button>
+        <button class="chip" type="button" data-filter="area" data-value="Business Services">Business Services</button>
+        <button class="chip" type="button" data-filter="area" data-value="Competition Law">Competition Law</button>
+        <button class="chip" type="button" data-filter="area" data-value="Energy">Energy</button>
+        <button class="chip" type="button" data-filter="area" data-value="General">General</button>
+        <button class="chip" type="button" data-filter="area" data-value="Labour and Employment">Labour and Employment</button>
+        <button class="chip" type="button" data-filter="area" data-value="Tech & AI">Tech & AI</button>
+      </div>
+      <div id="jobList">
+        <div class="job-item filterable reveal" data-office="Lagos" data-area="Competition Law">
+          <div>
+            <p class="job-title">Senior Associate — Competition Law</p>
+            <p class="job-sub">Five or more years' post-call experience with substantial merger control exposure. You will manage notifications end to end and support conduct investigations.</p>
+          </div>
+          <p class="row-meta">Lagos</p>
+          <p class="row-meta">Full time</p>
+          <a class="row-go" href="#apply" data-track="cta:apply:Senior Associate — Compe">Apply &#8594;</a>
+        </div>
+        <div class="job-item filterable reveal" data-office="Lagos" data-area="Tech & AI">
+          <div>
+            <p class="job-title">Associate — Tech & AI</p>
+            <p class="job-sub">Two to four years' experience in data protection or technology contracting. Interest in AI governance is an advantage.</p>
+          </div>
+          <p class="row-meta">Lagos</p>
+          <p class="row-meta">Full time</p>
+          <a class="row-go" href="#apply" data-track="cta:apply:Associate — Tech & AI">Apply &#8594;</a>
+        </div>
+        <div class="job-item filterable reveal" data-office="Abuja" data-area="Energy">
+          <div>
+            <p class="job-title">Regulatory Counsel</p>
+            <p class="job-sub">Experience engaging ministries, commissions and agencies. You will run licence and approval workstreams for energy and infrastructure clients.</p>
+          </div>
+          <p class="row-meta">Abuja</p>
+          <p class="row-meta">Full time</p>
+          <a class="row-go" href="#apply" data-track="cta:apply:Regulatory Counsel">Apply &#8594;</a>
+        </div>
+        <div class="job-item filterable reveal" data-office="Lagos" data-area="Labour and Employment">
+          <div>
+            <p class="job-title">Associate — Labour and Employment</p>
+            <p class="job-sub">Two to four years' experience with National Industrial Court advocacy and employment advisory work.</p>
+          </div>
+          <p class="row-meta">Lagos</p>
+          <p class="row-meta">Full time</p>
+          <a class="row-go" href="#apply" data-track="cta:apply:Associate — Labour and E">Apply &#8594;</a>
+        </div>
+        <div class="job-item filterable reveal" data-office="Lagos" data-area="General">
+          <div>
+            <p class="job-title">Trainee Solicitor Programme (2027 intake)</p>
+            <p class="job-sub">Our two-year structured programme with rotations across four practice areas, formal advocacy training and a named partner mentor.</p>
+          </div>
+          <p class="row-meta">Lagos</p>
+          <p class="row-meta">Training contract</p>
+          <a class="row-go" href="#apply" data-track="cta:apply:Trainee Solicitor Progra">Apply &#8594;</a>
+        </div>
+        <div class="job-item filterable reveal" data-office="Lagos" data-area="Business Services">
+          <div>
+            <p class="job-title">Business Development Manager</p>
+            <p class="job-sub">Own the firm's client development pipeline, working with the partnership on pitches, panels and sector campaigns.</p>
+          </div>
+          <p class="row-meta">Lagos</p>
+          <p class="row-meta">Full time</p>
+          <a class="row-go" href="#apply" data-track="cta:apply:Business Development Man">Apply &#8594;</a>
+        </div>
+      </div>
+      <p class="filter-empty is-hidden" data-empty>No openings match those filters right now. <button class="chip" type="button" data-filter-reset>Clear filters</button> or send a speculative application below.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper" id="apply">
     <div class="container split">
       <div class="reveal">
         <p class="eyebrow"><span class="rule"></span>Apply</p>
@@ -105,16 +187,7 @@
 
       <div class="form-card reveal">
         <h3 class="section-title" style="font-size:1.5rem;max-width:24ch;margin-bottom:1.6rem;">Application form</h3>
-        <form class="form" id="careersForm" novalidate
-              action="https://formsubmit.co/scprecords@scp-law.com" method="POST"
-              enctype="multipart/form-data">
-          <!-- FormSubmit configuration -->
-          <input type="hidden" name="_subject" value="Careers application &#8212; SimmonsCooper Partners" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_autoresponse" value="Thank you for applying to SimmonsCooper Partners. We have received your application and will respond to shortlisted candidates within two weeks." />
-          <input type="hidden" name="_next" value="https://scp-law.com/careers.html" />
-          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <form class="form" id="careersForm" data-form="application" novalidate>
           <div class="form-grid">
             <div class="field">
               <label class="field-label" for="careers-name">Full name <span class="req">*</span></label>
@@ -127,7 +200,13 @@
             <div class="field">
               <label class="field-label" for="careers-role">Role <span class="req">*</span></label>
               <select class="select" id="careers-role" name="role" required>
+                <option>Senior Associate — Competition Law</option>
+                <option>Associate — Tech & AI</option>
+                <option>Regulatory Counsel</option>
+                <option>Associate — Labour and Employment</option>
                 <option>Trainee Solicitor Programme (2027 intake)</option>
+                <option>Business Development Manager</option>
+                <option>Speculative application</option>
               </select>
             </div>
             <div class="field">

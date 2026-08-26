@@ -81,22 +81,15 @@
         <div class="person reveal">
           <a class="person-photo-link" href="people/dapo-akinosun.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Oladapo%20Akinosun.JPG" alt="Dapo Akinosun, SAN" loading="lazy" /></div></a>
           <p class="person-name">Dapo Akinosun, SAN</p>
-          <p class="person-role">Founding Partner</p>
+          <p class="person-role">Senior Partner</p>
           <p class="person-areas">Energy, Dispute Resolution, Corporate</p>
           <a class="person-link" href="people/dapo-akinosun.html">View profile</a>
-        </div>
-        <div class="person reveal">
-          <a class="person-photo-link" href="people/babatunde-irukera.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/babtunde%20irukera.jpeg" alt="Babatunde Irukera" loading="lazy" /></div></a>
-          <p class="person-name">Babatunde Irukera</p>
-          <p class="person-role">Founding Partner</p>
-          <p class="person-areas">Competition, Restructuring</p>
-          <a class="person-link" href="people/babatunde-irukera.html">View profile</a>
         </div>
         <div class="person reveal">
           <a class="person-photo-link" href="people/ikem-isiekwena.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Ikem%20001.jpg" alt="Ikem Isiekwena" loading="lazy" /></div></a>
           <p class="person-name">Ikem Isiekwena</p>
           <p class="person-role">Managing Partner</p>
-          <p class="person-areas">Competition, Energy</p>
+          <p class="person-areas">Competition, Tax, Energy</p>
           <a class="person-link" href="people/ikem-isiekwena.html">View profile</a>
         </div>
         <div class="person reveal">
@@ -107,11 +100,11 @@
           <a class="person-link" href="people/funmilola-mesaiyete.html">View profile</a>
         </div>
         <div class="person reveal">
-          <a class="person-photo-link" href="people/victoria-alonge.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Victoria%20Alonge%20003.jpg" alt="Victoria Alonge" loading="lazy" /></div></a>
-          <p class="person-name">Victoria Alonge</p>
+          <a class="person-photo-link" href="people/adegoke-adedoyin.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Adegoke%20Adedoyin.jpg" alt="Adegoke Adedoyin" loading="lazy" /></div></a>
+          <p class="person-name">Adegoke Adedoyin</p>
           <p class="person-role">Partner</p>
-          <p class="person-areas">Tax, Wealth &amp; SME, Dispute Resolution</p>
-          <a class="person-link" href="people/victoria-alonge.html">View profile</a>
+          <p class="person-areas">Tax, Dispute Resolution, Labour</p>
+          <a class="person-link" href="people/adegoke-adedoyin.html">View profile</a>
         </div>
         <div class="person reveal">
           <a class="person-photo-link" href="people/bashir-ramoni.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Bashir%20Ramoni.jpg" alt="Bashir Ramoni" loading="lazy" /></div></a>
@@ -121,18 +114,25 @@
           <a class="person-link" href="people/bashir-ramoni.html">View profile</a>
         </div>
         <div class="person reveal">
-          <a class="person-photo-link" href="people/adegoke-adedoyin.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Adegoke%20Adedoyin.jpg" alt="Adegoke Adedoyin" loading="lazy" /></div></a>
-          <p class="person-name">Adegoke Adedoyin</p>
-          <p class="person-role">Partner</p>
-          <p class="person-areas">Dispute Resolution, Labour</p>
-          <a class="person-link" href="people/adegoke-adedoyin.html">View profile</a>
-        </div>
-        <div class="person reveal">
           <a class="person-photo-link" href="people/akintayo-iwilade.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Akintayo%20Iwilade.jpg" alt="Akintayo Iwilade" loading="lazy" /></div></a>
           <p class="person-name">Akintayo Iwilade</p>
           <p class="person-role">Partner</p>
-          <p class="person-areas">Consumer Credit, Dispute Resolution</p>
+          <p class="person-areas">Wealth &amp; SME, Dispute Resolution</p>
           <a class="person-link" href="people/akintayo-iwilade.html">View profile</a>
+        </div>
+        <div class="person reveal">
+          <a class="person-photo-link" href="people/victoria-alonge.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Victoria%20Alonge%20003.jpg" alt="Victoria Alonge" loading="lazy" /></div></a>
+          <p class="person-name">Victoria Alonge</p>
+          <p class="person-role">Partner</p>
+          <p class="person-areas">Tax, Wealth &amp; SME, Dispute Resolution</p>
+          <a class="person-link" href="people/victoria-alonge.html">View profile</a>
+        </div>
+        <div class="person reveal">
+          <a class="person-photo-link" href="people/babatunde-irukera.html" tabindex="-1" aria-hidden="true"><div class="person-photo" aria-hidden="true"><span>BI</span><small>Photo to be supplied</small></div></a>
+          <p class="person-name">Babatunde Irukera</p>
+          <p class="person-role">Senior Partner</p>
+          <p class="person-areas">Competition, Restructuring</p>
+          <a class="person-link" href="people/babatunde-irukera.html">View profile</a>
         </div>
         <div class="person reveal">
           <a class="person-photo-link" href="people/samuel-oyenitun.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Samuel%20Oyenitun.jpg" alt="Samuel Oyenitun" loading="lazy" /></div></a>
@@ -163,6 +163,13 @@
           <a class="person-link" href="people/olayinka-alao.html">View profile</a>
         </div>
         <div class="person reveal">
+          <a class="person-photo-link" href="people/john-ojelabi.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/John%20Ojelabi%20003.JPG" alt="John Ojelabi" loading="lazy" /></div></a>
+          <p class="person-name">John Ojelabi</p>
+          <p class="person-role">Associate</p>
+          <p class="person-areas">Energy, Tech &amp; AI, Wealth &amp; SME</p>
+          <a class="person-link" href="people/john-ojelabi.html">View profile</a>
+        </div>
+        <div class="person reveal">
           <a class="person-photo-link" href="people/dayo-bello.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Dayo%20Bello.png" alt="Dayo Bello" loading="lazy" /></div></a>
           <p class="person-name">Dayo Bello</p>
           <p class="person-role">Senior Associate</p>
@@ -177,16 +184,9 @@
           <a class="person-link" href="people/ema-ogbe.html">View profile</a>
         </div>
         <div class="person reveal">
-          <a class="person-photo-link" href="people/john-ojelabi.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/John%20Ojelabi%20003.JPG" alt="John Ojelabi" loading="lazy" /></div></a>
-          <p class="person-name">John Ojelabi</p>
-          <p class="person-role">Senior Associate</p>
-          <p class="person-areas">Energy, Tech &amp; AI, Wealth &amp; SME</p>
-          <a class="person-link" href="people/john-ojelabi.html">View profile</a>
-        </div>
-        <div class="person reveal">
           <a class="person-photo-link" href="people/paul-ordam.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Paul%20Ordam.jpg" alt="Paul Ordam" loading="lazy" /></div></a>
           <p class="person-name">Paul Ordam</p>
-          <p class="person-role">Senior Associate</p>
+          <p class="person-role">Associate</p>
           <p class="person-areas">Competition, Tax, Energy</p>
           <a class="person-link" href="people/paul-ordam.html">View profile</a>
         </div>
