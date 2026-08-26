@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | SimmonsCooper Partners</title>
-  <meta name="description" content="Contact SimmonsCooper Partners in Lagos and Abuja. Routed enquiry forms, office details and press contacts." />
+  <meta name="description" content="Contact SimmonsCooper Partners in Lagos and Abuja. Submit an enquiry, office details and press contacts." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -62,72 +62,69 @@
       <p class="page-lede reveal">Every enquiry is routed to the responsible team automatically. You will receive an acknowledgement immediately and a substantive reply from a lawyer within 24 hours.</p>
     </div>
   </section>
-  <section class="section section--paper" id="enquire">
-    <div class="container split">
-      <div class="reveal">
-        <p class="eyebrow"><span class="rule"></span>General Enquiries</p>
-        <h2 class="section-title">One form, routed to the right team.</h2>
-        <p class="section-note mt-lg">Choose the topic and your enquiry reaches that practice directly — Competition to the competition team, Energy to the energy team, and so on. Careers go to HR; press goes to Marketing.</p>
+  <!-- ============ ENQUIRY BAND ============
+       Left: routing explainer. Right: the enquiry form, which posts to
+       FormSubmit and is delivered by email to scprecords@scp-law.com.
+       The Microsoft Forms link is kept as a secondary route.
+  -->
+  <section class="section enquiry-band" id="enquire">
+    <div class="container enquiry-split">
+      <div class="enquiry-copy">
+        <p class="eyebrow enquiry-band-eyebrow reveal"><span class="rule"></span>General Enquiries</p>
+        <h2 class="enquiry-band-title reveal">One enquiry, routed to <em>the right team.</em></h2>
+        <p class="enquiry-band-lede reveal">Tell us the topic once and your enquiry reaches that practice directly &#8212; Competition to the competition team, Energy to the energy team, and so on. Careers go to HR; press goes to Marketing.</p>
+        <ul class="enquiry-facts enquiry-facts--split reveal">
+          <li><span class="enquiry-fact-k">Acknowledgement</span><span class="enquiry-fact-v">Immediate, by email</span></li>
+          <li><span class="enquiry-fact-k">Substantive reply</span><span class="enquiry-fact-v">From a lawyer within 24 hours</span></li>
+          <li><span class="enquiry-fact-k">Routing</span><span class="enquiry-fact-v">Ten practice teams, plus HR and Marketing</span></li>
+          <li><span class="enquiry-fact-k">Your data</span><span class="enquiry-fact-v">Held under the Nigeria Data Protection Act</span></li>
+        </ul>
+        <p class="enquiry-band-foot reveal">We never publish partners' email addresses. For a general question, each office below has a direct line and WhatsApp. You can also <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=emEZHjkf7EqeDd6JuRMfnZ5g24hVddtNlcfkCrapooRUQlA4Q0dPUVJOTUJZR1VQWUc3R0dMNUlPVC4u" data-enquiry-link target="_blank" rel="noopener" data-track="cta:enquiry:contact">open our secure Microsoft form</a> in a new tab.</p>
       </div>
-      <div class="form-card reveal">
-        <h3 class="section-title" style="font-size:1.5rem;max-width:24ch;margin-bottom:1.6rem;">Send an enquiry</h3>
-        <form class="form" id="contactMain" data-form="enquiry" novalidate>
+
+      <div class="enquiry-form-col reveal">
+        <form class="form form-card enquiry-form" id="enquiryForm" data-enquiry-form
+              action="https://formsubmit.co/scprecords@scp-law.com" method="POST" novalidate>
+          <p class="card-cat">Send an enquiry</p>
+          <h3 class="enquiry-form-title">Write to us directly.</h3>
+
+          <!-- FormSubmit configuration -->
+          <input type="hidden" name="_subject" value="Website enquiry &#8212; SimmonsCooper Partners" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
           <div class="form-grid">
-            <div class="field">
-              <label class="field-label" for="contactMain-name">Full name <span class="req">*</span></label>
-              <input class="input" id="contactMain-name" name="name" type="text" autocomplete="name" required />
+            <div class="field field--full">
+              <label class="field-label" for="enqName">Full name <span class="req">*</span></label>
+              <input class="input" id="enqName" name="name" type="text" required autocomplete="name" />
             </div>
             <div class="field">
-              <label class="field-label" for="contactMain-org">Organisation</label>
-              <input class="input" id="contactMain-org" name="organisation" type="text" autocomplete="organization" />
+              <label class="field-label" for="enqPhone">Phone <span class="req">*</span></label>
+              <input class="input" id="enqPhone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" />
             </div>
             <div class="field">
-              <label class="field-label" for="contactMain-email">Email <span class="req">*</span></label>
-              <input class="input" id="contactMain-email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div class="field">
-              <label class="field-label" for="contactMain-phone">Telephone</label>
-              <input class="input" id="contactMain-phone" name="phone" type="tel" autocomplete="tel" />
+              <label class="field-label" for="enqEmail">Email <span class="req">*</span></label>
+              <input class="input" id="enqEmail" name="email" type="email" required autocomplete="email" />
             </div>
             <div class="field field--full">
-              <label class="field-label" for="contactMain-topic">What is this about? <span class="req">*</span></label>
-              <select class="select" id="contactMain-topic" name="topic" data-routing required>
-              <option value="Competition Law team" selected>Competition Law</option>
-              <option value="Tax Advisory team">Tax Advisory</option>
-              <option value="Consumer Credit and Digital Money Lending team">Consumer Credit and Digital Money Lending</option>
-              <option value="Energy — Hydrocarbon and Renewable team">Energy — Hydrocarbon and Renewable</option>
-              <option value="Tech & AI team">Tech & AI</option>
-              <option value="Wealth Management and SMEs team">Wealth Management and SMEs</option>
-              <option value="Public Impact Litigation team">Dispute Resolution / Public Impact Litigation</option>
-              <option value="Labour and Employment team">Labour and Employment</option>
-              <option value="Corporate Restructuring team">Corporate Restructuring</option>
-              <option value="International Trade Law team">International Trade Law</option>
-              <option value="Client services">Paid services — general</option>
-              <option value="HR">Careers</option>
-              <option value="Marketing">Press / media</option>
-              <option value="Client services">Something else</option>
-              </select>
-              <p class="field-hint">This determines which team receives your enquiry.</p>
+              <label class="field-label" for="enqOrg">Organisation <span class="field-opt">(optional)</span></label>
+              <input class="input" id="enqOrg" name="organisation" type="text" autocomplete="organization" />
             </div>
             <div class="field field--full">
-              <label class="field-label" for="contactMain-message">How can we help? <span class="req">*</span></label>
-              <textarea class="textarea" id="contactMain-message" name="message" required></textarea>
-            </div>
-            <div class="field field--full">
-              <label class="check">
-                <input type="checkbox" name="consent" required />
-                <span>I consent to SimmonsCooper Partners storing and processing this enquiry in line with the Privacy Policy and the Nigeria Data Protection Act.</span>
-              </label>
+              <label class="field-label" for="enqMessage">Enquiry <span class="req">*</span></label>
+              <textarea class="textarea" id="enqMessage" name="enquiry" required
+                        placeholder="Tell us briefly what you are working on and which practice it concerns."></textarea>
             </div>
           </div>
-          <input type="hidden" name="source_page" value="" data-source-page />
-          <input type="hidden" name="source_url" value="" data-source-url />
-          <input type="hidden" name="routing_team" value="" data-routing-team />
+
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+
           <div class="form-actions">
-            <button class="btn btn--primary" type="submit" data-track="form:submit:contactMain">Send enquiry</button>
-            <p class="form-note">Your enquiry is recorded in our CRM and routed to the responsible team. You will receive an acknowledgement immediately and a substantive reply from a lawyer within 24 hours. We never publish partners' email addresses — please use this form.</p>
+            <button class="btn btn--primary" type="submit" data-track="form:submit:enquiry">Send enquiry</button>
+            <a class="btn btn--whatsapp btn--sm-wa" href="https://wa.me/2347011404511?text=Hello%20SimmonsCooper%20Partners%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener" data-track="cta:whatsapp:enquiry">Chat with us</a>
           </div>
-          <div class="form-status" role="status"></div>
+          <p class="form-note">Your details are used only to answer this enquiry and are held under the Nigeria Data Protection Act. Please do not send confidential or privileged material through this form &#8212; no lawyer&#8211;client relationship is created by submitting it.</p>
         </form>
       </div>
     </div>
@@ -148,7 +145,7 @@
             <div class="office-row"><dt>Telephone</dt><dd><a href="tel:+2347011404511">+234 701 140 4511</a></dd></div>
             <div class="office-row"><dt>Email</dt><dd><a href="mailto:info@scp-law.com">info@scp-law.com</a></dd></div>
             <div class="office-row"><dt>Hours</dt><dd>Monday to Friday, 08:30 – 17:30 WAT</dd></div>
-            <div class="office-row"><dt>Enquiries</dt><dd>By form only</dd></div>
+            <div class="office-row"><dt>Enquiries</dt><dd>Via the enquiry form</dd></div>
           </dl>
           <div class="map-frame">
             <iframe title="Map of the Lagos office" src="https://www.openstreetmap.org/export/embed.html?bbox=3.4135%2C6.4245%2C3.4335%2C6.4385&amp;layer=mapnik" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -166,7 +163,7 @@
             <div class="office-row"><dt>Telephone</dt><dd><a href="tel:+2349030710071">+234 903 071 0071</a></dd></div>
             <div class="office-row"><dt>Email</dt><dd><a href="mailto:abuja@scp-law.com">abuja@scp-law.com</a></dd></div>
             <div class="office-row"><dt>Hours</dt><dd>Monday to Friday, 08:30 – 17:30 WAT</dd></div>
-            <div class="office-row"><dt>Enquiries</dt><dd>By form only</dd></div>
+            <div class="office-row"><dt>Enquiries</dt><dd>Via the enquiry form</dd></div>
           </dl>
           <div class="map-frame">
             <iframe title="Map of the Abuja office" src="https://www.openstreetmap.org/export/embed.html?bbox=7.4835%2C9.0800%2C7.5035%2C9.0940&amp;layer=mapnik" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -185,77 +182,21 @@
       <div class="prose reveal">
         <p class="eyebrow"><span class="rule"></span>Press &amp; Media</p>
         <h2 class="section-title" style="margin-bottom:1.4rem;">Media enquiries.</h2>
-        <p>Journalists and researchers should use the form opposite, selecting <em>Press / media</em> as the topic. Requests reach the Marketing team, who will arrange comment, background or an interview with the relevant partner.</p>
-        <p>We aim to respond to media enquiries the same working day. For deadlines inside two hours, note the deadline in the message and call the Lagos switchboard after submitting.</p>
-        <h3>What we can usually provide</h3>
-        <ul>
+        <p>Journalists and researchers should use the enquiry form, selecting <em>Press / media</em> as the topic. Requests reach the Marketing team, who will arrange comment, background or an interview with the relevant partner.</p>
+        <p>We aim to respond to media enquiries the same working day. For deadlines inside two hours, note the deadline in your message and call the Lagos switchboard after submitting.</p>
+      </div>
+      <aside class="press-panel reveal">
+        <p class="card-cat">For journalists</p>
+        <h3 class="press-panel-title">What we can usually provide</h3>
+        <ul class="press-list">
           <li>Named comment on regulatory and legislative developments</li>
           <li>Background briefing on sector regulation, on an unattributed basis</li>
           <li>Partner biographies and high-resolution portraits</li>
           <li>Firm boilerplate and logo assets</li>
         </ul>
-      </div>
-      <div class="form-card reveal">
-        <h3 class="section-title" style="font-size:1.5rem;max-width:24ch;margin-bottom:1.6rem;">Media enquiry</h3>
-        <form class="form" id="pressForm" data-form="enquiry" novalidate>
-          <div class="form-grid">
-            <div class="field">
-              <label class="field-label" for="pressForm-name">Full name <span class="req">*</span></label>
-              <input class="input" id="pressForm-name" name="name" type="text" autocomplete="name" required />
-            </div>
-            <div class="field">
-              <label class="field-label" for="pressForm-org">Organisation</label>
-              <input class="input" id="pressForm-org" name="organisation" type="text" autocomplete="organization" />
-            </div>
-            <div class="field">
-              <label class="field-label" for="pressForm-email">Email <span class="req">*</span></label>
-              <input class="input" id="pressForm-email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div class="field">
-              <label class="field-label" for="pressForm-phone">Telephone</label>
-              <input class="input" id="pressForm-phone" name="phone" type="tel" autocomplete="tel" />
-            </div>
-            <div class="field field--full">
-              <label class="field-label" for="pressForm-topic">What is this about? <span class="req">*</span></label>
-              <select class="select" id="pressForm-topic" name="topic" data-routing required>
-              <option value="Competition Law team">Competition Law</option>
-              <option value="Tax Advisory team">Tax Advisory</option>
-              <option value="Consumer Credit and Digital Money Lending team">Consumer Credit and Digital Money Lending</option>
-              <option value="Energy — Hydrocarbon and Renewable team">Energy — Hydrocarbon and Renewable</option>
-              <option value="Tech & AI team">Tech & AI</option>
-              <option value="Wealth Management and SMEs team">Wealth Management and SMEs</option>
-              <option value="Public Impact Litigation team">Dispute Resolution / Public Impact Litigation</option>
-              <option value="Labour and Employment team">Labour and Employment</option>
-              <option value="Corporate Restructuring team">Corporate Restructuring</option>
-              <option value="International Trade Law team">International Trade Law</option>
-              <option value="Client services">Paid services — general</option>
-              <option value="HR">Careers</option>
-              <option value="Marketing" selected>Press / media</option>
-              <option value="Client services">Something else</option>
-              </select>
-              <p class="field-hint">This determines which team receives your enquiry.</p>
-            </div>
-            <div class="field field--full">
-              <label class="field-label" for="pressForm-message">How can we help? <span class="req">*</span></label>
-              <textarea class="textarea" id="pressForm-message" name="message" required></textarea>
-            </div>
-            <div class="field field--full">
-              <label class="check">
-                <input type="checkbox" name="consent" required />
-                <span>I consent to SimmonsCooper Partners storing and processing this enquiry in line with the Privacy Policy and the Nigeria Data Protection Act.</span>
-              </label>
-            </div>
-          </div>
-          <input type="hidden" name="source_page" value="" data-source-page />
-          <input type="hidden" name="source_url" value="" data-source-url />
-          <input type="hidden" name="routing_team" value="" data-routing-team />
-          <div class="form-actions">
-            <button class="btn btn--primary" type="submit" data-track="form:submit:pressForm">Send enquiry</button>
-            <p class="form-note">Press enquiries route to the Marketing team and are acknowledged immediately. For same-day deadlines, note the deadline in your message.</p>
-          </div>
-          <div class="form-status" role="status"></div>
-        </form>
-      </div>
+        <a class="btn btn--outline-ink" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=emEZHjkf7EqeDd6JuRMfnZ5g24hVddtNlcfkCrapooRUQlA4Q0dPUVJOTUJZR1VQWUc3R0dMNUlPVC4u" data-enquiry-link target="_blank" rel="noopener" data-track="cta:enquiry:press">Submit a media enquiry</a>
+        <p class="press-panel-note">Choose <em>Press / media</em> as the topic so your request routes straight to Marketing.</p>
+      </aside>
     </div>
   </section>
 
@@ -266,14 +207,8 @@
         <h2 class="newsletter-title">Prefer to stay in touch first?</h2>
         <p class="newsletter-desc">Join the fortnightly digest for regulatory changes and new writing from the practice. No sales follow-up, and no more than two emails a month.</p>
       </div>
-      <div class="reveal">
-        <form class="newsletter-form" id="newsletterContact" data-form="newsletter" novalidate>
-          <label class="field-label is-hidden" for="newsletterContact-email">Email address</label>
-          <input class="input" id="newsletterContact-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required />
-          <button class="btn btn--primary" type="submit" data-track="form:submit:newsletterContact">Subscribe</button>
-          <input type="hidden" name="source_page" value="" data-source-page />
-          <div class="form-status" role="status" style="flex:1 1 100%;"></div>
-        </form>
+      <div class="reveal newsletter-cta">
+        <a class="btn btn--primary btn--lg" href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=emEZHjkf7EqeDd6JuRMfnZ5g24hVddtNlcfkCrapooRUQlA4Q0dPUVJOTUJZR1VQWUc3R0dMNUlPVC4u" data-newsletter-link target="_blank" rel="noopener" data-track="cta:newsletter:contact">Join the digest</a>
         <p class="newsletter-small">Free to join. Unsubscribe at any time. We never share your address.</p>
       </div>
     </div>
@@ -287,7 +222,7 @@
         <img class="footer-logo-img" src="images/scp.png" alt="SimmonsCooper Partners" width="2035" height="133" />
         <p>A commercial law firm providing holistic legal support for the Nigerian market and beyond, from offices in Lagos and Abuja.</p>
         <div class="footer-contact">
-          <a href="contact.html">Send an enquiry &#8594;</a>
+          <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=emEZHjkf7EqeDd6JuRMfnZ5g24hVddtNlcfkCrapooRUQlA4Q0dPUVJOTUJZR1VQWUc3R0dMNUlPVC4u" target="_blank" rel="noopener">Send an enquiry &#8594;</a>
         </div>
       </div>
 
@@ -334,6 +269,13 @@
     </div>
   </div>
 
+  <!-- ============ FLOATING WHATSAPP ============ -->
+  <a class="wa-float" href="https://wa.me/2347011404511?text=Hello%20SimmonsCooper%20Partners%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener"
+     aria-label="Chat with us on WhatsApp" data-track="cta:whatsapp:float" data-wa-float>
+    <span class="wa-float-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" focusable="false"><path d="M16.004 0h-.008C7.174 0 .01 7.166.01 16c0 3.506 1.13 6.75 3.05 9.383L1.06 31.4l6.222-1.99A15.9 15.9 0 0 0 16.004 32C24.83 32 32 24.834 32 16S24.83 0 16.004 0zm9.31 22.594c-.386 1.09-1.92 1.995-3.143 2.26-.836.178-1.93.32-5.61-1.205-4.71-1.95-7.74-6.73-7.976-7.04-.226-.31-1.9-2.53-1.9-4.826s1.166-3.425 1.636-3.905c.386-.394.98-.574 1.55-.574.184 0 .35.01.5.017.47.02.706.048 1.016.79.386.93 1.326 3.226 1.438 3.46.114.235.228.553.07.863-.148.32-.278.46-.512.73-.234.27-.456.477-.69.767-.214.252-.456.522-.186.986.27.454 1.2 1.976 2.568 3.194 1.766 1.572 3.198 2.074 3.71 2.287.38.158.834.12 1.112-.176.354-.38.79-1.012 1.234-1.634.316-.446.714-.5 1.132-.344.426.148 2.712 1.278 3.176 1.508.464.232.77.344.884.54.112.196.112 1.12-.274 2.21z"/></svg></span>
+    <span class="wa-float-label">Chat with us</span>
+  </a>
   <script src="js/script.js"></script>
+
 </body>
 </html>

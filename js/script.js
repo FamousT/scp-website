@@ -468,7 +468,7 @@
     const setCount = (visible, query) => {
       if (!status) return;
       if (!query) {
-        status.textContent = total + " " + (total === 1 ? "lawyer" : "lawyers") + " listed.";
+        status.textContent = total + " " + (total === 1 ? "person" : "people") + " listed.";
         return;
       }
       status.textContent =
@@ -595,4 +595,140 @@
   document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
+
+  /* ============================================================
+     ENQUIRY FORM  (contact.html)
+     Validates, then posts to FormSubmit's AJAX endpoint so the
+     visitor stays on the page. Without JS the form still submits
+     natively to the same endpoint.
+     ============================================================ */
+  (function enquiryForm() {
+    const form = document.querySelector("[data-enquiry-form]");
+    if (!form) return;
+
+    const status = form.querySelector("[data-form-status]");
+    const submit = form.querySelector('button[type="submit"]');
+    const AJAX = form.getAttribute("action").replace(
+      "https://formsubmit.co/",
+      "https://formsubmit.co/ajax/"
+    );
+
+    const setStatus = (msg, kind) => {
+      if (!status) return;
+      status.textContent = msg;
+      status.classList.remove("is-error", "is-ok");
+      if (kind) status.classList.add(kind);
+      status.classList.toggle("is-shown", Boolean(msg));
+    };
+
+    const clearError = (el) => {
+      el.classList.remove("is-invalid");
+      el.removeAttribute("aria-invalid");
+      const next = el.parentNode.querySelector(".field-error");
+      if (next) next.remove();
+    };
+
+    const setError = (el, msg) => {
+      el.classList.add("is-invalid");
+      el.setAttribute("aria-invalid", "true");
+      if (!el.parentNode.querySelector(".field-error")) {
+        const p = document.createElement("p");
+        p.className = "field-error";
+        p.textContent = msg;
+        el.parentNode.appendChild(p);
+      }
+    };
+
+    const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const PHONE = /^[+()\-\s0-9]{7,}$/;
+
+    const validate = () => {
+      const checks = [
+        ["name", "Please tell us your full name."],
+        ["phone", "Please give a phone number we can reach you on."],
+        ["email", "Please give an email address."],
+        ["enquiry", "Please tell us briefly what your enquiry is about."],
+      ];
+      let firstBad = null;
+      checks.forEach(([field, msg]) => {
+        const el = form.elements[field];
+        if (!el) return;
+        clearError(el);
+        const v = (el.value || "").trim();
+        let bad = !v ? msg : "";
+        if (!bad && field === "email" && !EMAIL.test(v)) bad = "That email address does not look right.";
+        if (!bad && field === "phone" && !PHONE.test(v)) bad = "That phone number does not look right.";
+        if (bad) {
+          setError(el, bad);
+          if (!firstBad) firstBad = el;
+        }
+      });
+      return firstBad;
+    };
+
+    form.addEventListener("input", (e) => {
+      if (e.target && e.target.classList.contains("is-invalid")) clearError(e.target);
+    });
+
+    form.addEventListener("submit", (e) => {
+      const firstBad = validate();
+      if (firstBad) {
+        e.preventDefault();
+        setStatus("Please check the highlighted fields and try again.", "is-error");
+        firstBad.focus();
+        return;
+      }
+      if (!window.fetch) return; /* let the native POST happen */
+
+      e.preventDefault();
+      const data = new FormData(form);
+      if (submit) {
+        submit.setAttribute("disabled", "disabled");
+        submit.dataset.label = submit.textContent;
+        submit.textContent = "Sending…";
+      }
+      setStatus("Sending your enquiry…", null);
+
+      fetch(AJAX, { method: "POST", body: data, headers: { Accept: "application/json" } })
+        .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok, body: j })))
+        .then((res) => {
+          const success = res.ok && String(res.body.success) !== "false";
+          if (!success) throw new Error(res.body.message || "Submission failed");
+          form.reset();
+          setStatus(
+            "Thank you — your enquiry has been sent. You will receive an acknowledgement by email, and a substantive reply from a lawyer within 24 hours.",
+            "is-ok"
+          );
+          track("enquiry_form_submit", { ok: true });
+        })
+        .catch(() => {
+          setStatus(
+            "We could not send that just now. Please try again, email scprecords@scp-law.com directly, or message us on WhatsApp.",
+            "is-error"
+          );
+          track("enquiry_form_submit", { ok: false });
+        })
+        .then(() => {
+          if (submit) {
+            submit.removeAttribute("disabled");
+            submit.textContent = submit.dataset.label || "Send enquiry";
+          }
+        });
+    });
+  })();
+
+  /* ============================================================
+     FLOATING WHATSAPP — lift clear of the cookie banner
+     ============================================================ */
+  (function whatsappFloat() {
+    const wa = document.querySelector("[data-wa-float]");
+    const banner = document.getElementById("cookieBanner");
+    if (!wa || !banner) return;
+    const sync = () => wa.classList.toggle("has-cookie", banner.classList.contains("is-shown"));
+    sync();
+    if (window.MutationObserver) {
+      new MutationObserver(sync).observe(banner, { attributes: true, attributeFilter: ["class"] });
+    }
+  })();
+
 })();

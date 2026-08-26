@@ -86,7 +86,7 @@
               <div class="office-row"><dt>Response</dt><dd>Within 24 hours</dd></div>
               <div class="office-row"><dt>Enquiries</dt><dd>Routed to the Labour and Employment team</dd></div>
             </dl>
-            <a href="#enquire" class="plan-enquire" data-track="cta:practice-enquire:labour-employment">Enquire about this practice</a>
+            <a href="../contact.html#enquire" class="plan-enquire" data-track="cta:practice-enquire:labour-employment">Enquire about this practice</a>
           </div>
         </aside>
       </div>
@@ -141,74 +141,22 @@
     </div>
   </section>
 
-  <section class="section section--paper" id="enquire">
-    <div class="container split">
-      <div class="reveal">
-        <p class="eyebrow"><span class="rule"></span>Enquire</p>
-        <h2 class="section-title">Speak to the labour team.</h2>
-        <p class="section-note mt-lg">This form routes directly to the Labour and Employment team. You will receive an immediate acknowledgement and a substantive reply from a lawyer within 24 hours.</p>
+  <section class="section enquiry-band" id="enquire">
+    <div class="container enquiry-band-inner">
+      <p class="eyebrow enquiry-band-eyebrow reveal"><span class="rule"></span>Enquire<span class="rule"></span></p>
+      <h2 class="enquiry-band-title reveal">Speak to the <em>labour team.</em></h2>
+      <p class="enquiry-band-lede reveal">Your enquiry reaches this practice directly. Mention <em>Labour and Employment</em> in your enquiry and a lawyer from the team picks it up.</p>
+      <div class="enquiry-band-actions reveal">
+        <a class="btn btn--primary btn--lg" href="../contact.html#enquire" data-enquiry-link data-track="cta:enquiry:labour-employment">Submit an enquiry</a>
+        <span class="enquiry-band-hint">Takes you to the enquiry form on our contact page</span>
       </div>
-      <div class="form-card reveal">
-        <h3 class="section-title" style="font-size:1.5rem;max-width:24ch;margin-bottom:1.6rem;">Send an enquiry</h3>
-        <form class="form" id="enq-labour-employment" data-form="enquiry" novalidate>
-          <div class="form-grid">
-            <div class="field">
-              <label class="field-label" for="enq-labour-employment-name">Full name <span class="req">*</span></label>
-              <input class="input" id="enq-labour-employment-name" name="name" type="text" autocomplete="name" required />
-            </div>
-            <div class="field">
-              <label class="field-label" for="enq-labour-employment-org">Organisation</label>
-              <input class="input" id="enq-labour-employment-org" name="organisation" type="text" autocomplete="organization" />
-            </div>
-            <div class="field">
-              <label class="field-label" for="enq-labour-employment-email">Email <span class="req">*</span></label>
-              <input class="input" id="enq-labour-employment-email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div class="field">
-              <label class="field-label" for="enq-labour-employment-phone">Telephone</label>
-              <input class="input" id="enq-labour-employment-phone" name="phone" type="tel" autocomplete="tel" />
-            </div>
-            <div class="field field--full">
-              <label class="field-label" for="enq-labour-employment-topic">What is this about? <span class="req">*</span></label>
-              <select class="select" id="enq-labour-employment-topic" name="topic" data-routing required>
-              <option value="Competition Law team">Competition Law</option>
-              <option value="Tax Advisory team">Tax Advisory</option>
-              <option value="Consumer Credit and Digital Money Lending team">Consumer Credit and Digital Money Lending</option>
-              <option value="Energy — Hydrocarbon and Renewable team">Energy — Hydrocarbon and Renewable</option>
-              <option value="Tech & AI team">Tech & AI</option>
-              <option value="Wealth Management and SMEs team">Wealth Management and SMEs</option>
-              <option value="Public Impact Litigation team">Dispute Resolution / Public Impact Litigation</option>
-              <option value="Labour and Employment team" selected>Labour and Employment</option>
-              <option value="Corporate Restructuring team">Corporate Restructuring</option>
-              <option value="International Trade Law team">International Trade Law</option>
-              <option value="Client services">Paid services — general</option>
-              <option value="HR">Careers</option>
-              <option value="Marketing">Press / media</option>
-              <option value="Client services">Something else</option>
-              </select>
-              <p class="field-hint">This determines which team receives your enquiry.</p>
-            </div>
-            <div class="field field--full">
-              <label class="field-label" for="enq-labour-employment-message">How can we help? <span class="req">*</span></label>
-              <textarea class="textarea" id="enq-labour-employment-message" name="message" required></textarea>
-            </div>
-            <div class="field field--full">
-              <label class="check">
-                <input type="checkbox" name="consent" required />
-                <span>I consent to SimmonsCooper Partners storing and processing this enquiry in line with the Privacy Policy and the Nigeria Data Protection Act.</span>
-              </label>
-            </div>
-          </div>
-          <input type="hidden" name="source_page" value="" data-source-page />
-          <input type="hidden" name="source_url" value="" data-source-url />
-          <input type="hidden" name="routing_team" value="" data-routing-team />
-          <div class="form-actions">
-            <button class="btn btn--primary" type="submit" data-track="form:submit:enq-labour-employment">Send enquiry</button>
-            <p class="form-note">Your enquiry is recorded in our CRM and routed to the responsible team. You will receive an acknowledgement immediately and a substantive reply from a lawyer within 24 hours. We never publish partners' email addresses — please use this form.</p>
-          </div>
-          <div class="form-status" role="status"></div>
-        </form>
-      </div>
+      <ul class="enquiry-facts reveal">
+        <li><span class="enquiry-fact-k">Acknowledgement</span><span class="enquiry-fact-v">Immediate, by email</span></li>
+        <li><span class="enquiry-fact-k">Substantive reply</span><span class="enquiry-fact-v">From a lawyer within 24 hours</span></li>
+        <li><span class="enquiry-fact-k">Routed to</span><span class="enquiry-fact-v">The Labour and Employment team</span></li>
+        <li><span class="enquiry-fact-k">Your data</span><span class="enquiry-fact-v">Held under the Nigeria Data Protection Act</span></li>
+      </ul>
+      <p class="enquiry-band-foot reveal">Prefer to talk first? Direct lines and WhatsApp for Lagos and Abuja are on the <a href="../contact.html#offices">contact page</a>.</p>
     </div>
   </section>
   </main>
@@ -220,7 +168,7 @@
         <img class="footer-logo-img" src="../images/scp.png" alt="SimmonsCooper Partners" width="2035" height="133" />
         <p>A commercial law firm providing holistic legal support for the Nigerian market and beyond, from offices in Lagos and Abuja.</p>
         <div class="footer-contact">
-          <a href="../contact.html">Send an enquiry &#8594;</a>
+          <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=emEZHjkf7EqeDd6JuRMfnZ5g24hVddtNlcfkCrapooRUQlA4Q0dPUVJOTUJZR1VQWUc3R0dMNUlPVC4u" target="_blank" rel="noopener">Send an enquiry &#8594;</a>
         </div>
       </div>
 
@@ -267,6 +215,13 @@
     </div>
   </div>
 
+  <!-- ============ FLOATING WHATSAPP ============ -->
+  <a class="wa-float" href="https://wa.me/2347011404511?text=Hello%20SimmonsCooper%20Partners%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener"
+     aria-label="Chat with us on WhatsApp" data-track="cta:whatsapp:float" data-wa-float>
+    <span class="wa-float-icon" aria-hidden="true"><svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" focusable="false"><path d="M16.004 0h-.008C7.174 0 .01 7.166.01 16c0 3.506 1.13 6.75 3.05 9.383L1.06 31.4l6.222-1.99A15.9 15.9 0 0 0 16.004 32C24.83 32 32 24.834 32 16S24.83 0 16.004 0zm9.31 22.594c-.386 1.09-1.92 1.995-3.143 2.26-.836.178-1.93.32-5.61-1.205-4.71-1.95-7.74-6.73-7.976-7.04-.226-.31-1.9-2.53-1.9-4.826s1.166-3.425 1.636-3.905c.386-.394.98-.574 1.55-.574.184 0 .35.01.5.017.47.02.706.048 1.016.79.386.93 1.326 3.226 1.438 3.46.114.235.228.553.07.863-.148.32-.278.46-.512.73-.234.27-.456.477-.69.767-.214.252-.456.522-.186.986.27.454 1.2 1.976 2.568 3.194 1.766 1.572 3.198 2.074 3.71 2.287.38.158.834.12 1.112-.176.354-.38.79-1.012 1.234-1.634.316-.446.714-.5 1.132-.344.426.148 2.712 1.278 3.176 1.508.464.232.77.344.884.54.112.196.112 1.12-.274 2.21z"/></svg></span>
+    <span class="wa-float-label">Chat with us</span>
+  </a>
   <script src="../js/script.js"></script>
+
 </body>
 </html>
