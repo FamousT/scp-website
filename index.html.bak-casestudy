@@ -273,119 +273,77 @@
         </div>
         <a href="our-work.html" class="link-underline">All selected matters</a>
       </div>
-
-      <div class="cs-panel reveal" data-cs-accordion>
-
-        <article class="cs-item is-open" id="gas-to-power-financing">
-          <h3 class="cs-h">
-            <button class="cs-trigger" type="button" id="cs-trigger-1" aria-expanded="true" aria-controls="cs-body-1">
-              <span class="cs-lead">
-                <span class="cs-cat">Energy</span>
-                <span class="cs-title">Financing structure for a multi-asset gas-to-power project</span>
-              </span>
-              <span class="cs-aside">
-                <span class="cs-icon" aria-hidden="true"></span>
-              </span>
-            </button>
-          </h3>
-          <div class="cs-body" id="cs-body-1" role="region" aria-labelledby="cs-trigger-1">
-            <div class="cs-body-inner">
-              <dl class="cs-facts">
-                <div class="cs-fact">
-                  <dt>What it was</dt>
-                  <dd>A sponsor consortium developing a multi-asset gas-to-power project across three states needed a financing structure that satisfied international lenders while surviving Nigerian regulatory review.</dd>
-                </div>
-                <div class="cs-fact">
-                  <dt>Why it mattered</dt>
-                  <dd>Gas-to-power projects fail at the interface between the security package lenders want and the consents the state will grant. Getting that interface right determined whether the project reached financial close at all.</dd>
-                </div>
-                <div class="cs-fact">
-                  <dt>Our role</dt>
-                  <dd>We advised the sponsors on the security package, host-community development trust, regulatory consents across three states, and the inter-creditor arrangements. We ran the consent workstream in parallel with the financing so approvals landed before the long-stop date.</dd>
-                </div>
-              </dl>
-              <a class="cs-more" href="our-work.html#gas-to-power-financing">Read the full matter <span class="svc-arrow" aria-hidden="true">&#8594;</span></a>
+      <div class="matters reveal">
+        <article class="matter reveal" id="gas-to-power-financing">
+          <p class="matter-cat">Energy</p>
+          <div class="matter-head">
+            <h3 class="matter-title">Financing structure for a multi-asset gas-to-power project</h3>
+          </div>
+          <dl class="matter-facts">
+            <div class="matter-fact">
+              <dt>What it was</dt>
+              <dd>A sponsor consortium developing a multi-asset gas-to-power project across three states needed a financing structure that satisfied international lenders while surviving Nigerian regulatory review.</dd>
+            </div>
+            <div class="matter-fact">
+              <dt>Why it mattered</dt>
+              <dd>Gas-to-power projects fail at the interface between the security package lenders want and the consents the state will grant. Getting that interface right determined whether the project reached financial close at all.</dd>
+            </div>
+            <div class="matter-fact">
+              <dt>Our role</dt>
+              <dd>We advised the sponsors on the security package, host-community development trust, regulatory consents across three states, and the inter-creditor arrangements. We ran the consent workstream in parallel with the financing so approvals landed before the long-stop date.</dd>
+            </div>
+          </dl>
+        </article>
+        <article class="matter reveal" id="landmark-commercial-defence">
+          <p class="matter-cat">Dispute Resolution / Public Impact Litigation</p>
+          <div class="matter-head">
+            <h3 class="matter-title">Defence of a multinational in a landmark commercial dispute</h3>
+            <div class="matter-outcome">
+              <p class="matter-outcome-label">Outcome</p>
+              <p class="matter-outcome-value">Claim dismissed</p>
             </div>
           </div>
+          <dl class="matter-facts">
+            <div class="matter-fact">
+              <dt>What it was</dt>
+              <dd>A multinational faced a claim that threatened both its operating licence and its position in the Nigerian market.</dd>
+            </div>
+            <div class="matter-fact">
+              <dt>Why it mattered</dt>
+              <dd>The case turned on a point of statutory interpretation that had not been settled at appellate level. The outcome set the reading for every operator in the sector.</dd>
+            </div>
+            <div class="matter-fact">
+              <dt>Our role</dt>
+              <dd>We led a five-year defence through trial and appeal to a full dismissal at appellate level, preserving the client's licence and market position, and establishing the interpretation now relied on across the sector.</dd>
+            </div>
+          </dl>
         </article>
-
-        <article class="cs-item" id="landmark-commercial-defence">
-          <h3 class="cs-h">
-            <button class="cs-trigger" type="button" id="cs-trigger-2" aria-expanded="false" aria-controls="cs-body-2">
-              <span class="cs-lead">
-                <span class="cs-cat">Dispute Resolution / Public Impact Litigation</span>
-                <span class="cs-title">Defence of a multinational in a landmark commercial dispute</span>
-              </span>
-              <span class="cs-aside">
-                <span class="cs-outcome">
-                  <span class="cs-outcome-label">Outcome</span>
-                  <span class="cs-outcome-value">Claim dismissed</span>
-                </span>
-                <span class="cs-icon" aria-hidden="true"></span>
-              </span>
-            </button>
-          </h3>
-          <div class="cs-body" id="cs-body-2" role="region" aria-labelledby="cs-trigger-2">
-            <div class="cs-body-inner">
-              <dl class="cs-facts">
-                <div class="cs-fact">
-                  <dt>What it was</dt>
-                  <dd>A multinational faced a claim that threatened both its operating licence and its position in the Nigerian market.</dd>
-                </div>
-                <div class="cs-fact">
-                  <dt>Why it mattered</dt>
-                  <dd>The case turned on a point of statutory interpretation that had not been settled at appellate level. The outcome set the reading for every operator in the sector.</dd>
-                </div>
-                <div class="cs-fact">
-                  <dt>Our role</dt>
-                  <dd>We led a five-year defence through trial and appeal to a full dismissal at appellate level, preserving the client's licence and market position, and establishing the interpretation now relied on across the sector.</dd>
-                </div>
-              </dl>
-              <a class="cs-more" href="our-work.html#landmark-commercial-defence">Read the full matter <span class="svc-arrow" aria-hidden="true">&#8594;</span></a>
+        <article class="matter reveal" id="pan-african-payments-licensing">
+          <p class="matter-cat">Tech & AI</p>
+          <div class="matter-head">
+            <h3 class="matter-title">Licensing pathway for a pan-African payments platform</h3>
+            <div class="matter-outcome">
+              <p class="matter-outcome-label">Outcome</p>
+              <p class="matter-outcome-value">First-of-its-kind</p>
             </div>
           </div>
-        </article>
-
-        <article class="cs-item" id="pan-african-payments-licensing">
-          <h3 class="cs-h">
-            <button class="cs-trigger" type="button" id="cs-trigger-3" aria-expanded="false" aria-controls="cs-body-3">
-              <span class="cs-lead">
-                <span class="cs-cat">Tech &amp; AI</span>
-                <span class="cs-title">Licensing pathway for a pan-African payments platform</span>
-              </span>
-              <span class="cs-aside">
-                <span class="cs-outcome">
-                  <span class="cs-outcome-label">Outcome</span>
-                  <span class="cs-outcome-value">First-of-its-kind</span>
-                </span>
-                <span class="cs-icon" aria-hidden="true"></span>
-              </span>
-            </button>
-          </h3>
-          <div class="cs-body" id="cs-body-3" role="region" aria-labelledby="cs-trigger-3">
-            <div class="cs-body-inner">
-              <dl class="cs-facts">
-                <div class="cs-fact">
-                  <dt>What it was</dt>
-                  <dd>A payments platform operating across several African markets needed a Nigerian entry structure that would not compromise its existing licences elsewhere.</dd>
-                </div>
-                <div class="cs-fact">
-                  <dt>Why it mattered</dt>
-                  <dd>No comparable structure had been approved. The engagement required the regulator to accept a model it had not seen before.</dd>
-                </div>
-                <div class="cs-fact">
-                  <dt>Our role</dt>
-                  <dd>We structured the entity, built the data-protection posture, and led the CBN engagement strategy through to approval &mdash; the first authorisation of its kind for a cross-border platform of this design.</dd>
-                </div>
-              </dl>
-              <a class="cs-more" href="our-work.html#pan-african-payments-licensing">Read the full matter <span class="svc-arrow" aria-hidden="true">&#8594;</span></a>
+          <dl class="matter-facts">
+            <div class="matter-fact">
+              <dt>What it was</dt>
+              <dd>A payments platform operating across several African markets needed a Nigerian entry structure that would not compromise its existing licences elsewhere.</dd>
             </div>
-          </div>
+            <div class="matter-fact">
+              <dt>Why it mattered</dt>
+              <dd>No comparable structure had been approved. The engagement required the regulator to accept a model it had not seen before.</dd>
+            </div>
+            <div class="matter-fact">
+              <dt>Our role</dt>
+              <dd>We structured the entity, built the data-protection posture, and led the CBN engagement strategy through to approval — the first authorisation of its kind for a cross-border platform of this design.</dd>
+            </div>
+          </dl>
         </article>
-
       </div>
-
-      <div class="cs-foot reveal">
+      <div class="mt-lg reveal">
         <a href="our-work.html" class="matter-cta">See all six matters <span class="svc-arrow" aria-hidden="true">&#8594;</span></a>
       </div>
     </div>
