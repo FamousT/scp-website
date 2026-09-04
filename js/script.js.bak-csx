@@ -763,59 +763,79 @@
 
 
   /* ============================================================
-     HOMEPAGE CASE STUDIES — split panel, hover/focus switches the detail
+     HOMEPAGE CASE STUDIES — navy accordion
      ============================================================ */
-  (function caseStudySwitcher() {
-    const root = document.querySelector("[data-cs-switch]");
-    if (!root) return;
+  (function caseStudyAccordion() {
+    const panel = document.querySelector("[data-cs-accordion]");
+    if (!panel) return;
 
-    const tabs = Array.from(root.querySelectorAll(".csx-tab"));
-    const panes = Array.from(root.querySelectorAll(".csx-pane"));
-    if (!tabs.length || tabs.length !== panes.length) return;
+    const items = Array.from(panel.querySelectorAll(".cs-item"));
+    if (!items.length) return;
 
-    let active = tabs.findIndex((t) => t.classList.contains("is-active"));
-    if (active < 0) active = 0;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    function activate(i, moveFocus) {
-      if (i < 0 || i >= tabs.length) return;
-      if (i !== active) {
-        tabs.forEach((t, n) => {
-          const on = n === i;
-          t.classList.toggle("is-active", on);
-          t.setAttribute("aria-selected", on ? "true" : "false");
-          t.tabIndex = on ? 0 : -1;
-        });
-        panes.forEach((p, n) => p.classList.toggle("is-active", n === i));
-        active = i;
-      }
-      if (moveFocus) tabs[i].focus();
+    function parts(item) {
+      return {
+        btn: item.querySelector(".cs-trigger"),
+        body: item.querySelector(".cs-body")
+      };
     }
 
-    tabs.forEach((tab, i) => {
-      tab.addEventListener("mouseenter", () => activate(i));
-      tab.addEventListener("focus", () => activate(i));
-      tab.addEventListener("click", () => {
-        activate(i);
-        /* Stacked layout: bring the detail into view after a tap. */
-        if (window.matchMedia("(max-width: 900px)").matches) {
-          const stage = root.querySelector(".csx-stage");
-          if (stage && stage.scrollIntoView) stage.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
+    /* Lock an open panel to its natural height so a resize or font swap
+       does not clip it; measured height is only needed while animating. */
+    function release(body) {
+      body.style.maxHeight = "none";
+    }
+
+    function open(item) {
+      const { btn, body } = parts(item);
+      if (!btn || !body) return;
+      item.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+      if (reduce) { release(body); return; }
+      body.style.maxHeight = body.scrollHeight + "px";
+    }
+
+    function close(item) {
+      const { btn, body } = parts(item);
+      if (!btn || !body) return;
+      item.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      if (reduce) { body.style.maxHeight = "0px"; return; }
+      /* From "none" back to a number, then to zero on the next frame. */
+      body.style.maxHeight = body.scrollHeight + "px";
+      requestAnimationFrame(() => { body.style.maxHeight = "0px"; });
+    }
+
+    items.forEach((item) => {
+      const { btn, body } = parts(item);
+      if (!btn || !body) return;
+
+      body.addEventListener("transitionend", (e) => {
+        if (e.propertyName !== "max-height") return;
+        if (item.classList.contains("is-open")) release(body);
       });
-      tab.addEventListener("keydown", (e) => {
-        const last = tabs.length - 1;
-        if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); activate(i === last ? 0 : i + 1, true); }
-        else if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); activate(i === 0 ? last : i - 1, true); }
-        else if (e.key === "Home") { e.preventDefault(); activate(0, true); }
-        else if (e.key === "End") { e.preventDefault(); activate(last, true); }
+
+      btn.addEventListener("click", () => {
+        const wasOpen = item.classList.contains("is-open");
+        items.forEach((other) => { if (other !== item) close(other); });
+        if (wasOpen) close(item); else open(item);
       });
     });
 
-    /* Deep link: /#gas-to-power-financing selects that matter. */
-    const hash = window.location.hash ? window.location.hash.slice(1) : "";
-    if (hash) {
-      const idx = panes.findIndex((p) => p.getAttribute("data-cs-id") === hash);
-      if (idx > -1) activate(idx);
+    /* Initial state: whichever item ships with .is-open stays open. */
+    items.forEach((item) => {
+      const { body } = parts(item);
+      if (!body) return;
+      if (item.classList.contains("is-open")) release(body);
+      else body.style.maxHeight = "0px";
+    });
+
+    /* Deep link: /#gas-to-power-financing opens that matter. */
+    const target = window.location.hash && panel.querySelector(window.location.hash);
+    if (target && target.classList.contains("cs-item")) {
+      items.forEach((other) => { if (other !== target) close(other); });
+      open(target);
     }
   })();
 
