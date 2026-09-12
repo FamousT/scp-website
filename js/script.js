@@ -115,13 +115,17 @@
     const io = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (!entry.isIntersecting) return;
+          /* A block taller than the viewport (e.g. the legal pages) can never
+             reach a 0.12 ratio, so reveal it as soon as it comes into view. */
+          const tall = entry.boundingClientRect.height > window.innerHeight * 0.7;
+          if (tall || entry.intersectionRatio >= 0.12) {
             entry.target.classList.add("in");
             obs.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+      { threshold: [0, 0.12], rootMargin: "0px 0px -6% 0px" }
     );
     reveals.forEach((el) => io.observe(el));
   } else {
