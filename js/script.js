@@ -580,46 +580,6 @@
     setCount(total, "");
   })();
 
-  /* ============================================================
-     COOKIE CONSENT  (brief §11)
-     ============================================================ */
-  (function cookieConsent() {
-    const banner = document.getElementById("cookieBanner");
-    if (!banner) return;
-    const KEY = "scp_cookie_consent";
-    let saved = null;
-    try {
-      saved = window.localStorage.getItem(KEY);
-    } catch (err) {
-      saved = null;
-    }
-    if (!saved) {
-      window.setTimeout(() => banner.classList.add("is-shown"), 900);
-    }
-    banner.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-cookie]");
-      if (!btn) return;
-      const choice = btn.getAttribute("data-cookie");
-      try {
-        window.localStorage.setItem(KEY, choice);
-      } catch (err) {
-        /* storage unavailable — the banner simply reappears next visit */
-      }
-      banner.classList.remove("is-shown");
-      track("cookie_consent", { consent: choice });
-    });
-  })();
-
-  /* ---------- Language switch (French site not yet published) ---------- */
-  document.querySelectorAll("[data-lang]").forEach((a) => {
-    a.addEventListener("click", (e) => {
-      if (a.getAttribute("data-lang") === "fr") {
-        e.preventDefault();
-        track("language_switch", { language: "fr" });
-        window.alert("The French site is not published yet. Wire this link to /fr/ once the translations are live.");
-      }
-    });
-  });
 
   /* ---------- Footer year ---------- */
   document.querySelectorAll("[data-year]").forEach((el) => {
@@ -745,20 +705,6 @@
           }
         });
     });
-  })();
-
-  /* ============================================================
-     FLOATING WHATSAPP — lift clear of the cookie banner
-     ============================================================ */
-  (function whatsappFloat() {
-    const wa = document.querySelector("[data-wa-float]");
-    const banner = document.getElementById("cookieBanner");
-    if (!wa || !banner) return;
-    const sync = () => wa.classList.toggle("has-cookie", banner.classList.contains("is-shown"));
-    sync();
-    if (window.MutationObserver) {
-      new MutationObserver(sync).observe(banner, { attributes: true, attributeFilter: ["class"] });
-    }
   })();
 
 

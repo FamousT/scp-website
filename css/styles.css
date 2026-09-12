@@ -2757,3 +2757,46 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
   .icard:hover .icard-media img { transform: scale(1.01); }
   .icard:hover .icard-arrow { transform: none; }
 }
+
+/* ============================================================
+   LEGAL / PRIVACY PAGE
+   ============================================================ */
+.legal-doc { max-width: 72ch; }
+.legal-doc .legal-h {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.45rem;
+  line-height: 1.35;
+  color: var(--ink);
+  margin: 2.9rem 0 1rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+}
+.legal-doc .legal-h:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.legal-doc p { max-width: none; }
+.legal-doc a { color: var(--navy); text-decoration: underline; text-underline-offset: 2px; }
+.legal-doc a:hover { color: var(--ink); }
+.legal-list {
+  list-style: none;
+  margin: 0 0 1.15rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.legal-list li {
+  padding-left: 1.6rem;
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: var(--body);
+}
+.legal-list li::before { content: none; }
+.legal-doc .legal-block {
+  padding-left: 1.6rem;
+  border-left: 2px solid var(--line);
+  color: var(--body);
+}
+@media (max-width: 640px) {
+  .legal-doc .legal-h { font-size: 1.25rem; margin-top: 2.2rem; }
+  .legal-list li { padding-left: 1.1rem; }
+}
