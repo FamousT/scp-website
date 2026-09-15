@@ -21,7 +21,7 @@
   }
 
   /* ---------- Mobile / tablet menu (drawer + submenu accordion) ---------- */
-  const DRAWER_MQ = "(min-width: 1181px)";
+  const DRAWER_MQ = "(min-width: 901px)";
   let backdrop = null;
 
   if (nav && toggle) {
@@ -767,6 +767,98 @@
       const idx = panes.findIndex((p) => p.getAttribute("data-cs-id") === hash);
       if (idx > -1) activate(idx);
     }
+  })();
+
+
+  /* ---------- Practice-area cards: click to pin the sub-practice list ---------- */
+  (function () {
+    const cards = Array.from(document.querySelectorAll("[data-pa-card]"));
+    if (!cards.length) return;
+
+    cards.forEach((card) => {
+      const btn = card.querySelector(".pa-card-btn");
+      if (!btn) return;
+      btn.addEventListener("click", () => {
+        const open = card.classList.toggle("is-open");
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+    });
+
+    /* a tap outside closes whatever was pinned open */
+    document.addEventListener("click", (e) => {
+      if (e.target.closest("[data-pa-card]")) return;
+      cards.forEach((c) => {
+        c.classList.remove("is-open");
+        const b = c.querySelector(".pa-card-btn");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape") return;
+      cards.forEach((c) => {
+        c.classList.remove("is-open");
+        const b = c.querySelector(".pa-card-btn");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+    });
+  })();
+
+  /* ---------- Events: image switcher + full-screen notice reader ---------- */
+  (function () {
+    const box = document.getElementById("evLightbox");
+
+    /* thumbnails swap the main image of their own card */
+    document.querySelectorAll(".ev-thumbs").forEach((strip) => {
+      const stage = strip.closest(".ev-stage");
+      const main = stage ? stage.querySelector(".ev-main") : null;
+      const view = stage ? stage.querySelector(".ev-view") : null;
+      if (!main || !view) return;
+      strip.querySelectorAll(".ev-thumb").forEach((thumb) => {
+        thumb.addEventListener("click", () => {
+          const src = thumb.getAttribute("data-src");
+          if (!src) return;
+          main.setAttribute("src", src);
+          view.setAttribute("data-lightbox", src);
+          strip.querySelectorAll(".ev-thumb").forEach((t) => t.classList.remove("is-active"));
+          thumb.classList.add("is-active");
+        });
+      });
+    });
+
+    if (!box) return;
+    const img = box.querySelector("img");
+    const closeBtn = box.querySelector(".ev-lightbox-close");
+    let lastFocus = null;
+
+    const close = () => {
+      box.classList.remove("is-shown");
+      window.setTimeout(() => {
+        box.hidden = true;
+        if (img) img.setAttribute("src", "");
+      }, 280);
+      document.body.style.removeProperty("overflow");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+
+    document.querySelectorAll("[data-lightbox]").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const src = trigger.getAttribute("data-lightbox");
+        if (!src || !img) return;
+        lastFocus = trigger;
+        img.setAttribute("src", src);
+        const inner = trigger.querySelector("img");
+        img.setAttribute("alt", inner ? inner.getAttribute("alt") || "" : "");
+        box.hidden = false;
+        document.body.style.overflow = "hidden";
+        window.requestAnimationFrame(() => box.classList.add("is-shown"));
+        if (closeBtn) closeBtn.focus();
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    box.addEventListener("click", (e) => { if (e.target === box || e.target === img) close(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !box.hidden) close(); });
   })();
 
 })();
