@@ -884,7 +884,26 @@ ul { list-style: none; }
 .people-group-head h3 { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--label); }
 .people-group-head span { font-size: 0.72rem; color: var(--muted); }
 .people-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.2rem, 2.4vw, 1.8rem); }
-.person { display: flex; flex-direction: column; }
+.person {
+  --person-pad: clamp(0.8rem, 1.5vw, 1.05rem);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+/* On hover the card gains breathing room so the text does not sit on the edge.
+   At rest there is no padding, so the grid looks exactly as before. */
+.person:hover,
+.person:focus-within {
+  padding: 0 var(--person-pad) var(--person-pad);
+}
+/* the portrait stays full-bleed while the card is padded */
+.person:hover > .person-photo,
+.person:hover > .person-photo-link,
+.person:focus-within > .person-photo,
+.person:focus-within > .person-photo-link {
+  margin-left: calc(var(--person-pad) * -1);
+  margin-right: calc(var(--person-pad) * -1);
+}
 .person-photo {
   position: relative;
   aspect-ratio: 3 / 4;
@@ -2317,6 +2336,9 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
 .job-item {
   transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
 }
+.person { transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease), padding 0.45s var(--ease); }
+.person > .person-photo,
+.person > .person-photo-link { transition: margin 0.45s var(--ease); }
 .person:hover,
 .matter:hover,
 .plan:hover,
