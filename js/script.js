@@ -804,7 +804,7 @@
     });
   })();
 
-  /* ---------- Events: image switcher + full-screen notice reader ---------- */
+  /* ---------- Events: image switcher + zoomable, downloadable notice reader ---------- */
   (function () {
     const box = document.getElementById("evLightbox");
 
@@ -827,38 +827,239 @@
     });
 
     if (!box) return;
+
+    const viewport = box.querySelector("[data-lb-viewport]");
     const img = box.querySelector("img");
     const closeBtn = box.querySelector(".ev-lightbox-close");
+    const levelEl = box.querySelector("[data-lb-level]");
+    const getBtn = box.querySelector('[data-lb="download"]');
+    const inBtn = box.querySelector('[data-lb="in"]');
+    const outBtn = box.querySelector('[data-lb="out"]');
+    const resetBtn = box.querySelector('[data-lb="reset"]');
+
+    const MIN = 1;
+    const MAX = 6;
+    const STEP = 1.5;
+
+    let scale = 1;
+    let tx = 0;
+    let ty = 0;
     let lastFocus = null;
+
+    const clampPan = () => {
+      if (!viewport || !img) return;
+      const vp = viewport.getBoundingClientRect();
+      /* natural (unscaled) size of the rendered image */
+      const w = img.offsetWidth * scale;
+      const h = img.offsetHeight * scale;
+      const maxX = Math.max(0, (w - vp.width) / 2);
+      const maxY = Math.max(0, (h - vp.height) / 2);
+      tx = Math.min(maxX, Math.max(-maxX, tx));
+      ty = Math.min(maxY, Math.max(-maxY, ty));
+    };
+
+    const paint = () => {
+      clampPan();
+      if (img) img.style.transform = "translate(" + tx + "px, " + ty + "px) scale(" + scale + ")";
+      if (levelEl) levelEl.textContent = Math.round(scale * 100) + "%";
+      if (viewport) viewport.classList.toggle("is-zoomed", scale > 1.001);
+      if (outBtn) outBtn.setAttribute("aria-disabled", scale <= MIN + 0.001 ? "true" : "false");
+      if (inBtn) inBtn.setAttribute("aria-disabled", scale >= MAX - 0.001 ? "true" : "false");
+    };
+
+    /* zoom keeping the point under (px, py) — viewport coordinates — in place */
+    const zoomTo = (next, px, py) => {
+      const target = Math.min(MAX, Math.max(MIN, next));
+      if (!viewport) { scale = target; paint(); return; }
+      const vp = viewport.getBoundingClientRect();
+      const cx = typeof px === "number" ? px : vp.left + vp.width / 2;
+      const cy = typeof py === "number" ? py : vp.top + vp.height / 2;
+      const ox = vp.left + vp.width / 2;
+      const oy = vp.top + vp.height / 2;
+      const k = target / scale;
+      tx = cx - ox - k * (cx - ox - tx);
+      ty = cy - oy - k * (cy - oy - ty);
+      scale = target;
+      if (scale <= MIN + 0.001) { tx = 0; ty = 0; }
+      paint();
+    };
+
+    const reset = () => { scale = 1; tx = 0; ty = 0; paint(); };
 
     const close = () => {
       box.classList.remove("is-shown");
       window.setTimeout(() => {
         box.hidden = true;
         if (img) img.setAttribute("src", "");
+        reset();
       }, 280);
       document.body.style.removeProperty("overflow");
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     };
 
+    /* ---- opening ---- */
     document.querySelectorAll("[data-lightbox]").forEach((trigger) => {
       trigger.addEventListener("click", () => {
         const src = trigger.getAttribute("data-lightbox");
         if (!src || !img) return;
         lastFocus = trigger;
+        reset();
         img.setAttribute("src", src);
         const inner = trigger.querySelector("img");
         img.setAttribute("alt", inner ? inner.getAttribute("alt") || "" : "");
+        if (getBtn) {
+          getBtn.setAttribute("href", src);
+          let name = src.split("/").pop() || "notice";
+          try { name = decodeURIComponent(name); } catch (err) { /* keep raw */ }
+          getBtn.setAttribute("download", name);
+        }
         box.hidden = false;
         document.body.style.overflow = "hidden";
-        window.requestAnimationFrame(() => box.classList.add("is-shown"));
+        window.requestAnimationFrame(() => { box.classList.add("is-shown"); paint(); });
         if (closeBtn) closeBtn.focus();
       });
     });
 
+    /* ---- toolbar ---- */
+    if (inBtn) inBtn.addEventListener("click", () => zoomTo(scale * STEP));
+    if (outBtn) outBtn.addEventListener("click", () => zoomTo(scale / STEP));
+    if (resetBtn) resetBtn.addEventListener("click", reset);
     if (closeBtn) closeBtn.addEventListener("click", close);
-    box.addEventListener("click", (e) => { if (e.target === box || e.target === img) close(); });
-    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !box.hidden) close(); });
+
+    /* save the notice without ever navigating away from the page */
+    if (getBtn) {
+      getBtn.addEventListener("click", (e) => {
+        const url = getBtn.getAttribute("href");
+        const name = getBtn.getAttribute("download") || "notice";
+        if (!url || url === "#") { e.preventDefault(); return; }
+        const viaAnchor = () => {
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = name;
+          a.target = "_blank";
+          a.rel = "noopener";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+        };
+        if (!window.fetch || !window.URL || !window.URL.createObjectURL) return; /* native */
+        e.preventDefault();
+        window.fetch(url)
+          .then((r) => (r.ok ? r.blob() : Promise.reject(new Error("fetch failed"))))
+          .then((blob) => {
+            const obj = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = obj;
+            a.download = name;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            window.setTimeout(() => window.URL.revokeObjectURL(obj), 5000);
+          })
+          .catch(viaAnchor);
+      });
+    }
+
+    /* ---- wheel zoom ---- */
+    if (viewport) {
+      viewport.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const factor = e.deltaY < 0 ? 1.18 : 1 / 1.18;
+        zoomTo(scale * factor, e.clientX, e.clientY);
+      }, { passive: false });
+
+      /* ---- double click / tap toggles ---- */
+      viewport.addEventListener("dblclick", (e) => {
+        if (scale > 1.001) reset();
+        else zoomTo(2.5, e.clientX, e.clientY);
+      });
+
+      /* ---- drag to pan, pinch to zoom ---- */
+      const points = new Map();
+      let startTx = 0, startTy = 0, startX = 0, startY = 0;
+      let pinchDist = 0, pinchScale = 1;
+      let moved = false;
+
+      const dist = () => {
+        const p = Array.from(points.values());
+        return Math.hypot(p[0].x - p[1].x, p[0].y - p[1].y);
+      };
+      const mid = () => {
+        const p = Array.from(points.values());
+        return { x: (p[0].x + p[1].x) / 2, y: (p[0].y + p[1].y) / 2 };
+      };
+
+      viewport.addEventListener("pointerdown", (e) => {
+        if (e.button && e.button !== 0) return;
+        points.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        viewport.setPointerCapture(e.pointerId);
+        moved = false;
+        if (points.size === 1) {
+          startX = e.clientX; startY = e.clientY;
+          startTx = tx; startTy = ty;
+          if (scale > 1.001) viewport.classList.add("is-panning");
+          if (img) img.classList.add("is-dragging");
+        } else if (points.size === 2) {
+          pinchDist = dist();
+          pinchScale = scale;
+          if (img) img.classList.add("is-dragging");
+        }
+      });
+
+      viewport.addEventListener("pointermove", (e) => {
+        if (!points.has(e.pointerId)) return;
+        points.set(e.pointerId, { x: e.clientX, y: e.clientY });
+        if (points.size >= 2) {
+          const d = dist();
+          if (pinchDist > 0) {
+            const m = mid();
+            zoomTo(pinchScale * (d / pinchDist), m.x, m.y);
+          }
+          moved = true;
+          return;
+        }
+        if (scale <= 1.001) return;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+        if (Math.abs(dx) > 3 || Math.abs(dy) > 3) moved = true;
+        tx = startTx + dx;
+        ty = startTy + dy;
+        paint();
+      });
+
+      const release = (e) => {
+        if (points.has(e.pointerId)) points.delete(e.pointerId);
+        if (points.size < 2) pinchDist = 0;
+        if (points.size === 0) {
+          viewport.classList.remove("is-panning");
+          if (img) img.classList.remove("is-dragging");
+        }
+      };
+      viewport.addEventListener("pointerup", release);
+      viewport.addEventListener("pointercancel", release);
+
+      /* click the backdrop to close; click the image to zoom in */
+      viewport.addEventListener("click", (e) => {
+        if (moved) { moved = false; return; }
+        if (e.target === img) {
+          if (scale <= 1.001) zoomTo(2.5, e.clientX, e.clientY);
+          return;
+        }
+        close();
+      });
+    }
+
+    box.addEventListener("click", (e) => { if (e.target === box) close(); });
+
+    document.addEventListener("keydown", (e) => {
+      if (box.hidden) return;
+      if (e.key === "Escape") { close(); return; }
+      if (e.key === "+" || e.key === "=") { e.preventDefault(); zoomTo(scale * STEP); return; }
+      if (e.key === "-" || e.key === "_") { e.preventDefault(); zoomTo(scale / STEP); return; }
+      if (e.key === "0") { e.preventDefault(); reset(); }
+    });
+
+    window.addEventListener("resize", () => { if (!box.hidden) paint(); });
   })();
 
 })();
