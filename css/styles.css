@@ -3479,3 +3479,78 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
 .cta-band--light p { color: var(--body); }
 .cta-band--light .btn--outline-light { border-color: var(--line); color: var(--ink); background: none; }
 .cta-band--light .btn--outline-light:hover { border-color: var(--navy); background: rgba(16, 27, 56, 0.05); }
+
+/* ============================================================
+   FOOTER — legibility pass
+   Larger type, stronger contrast, clearer hierarchy.
+   ============================================================ */
+.site-footer { padding-top: clamp(3.5rem, 6vw, 5rem); }
+.footer-grid { gap: clamp(2rem, 4vw, 3.25rem); padding-bottom: clamp(2.75rem, 5vw, 3.5rem); }
+
+/* Brand blurb */
+.footer-brand p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--body);
+  max-width: 42ch;
+}
+.footer-logo-img { height: 34px; max-width: min(100%, 340px); margin-bottom: 1.35rem; }
+
+/* Enquiry link */
+.footer-contact { margin-top: 1.5rem; }
+.footer-contact a {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.2rem;
+  align-self: flex-start;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.footer-contact a:hover { color: var(--accent-blue); border-bottom-color: currentColor; }
+
+/* Office headings */
+.footer-col h4 {
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+/* Address + contact lines */
+.footer-office { margin-bottom: 1.4rem; }
+.footer-addr {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--body);
+  max-width: 30ch;
+  margin-bottom: 0.65rem;
+}
+.footer-office-phone {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--body);
+  margin-top: 0.3rem;
+}
+.footer-office-phone a { color: var(--body); }
+.footer-office-phone a:hover { color: var(--accent-blue); border-bottom-color: currentColor; }
+
+/* Bottom bar */
+.footer-bottom { padding-block: 1.6rem; }
+.footer-bottom p,
+.footer-legal a {
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--body);
+}
+.footer-legal a:hover { color: var(--accent-blue); }
+
+@media (max-width: 900px) {
+  .footer-brand p { max-width: 54ch; }
+}
+@media (max-width: 620px) {
+  .footer-grid { gap: 2.25rem; }
+  .footer-addr, .footer-brand p { max-width: none; }
+  .footer-office-phone a { display: inline-block; padding-block: 0.15rem; }
+}
