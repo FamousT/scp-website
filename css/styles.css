@@ -9,12 +9,12 @@
   --navy: #14213f;          /* deep navy sections / CTA */
   --navy-2: #1b2b4d;        /* lighter navy (hover / watermark) */
   --ink: #1c2744;           /* serif headings */
-  --body: #3a4459;          /* body paragraph text */
-  --muted: #6a7488;         /* secondary muted text */
-  --label: #5c6d92;         /* uppercase eyebrows / categories */
+  --body: #333d52;          /* body paragraph text */
+  --muted: #555f76;         /* secondary muted text */
+  --label: #4a5a80;         /* uppercase eyebrows / categories */
   --paper: #faf8f4;         /* warm ivory: the second white */
   --paper-on-navy: #e7ecf4; /* light text on navy */
-  --muted-on-navy: #9aa6c2; /* muted light text on navy */
+  --muted-on-navy: #b3bdd6; /* muted light text on navy */
   --line: #e6e2da;          /* warm hairline on ivory */
   --line-navy: rgba(41, 36, 28, 0.11);   /* warm hairline on white */
   --line-light: rgba(231, 236, 244, 0.16);
@@ -3553,4 +3553,77 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
   .footer-grid { gap: 2.25rem; }
   .footer-addr, .footer-brand p { max-width: none; }
   .footer-office-phone a { display: inline-block; padding-block: 0.15rem; }
+}
+
+/* ============================================================
+   LEGIBILITY PASS — light text on navy / imagery
+   Raises the faint low-opacity whites to a readable level and
+   firms up the scrims behind hero and banner copy.
+   Type sizes and layout are unchanged.
+   ============================================================ */
+
+/* --- Home hero --- */
+.hero-eyebrow { color: rgba(231, 236, 244, 0.88); }
+.hero-eyebrow .rule { background: rgba(231, 236, 244, 0.55); }
+.hero-lede { color: rgba(231, 236, 244, 0.9); }
+.hero-title { color: #fff; }
+.hero-ornament { background: rgba(231, 236, 244, 0.4); }
+
+/* --- Inner-page banner --- */
+.breadcrumb { color: rgba(231, 236, 244, 0.78); }
+.breadcrumb a { color: rgba(231, 236, 244, 0.9); }
+.breadcrumb span[aria-hidden] { opacity: 0.65; }
+.page-eyebrow { color: rgba(231, 236, 244, 0.88); }
+.page-title { color: #fff; }
+.page-lede { color: rgba(231, 236, 244, 0.9); }
+
+/* --- Navy sections --- */
+.section--navy .eyebrow { color: rgba(231, 236, 244, 0.86); }
+.office-label,
+.contact .eyebrow { color: rgba(231, 236, 244, 0.86); }
+
+/* --- Newsletter / CTA on navy --- */
+.newsletter-small { color: rgba(231, 236, 244, 0.78); }
+.newsletter-form .input::placeholder { color: rgba(231, 236, 244, 0.62); }
+.newsletter-form .input { border-color: rgba(231, 236, 244, 0.34); }
+
+/* --- Cookie banner --- */
+.cookie-banner p { color: rgba(231, 236, 244, 0.92); }
+
+/* --- Outline buttons on dark --- */
+.btn--outline-light { border-color: rgba(231, 236, 244, 0.55); }
+
+/* --- Mobile nav drawer --- */
+@media (max-width: 900px) {
+  .nav-panel a { color: rgba(231, 236, 244, 0.88); }
+}
+
+/* --- Scrims: keep copy off the busiest part of the photography --- */
+.hero-overlay--wash {
+  background: linear-gradient(
+    to right,
+    rgba(20, 33, 63, 0.95) 0%,
+    rgba(20, 33, 63, 0.86) 46%,
+    rgba(20, 33, 63, 0.52) 100%
+  );
+}
+.page-banner-bg::after {
+  background:
+    linear-gradient(to right, rgba(20, 33, 63, 0.96) 0%, rgba(20, 33, 63, 0.88) 48%, rgba(20, 33, 63, 0.58) 100%),
+    linear-gradient(to bottom, rgba(20, 33, 63, 0.6) 0%, rgba(20, 33, 63, 0) 45%, rgba(20, 33, 63, 0.78) 100%);
+}
+@media (max-width: 900px) {
+  .hero-overlay--wash {
+    background: linear-gradient(
+      to right,
+      rgba(20, 33, 63, 0.95) 0%,
+      rgba(20, 33, 63, 0.9) 55%,
+      rgba(20, 33, 63, 0.68) 100%
+    );
+  }
+  .page-banner-bg::after {
+    background:
+      linear-gradient(to right, rgba(20, 33, 63, 0.96) 0%, rgba(20, 33, 63, 0.9) 55%, rgba(20, 33, 63, 0.72) 100%),
+      linear-gradient(to bottom, rgba(20, 33, 63, 0.62) 0%, rgba(20, 33, 63, 0.1) 45%, rgba(20, 33, 63, 0.8) 100%);
+  }
 }
