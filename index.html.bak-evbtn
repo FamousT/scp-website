@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SimmonsCooper Partners | Commercial Law Firm in Nigeria</title>
+  <meta name="description" content="SimmonsCooper Partners provides comprehensive multi-jurisdictional legal services to a global client base navigating the complexities of the African market." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/png" href="images/fav.png" />
+  <link rel="apple-touch-icon" href="images/fav.png" />
+</head>
+<body id="top" data-page="home">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- ============ HEADER / NAV ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="SimmonsCooper Partners — home">
+        <img class="logo-img" src="images/scp.png" alt="SimmonsCooper Partners" width="2035" height="133" />
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <div class="nav-item">
+          <a href="practice-areas.html" class="nav-link" aria-haspopup="true">Practice Areas<span class="nav-caret" aria-hidden="true"></span></a>
+          <div class="nav-panel nav-panel--groups">
+          <div class="nav-group">
+            <p class="nav-group-title">Corporate Commercial &amp; General Transactions</p>
+            <a href="practice/competition-law.html">Competition</a>
+            <a href="practice/corporate-restructuring.html">Corporate Restructuring</a>
+            <a href="practice/labour-employment.html">Labour &amp; Employment</a>
+            <a href="practice/capital-formation.html">Capital Formation &amp; Capital Raise</a>
+          </div>
+          <div class="nav-group">
+            <p class="nav-group-title">Specialised Transactions</p>
+            <a href="practice/energy.html">Energy (H&amp;R)</a>
+            <a href="practice/tech-ai.html">Tech &amp; AI</a>
+            <a href="practice/international-trade-law.html">International Trade Law</a>
+          </div>
+          <div class="nav-group">
+            <p class="nav-group-title">Individual &amp; Family Funds &amp; Enterprise Advisory</p>
+            <a href="practice/wealth-management-smes.html">Wealth Management &amp; SMEs</a>
+          </div>
+          <div class="nav-group">
+            <p class="nav-group-title">Public Governance &amp; Fiscal Advisory</p>
+            <a href="practice/tax-advisory.html">Tax Advisory</a>
+            <a href="practice/consumer-credit-dml.html">Consumer Credit &amp; Digital Money Lending</a>
+          </div>
+          <div class="nav-group">
+            <p class="nav-group-title">Dispute Resolution &mdash; Litigation &amp; Arbitration</p>
+            <a href="practice/public-impact-litigation.html">Public Impact Litigation</a>
+          </div>
+
+            <div class="nav-panel-foot"><a href="services.html">All paid services &#8594;</a></div>
+          </div>
+        </div>
+        <a href="our-work.html" class="nav-link">Our Work</a>
+        <a href="insights.html" class="nav-link">Insights</a>
+        <a href="abuja.html" class="nav-link">Abuja</a>
+        <a href="our-people.html" class="nav-link">Our People</a>
+        <a href="careers.html" class="nav-link">Careers</a>
+        <a href="contact.html" class="nav-btn">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+
+    <!-- background slideshow + gradient wash -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-slide is-active" data-caption="Lagos &mdash; Victoria Island">
+        <img src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="" fetchpriority="high" />
+      </div>
+      <div class="hero-slide" data-caption="Counsel in the boardroom">
+        <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&amp;fit=crop&amp;w=2000&amp;q=80" alt="" loading="lazy" />
+      </div>
+      <div class="hero-slide" data-caption="Lagos &mdash; Lekki&ndash;Ikoyi Link Bridge">
+        <img src="images/hero/img-1691.JPG" alt="" loading="lazy" />
+      </div>
+      <div class="hero-overlay hero-overlay--wash"></div>
+      <div class="hero-overlay hero-overlay--vignette"></div>
+    </div>
+
+    <!-- engraved hairline frame -->
+    <span class="hero-frame" aria-hidden="true"></span>
+
+    <div class="container hero-inner">
+      <h1 class="hero-title reveal">Counsel for the decisions that <em>define</em> an enterprise.</h1>
+
+      <span class="hero-ornament reveal" aria-hidden="true"></span>
+
+      <p class="hero-lede reveal">A commercial practice built on judgement rather than volume &mdash; advising boards, sponsors and institutions across Nigeria and the wider African market.</p>
+
+      <div class="hero-actions reveal">
+        <a href="contact.html" class="btn btn--primary" data-track="cta:hero-consultation">Request a Consultation</a>
+        <a href="practice-areas.html" class="btn btn--outline-light" data-track="cta:hero-expertise">Our Practice Areas</a>
+      </div>
+    </div>
+
+    <div class="container hero-foot">
+      <div class="hero-offices">
+        <div class="office">
+          <span class="office-city">Lagos</span>
+          <span class="office-area">Victoria Island</span>
+        </div>
+        <span class="office-divider"></span>
+        <div class="office">
+          <span class="office-city">Abuja</span>
+          <span class="office-area">Maitama</span>
+        </div>
+      </div>
+
+      <div class="hero-controls" id="heroControls">
+        <button class="hero-arrow" type="button" data-hero="prev" aria-label="Previous image">&#8592;</button>
+        <div class="hero-bars">
+          <button class="hero-bar is-active" type="button" data-hero-go="0" aria-label="Show image 1"><span class="hero-bar-fill"></span></button>
+          <button class="hero-bar" type="button" data-hero-go="1" aria-label="Show image 2"><span class="hero-bar-fill"></span></button>
+          <button class="hero-bar" type="button" data-hero-go="2" aria-label="Show image 3"><span class="hero-bar-fill"></span></button>
+        </div>
+        <button class="hero-arrow" type="button" data-hero="next" aria-label="Next image">&#8594;</button>
+      </div>
+
+      <span class="hero-caption" aria-live="polite">Lagos &mdash; Victoria Island</span>
+    </div>
+  </section>
+
+  <!-- ============ PRACTICE AREAS ============ -->
+  <section class="section section--paper" id="practice">
+    <div class="container">
+      <div class="section-head section-head--split reveal">
+        <div>
+          <p class="eyebrow"><span class="rule"></span>Practice Areas</p>
+          <h2 class="section-title">Core areas of law, one commercial view of the problem.</h2>
+        </div>
+        <a href="practice-areas.html" class="link-underline">All practice areas</a>
+      </div>
+      <div class="pa-cards" data-pa-cards>
+        <article class="pa-card reveal" data-pa-card>
+          <button class="pa-card-btn" type="button" aria-expanded="false" aria-controls="pa-panel-1">
+            <span class="pa-card-media">
+              <img src="images/corporate%20transactions.jpg" alt="" loading="lazy" />
+              <span class="pa-card-num">01</span>
+            </span>
+            <span class="pa-card-head">
+              <span class="pa-card-title">Corporate Commercial &amp; General Transactions</span>
+              <span class="pa-card-go" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            </span>
+          </button>
+          <div class="pa-card-panel" id="pa-panel-1">
+            <ul class="pa-card-list">
+              <li><a href="practice/competition-law.html">Competition</a></li>
+              <li><a href="practice/corporate-restructuring.html">Corporate Restructuring</a></li>
+              <li><a href="practice/labour-employment.html">Labour &amp; Employment</a></li>
+              <li><a href="practice/capital-formation.html">Capital Formation &amp; Capital Raise</a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="pa-card reveal" data-pa-card>
+          <button class="pa-card-btn" type="button" aria-expanded="false" aria-controls="pa-panel-2">
+            <span class="pa-card-media">
+              <img src="images/special%20tran.jpg" alt="" loading="lazy" />
+              <span class="pa-card-num">02</span>
+            </span>
+            <span class="pa-card-head">
+              <span class="pa-card-title">Specialised Transactions</span>
+              <span class="pa-card-go" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            </span>
+          </button>
+          <div class="pa-card-panel" id="pa-panel-2">
+            <ul class="pa-card-list">
+              <li><a href="practice/energy.html">Energy (H&amp;R)</a></li>
+              <li><a href="practice/tech-ai.html">Tech &amp; AI</a></li>
+              <li><a href="practice/international-trade-law.html">International Trade Law</a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="pa-card reveal" data-pa-card>
+          <button class="pa-card-btn" type="button" aria-expanded="false" aria-controls="pa-panel-3">
+            <span class="pa-card-media">
+              <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy" />
+              <span class="pa-card-num">03</span>
+            </span>
+            <span class="pa-card-head">
+              <span class="pa-card-title">Individual &amp; Family Funds &amp; Enterprise Advisory</span>
+              <span class="pa-card-go" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            </span>
+          </button>
+          <div class="pa-card-panel" id="pa-panel-3">
+            <ul class="pa-card-list">
+              <li><a href="practice/wealth-management-smes.html">Wealth Management &amp; SMEs</a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="pa-card reveal" data-pa-card>
+          <button class="pa-card-btn" type="button" aria-expanded="false" aria-controls="pa-panel-4">
+            <span class="pa-card-media">
+              <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy" />
+              <span class="pa-card-num">04</span>
+            </span>
+            <span class="pa-card-head">
+              <span class="pa-card-title">Public Governance &amp; Fiscal Advisory</span>
+              <span class="pa-card-go" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            </span>
+          </button>
+          <div class="pa-card-panel" id="pa-panel-4">
+            <ul class="pa-card-list">
+              <li><a href="practice/tax-advisory.html">Tax Advisory</a></li>
+              <li><a href="practice/consumer-credit-dml.html">Consumer Credit &amp; Digital Money Lending</a></li>
+            </ul>
+          </div>
+        </article>
+        <article class="pa-card reveal" data-pa-card>
+          <button class="pa-card-btn" type="button" aria-expanded="false" aria-controls="pa-panel-5">
+            <span class="pa-card-media">
+              <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy" />
+              <span class="pa-card-num">05</span>
+            </span>
+            <span class="pa-card-head">
+              <span class="pa-card-title">Dispute Resolution &mdash; Litigation &amp; Arbitration</span>
+              <span class="pa-card-go" aria-hidden="true"><svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+            </span>
+          </button>
+          <div class="pa-card-panel" id="pa-panel-5">
+            <ul class="pa-card-list">
+              <li><a href="practice/public-impact-litigation.html">Public Impact Litigation</a></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EVENTS ============ -->
+  <section class="section section--white" id="events">
+    <div class="container">
+      <div class="section-head section-head--split reveal">
+        <div>
+          <p class="eyebrow"><span class="rule"></span>Events &amp; Recognition</p>
+          <h2 class="section-title">Our lawyers in the rooms where standards are set.</h2>
+        </div>
+        <a href="insights.html" class="link-underline">More from the firm</a>
+      </div>
+
+      <ol class="ev-rail">
+
+        <li class="ev-entry reveal">
+          <div class="ev-rail-date">
+            <span class="ev-year">2026</span>
+            <span class="ev-place">Lagos</span>
+          </div>
+          <div class="ev-entry-main">
+            <div class="ev-stage">
+              <button class="ev-view" type="button" data-lightbox="images/Bash.jpeg" aria-label="View the full announcement">
+                <img class="ev-main" src="images/Bash.jpeg" alt="Announcement: Bashir Ramoni, FCTI elected Technical Secretary, CITN Lagos District and Society 2026 to 2028" loading="lazy" />
+                <span class="ev-zoom" aria-hidden="true">View full notice</span>
+              </button>
+            </div>
+            <div class="ev-body">
+              <div class="ev-tags">
+                <span class="ev-chip">Appointment</span>
+                <span class="ev-when">2026&ndash;2028 tenure</span>
+              </div>
+              <h3 class="ev-title">SCP Partner &mdash; Bashir Ramoni, FCTI elected Technical Secretary of CITN Lagos District</h3>
+              <p class="ev-text">Bashir brings his extensive expertise in corporate tax advisory and revenue litigation to the Institute&rsquo;s technical leadership team, reinforcing SCP&rsquo;s ongoing commitment to professional excellence and leadership in Nigerian tax law.</p>
+              <a class="link-underline ev-link" href="people/bashir-ramoni.html">Bashir Ramoni&rsquo;s profile</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="ev-entry reveal">
+          <div class="ev-rail-date">
+            <span class="ev-year">2026</span>
+            <span class="ev-place">Cairo</span>
+          </div>
+          <div class="ev-entry-main">
+            <div class="ev-stage">
+              <button class="ev-view" type="button" data-lightbox="images/PALU%20Conference.jpeg" aria-label="View the full conference notice">
+                <img class="ev-main" src="images/PALU%20Conference.jpeg" alt="PALU Annual Conference 2026 expert roundtable: Protecting Africa&rsquo;s Children in the Digital Age" loading="lazy" />
+                <span class="ev-zoom" aria-hidden="true">View full notice</span>
+              </button>
+              <div class="ev-thumbs" role="group" aria-label="More images from this event">
+                <button class="ev-thumb is-active" type="button" data-src="images/PALU%20Conference.jpeg" aria-label="Show the conference notice">
+                  <img src="images/PALU%20Conference.jpeg" alt="" loading="lazy" />
+                </button>
+                <button class="ev-thumb" type="button" data-src="images/PALU%202.jpeg" aria-label="Show the SCP delegation in Cairo">
+                  <img src="images/PALU%202.jpeg" alt="" loading="lazy" />
+                </button>
+              </div>
+            </div>
+            <div class="ev-body">
+              <div class="ev-tags">
+                <span class="ev-chip">Conference</span>
+                <span class="ev-when">16th PALU Annual Conference</span>
+              </div>
+              <h3 class="ev-title">SCP shapes tech and governance standards at the 16th PALU Conference</h3>
+              <p class="ev-text">SCP leadership and senior associates drove critical sessions contributing directly to shape the newly drafted Cairo Declaration on Child Rights and Design Accountability, advancing legal and regulatory standards across the continent.</p>
+            </div>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <div class="ev-lightbox" id="evLightbox" hidden role="dialog" aria-modal="true" aria-label="Notice viewer">
+    <div class="ev-lb-bar">
+      <div class="ev-lb-tools">
+        <button class="ev-lb-btn ev-lb-icon" type="button" data-lb="out" aria-label="Zoom out">&minus;</button>
+        <span class="ev-lb-level" data-lb-level aria-live="polite">100%</span>
+        <button class="ev-lb-btn ev-lb-icon" type="button" data-lb="in" aria-label="Zoom in">+</button>
+        <button class="ev-lb-btn" type="button" data-lb="reset">Reset</button>
+        <a class="ev-lb-btn ev-lb-get" data-lb="download" href="#" download>Download</a>
+      </div>
+      <button class="ev-lightbox-close" type="button" aria-label="Close">&times;</button>
+    </div>
+    <div class="ev-lb-viewport" data-lb-viewport>
+      <img src="" alt="" draggable="false" />
+    </div>
+    <p class="ev-lb-hint" data-lb-hint>Scroll or pinch to zoom &middot; drag to move</p>
+  </div>
+
+  <!-- ============ PAID SERVICES ============ -->
+  <section class="section section--navy" id="services">
+    <div class="container">
+      <div class="section-head section-head--split reveal">
+        <div>
+          <p class="eyebrow"><span class="rule"></span>Paid Services</p>
+          <h2 class="section-title">Packaged legal work, scoped and quoted before we begin.</h2>
+        </div>
+        <p class="section-note">Fixed-fee services with a published scope and service level, so you know what you are buying and when it lands. Some are payable online.</p>
+      </div>
+
+      <div class="svc-grid reveal">
+
+        <a class="svc" href="services/merger-filings.html" data-track="cta:service:merger-filings">
+          <div class="svc-head">
+            <span class="svc-index">01</span>
+            <span class="svc-label">Competition</span>
+          </div>
+          <h3 class="svc-name">Merger Notification &amp; Filing</h3>
+          <p class="svc-per">Fixed fee per transaction</p>
+          <p class="svc-desc">End-to-end management of an FCCPC merger notification, from threshold assessment to approval.</p>
+          <ul class="svc-list">
+            <li>Notifiability and threshold assessment</li>
+            <li>Preparation of the full notification and supporting economic annexures</li>
+            <li>Management of FCCPC information requests through the review</li>
+            <li>Competitor and market-share analysis</li>
+          </ul>
+          <span class="svc-cta">View service <span class="svc-arrow" aria-hidden="true">&#8594;</span></span>
+        </a>
+
+        <a class="svc svc--featured" href="services/compliance-audit-board-training.html" data-track="cta:service:compliance-audit-board-training">
+          <div class="svc-head">
+            <span class="svc-index">02</span>
+            <span class="svc-label">Competition</span>
+          </div>
+          <h3 class="svc-name">Compliance Audit &amp; Board Training</h3>
+          <p class="svc-per">Fixed fee per engagement</p>
+          <p class="svc-desc">A structured review of your regulatory exposure, delivered as a board-ready remediation roadmap plus a training session for directors.</p>
+          <ul class="svc-list">
+            <li>Licence, permit and registration review</li>
+            <li>Competition, data-protection and sector-conduct assessment</li>
+            <li>Employment and tax posture review</li>
+            <li>Gap analysis scored by severity and likelihood</li>
+          </ul>
+          <span class="svc-cta">View service <span class="svc-arrow" aria-hidden="true">&#8594;</span></span>
+        </a>
+
+        <a class="svc" href="services/tax-health-check.html" data-track="cta:service:tax-health-check">
+          <div class="svc-head">
+            <span class="svc-index">03</span>
+            <span class="svc-label">Tax</span>
+          </div>
+          <h3 class="svc-name">Tax Health-Check</h3>
+          <p class="svc-per">Fixed fee per entity</p>
+          <p class="svc-desc">A review of your filing positions and exposures across corporate income tax, VAT, PAYE and transfer pricing.</p>
+          <ul class="svc-list">
+            <li>Review of the last three years of filings and assessments</li>
+            <li>VAT, WHT and PAYE compliance testing</li>
+            <li>Transfer pricing documentation review</li>
+            <li>Exposure quantification with a settlement range</li>
+          </ul>
+          <span class="svc-cta">View service <span class="svc-arrow" aria-hidden="true">&#8594;</span></span>
+        </a>
+
+      </div>
+
+      <div class="svc-more reveal">
+        <p>Six packaged services across competition, tax, data protection, employment and private wealth &mdash; each with a published scope and service level, quoted before we begin.</p>
+        <a href="services.html" class="link-underline link-underline--dark">Browse the full catalogue</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CASE STUDIES ============ -->
+  <section class="section section--white" id="work">
+    <div class="container">
+      <div class="section-head section-head--split reveal">
+        <div>
+          <p class="eyebrow"><span class="rule"></span>Case Studies</p>
+          <h2 class="section-title">Mandates that shaped markets.</h2>
+        </div>
+        <a href="our-work.html" class="link-underline">All selected matters</a>
+      </div>
+
+      <div class="csx reveal" data-cs-switch>
+        <div class="csx-nav" role="tablist" aria-label="Selected matters" aria-orientation="vertical">
+          <button class="csx-tab is-active" type="button" role="tab" id="csx-tab-1"
+                  aria-controls="csx-pane-1" aria-selected="true" tabindex="0">
+            <span class="csx-thumb">
+              <img src="images/corporate%20transactions.jpg" alt="Lagos port and skyline: multi-asset gas-to-power financing" width="1500" height="1125" loading="lazy" />
+              <span class="csx-num" aria-hidden="true">01</span>
+            </span>
+            <span class="csx-tab-text">
+              <span class="csx-tab-cat">Energy</span>
+              <span class="csx-tab-title">Financing structure for a multi-asset gas-to-power project</span>
+            </span>
+            <span class="csx-tab-arrow" aria-hidden="true">&#8594;</span>
+          </button>
+          <button class="csx-tab" type="button" role="tab" id="csx-tab-2"
+                  aria-controls="csx-pane-2" aria-selected="false" tabindex="-1">
+            <span class="csx-thumb">
+              <img src="images/court%20session%20-%20work.jpg" alt="Counsel addressing the court in a landmark commercial dispute" width="1500" height="1125" loading="lazy" />
+              <span class="csx-num" aria-hidden="true">02</span>
+            </span>
+            <span class="csx-tab-text">
+              <span class="csx-tab-cat">Dispute Resolution / Public Impact Litigation</span>
+              <span class="csx-tab-title">Defence of a multinational in a landmark commercial dispute</span>
+            </span>
+            <span class="csx-tab-arrow" aria-hidden="true">&#8594;</span>
+          </button>
+          <button class="csx-tab" type="button" role="tab" id="csx-tab-3"
+                  aria-controls="csx-pane-3" aria-selected="false" tabindex="-1">
+            <span class="csx-thumb">
+              <img src="images/special%20tran.jpg" alt="Technology and AI: licensing a pan-African payments platform" width="1500" height="1125" loading="lazy" />
+              <span class="csx-num" aria-hidden="true">03</span>
+            </span>
+            <span class="csx-tab-text">
+              <span class="csx-tab-cat">Tech &amp; AI</span>
+              <span class="csx-tab-title">Licensing pathway for a pan-African payments platform</span>
+            </span>
+            <span class="csx-tab-arrow" aria-hidden="true">&#8594;</span>
+          </button>
+        </div>
+        <div class="csx-nav-foot">
+          <a href="our-work.html" class="matter-cta">See all six matters <span class="svc-arrow" aria-hidden="true">&#8594;</span></a>
+        </div>
+        <div class="csx-stage">
+          <article class="csx-pane is-active" id="csx-pane-1" role="tabpanel" aria-labelledby="csx-tab-1" data-cs-id="gas-to-power-financing">
+            <p class="csx-cat">Energy</p>
+            <h3 class="csx-title">Financing structure for a multi-asset gas-to-power project</h3>
+            <dl class="csx-facts">
+              <div class="csx-fact">
+                <dt>What it was</dt>
+                <dd>A sponsor consortium developing a multi-asset gas-to-power project across three states needed a financing structure that satisfied international lenders while surviving Nigerian regulatory review.</dd>
+              </div>
+              <div class="csx-fact">
+                <dt>Why it mattered</dt>
+                <dd>Gas-to-power projects fail at the interface between the security package lenders want and the consents the state will grant. Getting that interface right determined whether the project reached financial close at all.</dd>
+              </div>
+              <div class="csx-fact">
+                <dt>Our role</dt>
+                <dd>We advised the sponsors on the security package, host-community development trust, regulatory consents across three states, and the inter-creditor arrangements. We ran the consent workstream in parallel with the financing so approvals landed before the long-stop date.</dd>
+              </div>
+            </dl>
+            <a class="csx-more" href="our-work.html#gas-to-power-financing">Read the full matter <span class="svc-arrow" aria-hidden="true">&#8594;</span></a>
+          </article>
+          <article class="csx-pane" id="csx-pane-2" role="tabpanel" aria-labelledby="csx-tab-2" data-cs-id="landmark-commercial-defence">
+            <p class="csx-cat">Dispute Resolution / Public Impact Litigation</p>
+            <h3 class="csx-title">Defence of a multinational in a landmark commercial dispute</h3>
+            <p class="csx-outcome"><span class="csx-outcome-label">Outcome</span><span class="csx-outcome-value">Claim dismissed</span></p>
+            <dl class="csx-facts">
+              <div class="csx-fact">
+                <dt>What it was</dt>
+                <dd>A multinational faced a claim that threatened both its operating licence and its position in the Nigerian market.</dd>
+              </div>
+              <div class="csx-fact">
+                <dt>Why it mattered</dt>
+                <dd>The case turned on a point of statutory interpretation that had not been settled at appellate level. The outcome set the reading for every operator in the sector.</dd>
+              </div>
+              <div class="csx-fact">
+                <dt>Our role</dt>
+                <dd>We led a five-year defence through trial and appeal to a full dismissal at appellate level, preserving the client's licence and market position, and establishing the interpretation now relied on across the sector.</dd>
+              </div>
+            </dl>
+            <a class="csx-more" href="our-work.html#landmark-commercial-defence">Read the full matter <span class="svc-arrow" aria-hidden="true">&#8594;</span></a>
+          </article>
+          <article class="csx-pane" id="csx-pane-3" role="tabpanel" aria-labelledby="csx-tab-3" data-cs-id="pan-african-payments-licensing">
+            <p class="csx-cat">Tech &amp; AI</p>
+            <h3 class="csx-title">Licensing pathway for a pan-African payments platform</h3>
+            <p class="csx-outcome"><span class="csx-outcome-label">Outcome</span><span class="csx-outcome-value">First-of-its-kind</span></p>
+            <dl class="csx-facts">
+              <div class="csx-fact">
+                <dt>What it was</dt>
+                <dd>A payments platform operating across several African markets needed a Nigerian entry structure that would not compromise its existing licences elsewhere.</dd>
+              </div>
+              <div class="csx-fact">
+                <dt>Why it mattered</dt>
+                <dd>No comparable structure had been approved. The engagement required the regulator to accept a model it had not seen before.</dd>
+              </div>
+              <div class="csx-fact">
+                <dt>Our role</dt>
+                <dd>We structured the entity, built the data-protection posture, and led the CBN engagement strategy through to approval &mdash; the first authorisation of its kind for a cross-border platform of this design.</dd>
+              </div>
+            </dl>
+            <a class="csx-more" href="our-work.html#pan-african-payments-licensing">Read the full matter <span class="svc-arrow" aria-hidden="true">&#8594;</span></a>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ LATEST INSIGHTS ============ -->
+  <section class="section section--paper" id="insights">
+    <div class="container">
+      <div class="section-head section-head--split reveal">
+        <div>
+          <p class="eyebrow"><span class="rule"></span>Latest Insights</p>
+          <h2 class="section-title">Articles, reports and guides from the practice.</h2>
+        </div>
+        <a href="insights.html" class="link-underline">All insights</a>
+      </div>
+
+      <div class="insights-lead">
+        <a class="il-lead reveal" href="insights.html#renewable-energy-framework-2026" data-type="Article" data-topic="energy">
+          <div class="il-img"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy" /></div>
+          <p class="il-meta">12 August 2026 &bull; Article &bull; Energy</p>
+          <h3 class="il-title">Navigating the 2026 renewable energy regulatory framework</h3>
+          <p class="il-desc">Analysis of the evolving legal landscape for green energy projects and the incentives now available to international investors under the climate-resilient economy guidelines.</p>
+          <span class="il-more">Read the analysis <span aria-hidden="true">&#8594;</span></span>
+        </a>
+
+        <div class="il-list reveal">
+          <a class="il-row" href="insights.html#fccpc-merger-thresholds" data-type="Article" data-topic="competition-law">
+            <p class="il-meta">29 July 2026 &bull; Article &bull; Competition</p>
+            <h3 class="il-title">What the revised FCCPC merger thresholds mean for mid-market deals</h3>
+            <p class="il-desc">The revised turnover thresholds pull a class of transactions into mandatory notification for the first time. We set out who is now caught and how to plan around it.</p>
+          </a>
+          <a class="il-row" href="insights.html#ndpa-audit-filing-guide" data-type="Guide" data-topic="tech-ai">
+            <p class="il-meta">15 July 2026 &bull; Guide &bull; Tech &amp; AI</p>
+            <h3 class="il-title">The NDPA annual audit filing: a practical guide</h3>
+            <p class="il-desc">A step-by-step walkthrough of what the Commission expects in an annual audit return, the common grounds for rejection, and how to prepare the evidence file.</p>
+          </a>
+          <a class="il-row" href="insights.html#living-trusts-nigerian-jurisprudence" data-type="Article" data-topic="wealth-management-smes">
+            <p class="il-meta">2 July 2026 &bull; Article &bull; Wealth &amp; SME</p>
+            <h3 class="il-title">Asset protection: the role of living trusts in modern Nigerian jurisprudence</h3>
+            <p class="il-desc">How the courts have treated inter vivos trusts over the last decade, and what that means for families structuring succession today.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFICES ============ -->
+  <section class="office-split" id="offices">
+    <figure class="office-split-media reveal">
+      <img src="images/team/Abuja1.JPG" alt="SimmonsCooper Partners Abuja office" width="1000" height="800" loading="lazy" />
+    </figure>
+    <div class="office-split-panel">
+      <div class="office-split-inner reveal">
+        <p class="eyebrow"><span class="rule"></span>Maitama</p>
+        <h2 class="section-title">Abuja Office</h2>
+        <p class="office-split-addr">No 9, Rima Street<br />Maitama, Abuja FCT</p>
+        <dl class="office-split-rows">
+          <div class="office-row"><dt>Telephone</dt><dd><a href="tel:+2349030710071">+234 903 071 0071</a></dd></div>
+          <div class="office-row"><dt>Email</dt><dd><a href="mailto:abuja@scp-law.com">abuja@scp-law.com</a></dd></div>
+        </dl>
+        <div class="office-actions">
+          <a class="btn btn--whatsapp" href="https://wa.me/2349030710071" target="_blank" rel="noopener" data-track="cta:whatsapp:abuja">Chat with us</a>
+          <a class="btn btn--outline-ink" href="mailto:abuja@scp-law.com" data-track="cta:email:abuja">Send an email</a>
+        </div>
+        <a href="contact.html#offices" class="link-underline link-underline--dark office-split-link">Directions and maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--white" id="newsletter">
+    <div class="container newsletter">
+      <div class="reveal">
+        <p class="eyebrow"><span class="rule"></span>Stay informed</p>
+        <h2 class="newsletter-title">Regulatory intelligence, delivered fortnightly.</h2>
+        <p class="newsletter-desc">Our Abuja desk tracks the ministries, commissions and agencies that decide whether regulated business gets done. Subscribe for the changes that matter and what to do about them.</p>
+      </div>
+      <div class="reveal">
+        <form class="newsletter-form" id="newsletterHome" data-form="newsletter" novalidate>
+          <label class="field-label is-hidden" for="newsletterHome-email">Email address</label>
+          <input class="input" id="newsletterHome-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required />
+          <button class="btn btn--primary" type="submit" data-track="form:submit:newsletterHome">Subscribe</button>
+          <input type="hidden" name="source_page" value="" data-source-page />
+          <div class="form-status" role="status" style="flex:1 1 100%;"></div>
+        </form>
+        <p class="newsletter-small">Free to join. Paid tiers with sector monitoring and analyst briefings are available from the Abuja page. Unsubscribe at any time.</p>
+      </div>
+    </div>
+  </section>
+
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="images/scp.png" alt="SimmonsCooper Partners" width="2035" height="133" />
+        <p>A commercial law firm providing holistic legal support for the Nigerian market and beyond, from offices in Lagos and Abuja.</p>
+        <div class="footer-contact">
+          <a href="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=emEZHjkf7EqeDd6JuRMfnZ5g24hVddtNlcfkCrapooRUQlA4Q0dPUVJOTUJZR1VQWUc3R0dMNUlPVC4u" target="_blank" rel="noopener">Send an enquiry &#8594;</a>
+        </div>
+      </div>
+
+
+      <div class="footer-col footer-offices">
+        <h4>Lagos</h4>
+        <div class="footer-office">
+          <span class="footer-addr">9th Floor Fortune Towers, 27/29 Adeyemo Alakija Street, Victoria Island, Lagos</span>
+          <span class="footer-office-phone"><a href="tel:+23414614016">+234-1-461 4016-7</a></span>
+          <span class="footer-office-phone"><a href="mailto:info@scp-law.com">info@scp-law.com</a></span>
+        </div>
+      </div>
+
+      <div class="footer-col footer-offices">
+        <h4>Abuja</h4>
+        <div class="footer-office">
+          <span class="footer-addr">No 9, Rima Street, Maitama, Abuja FCT</span>
+          <span class="footer-office-phone"><a href="tel:+2349030710071">+234 903 071 0071</a></span>
+          <span class="footer-office-phone"><a href="mailto:abuja@scp-law.com">abuja@scp-law.com</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 SimmonsCooper Partners. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>
