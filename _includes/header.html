@@ -1,0 +1,50 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="{{ root }}index.html" class="logo" aria-label="SimmonsCooper Partners — home">
+        <img class="logo-img" src="{{ root }}images/scp.png" alt="SimmonsCooper Partners" width="2035" height="133" />
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Primary">
+        <div class="nav-item">
+          <a href="{{ root }}practice-areas.html" class="nav-link{% if page.nav == 'practice' %} active{% endif %}" aria-haspopup="true">Practice Areas<span class="nav-caret" aria-hidden="true"></span></a>
+          <div class="nav-panel nav-panel--groups">
+          <div class="nav-group">
+            <p class="nav-group-title">Corporate Commercial &amp; General Transactions</p>
+            <a href="{{ root }}practice/competition-law.html">Competition</a>
+            <a href="{{ root }}practice/corporate-restructuring.html">Corporate Restructuring</a>
+            <a href="{{ root }}practice/labour-employment.html">Labour &amp; Employment</a>
+            <a href="{{ root }}practice/capital-markets.html">Capital Markets &amp; Capital Raise</a>
+          </div>
+          <div class="nav-group">
+            <p class="nav-group-title">Specialised Transactions</p>
+            <a href="{{ root }}practice/energy.html">Energy (H&amp;R)</a>
+            <a href="{{ root }}practice/tech-ai.html">Tech &amp; AI</a>
+            <a href="{{ root }}practice/international-trade-law.html">International Trade Law</a>
+          </div>
+          <div class="nav-group">
+            <p class="nav-group-title">Individual &amp; Family Funds &amp; Enterprise Advisory</p>
+            <a href="{{ root }}practice/wealth-management-smes.html">Wealth Management &amp; SMEs</a>
+          </div>
+          <div class="nav-group">
+            <p class="nav-group-title">Public Governance &amp; Fiscal Advisory</p>
+            <a href="{{ root }}practice/tax-advisory.html">Tax Advisory</a>
+            <a href="{{ root }}practice/consumer-credit-dml.html">Consumer Credit &amp; Digital Money Lending</a>
+          </div>
+
+            <div class="nav-panel-foot"><a href="{{ root }}services.html">All paid services &#8594;</a></div>
+          </div>
+        </div>
+        <a href="{{ root }}our-work.html" class="nav-link{% if page.nav == 'work' %} active{% endif %}">Our Work</a>
+        <a href="{{ root }}insights.html" class="nav-link{% if page.nav == 'insights' %} active{% endif %}">Insights</a>
+        <a href="{{ root }}abuja.html" class="nav-link{% if page.nav == 'abuja' %} active{% endif %}">Abuja</a>
+        <a href="{{ root }}our-people.html" class="nav-link{% if page.nav == 'people' %} active{% endif %}">Our People</a>
+        <a href="{{ root }}careers.html" class="nav-link{% if page.nav == 'careers' %} active{% endif %}">Careers</a>
+        <a href="{{ root }}contact.html" class="nav-btn{% if page.nav == 'contact' %} active{% endif %}">Contact</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>

@@ -1,0 +1,18 @@
+# SimmonsCooper Partners — site configuration (GitHub Pages / Jekyll)
+# The shared header, footer and <head> live in _includes/. Edit them once and
+# every page picks up the change.
+title: SimmonsCooper Partners
+# The site's public address. If the site is served from a sub-path (for
+# example https://user.github.io/scp-website), set baseurl to "/scp-website".
+url: https://scp-law.com
+baseurl: ""
+og_image: https://scp-law.com/images/og-default.jpg
+# Google Analytics 4 measurement ID (e.g. G-XXXXXXX). Leave blank to load no
+# analytics. When set, GA loads only after a visitor accepts analytics cookies.
+ga_id: ""
+exclude:
+  - README.md
+  - "*.bak*"
+  - "*.zip"
+  - "*.docx"
+  - "*.md"

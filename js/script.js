@@ -302,20 +302,22 @@
 
   /* ============================================================
      ANALYTICS  (brief §13)
-     Pushes to window.dataLayer so GA4 / GTM can pick events up.
+     Sends events to GA4 once the visitor has consented.
      ============================================================ */
-  window.dataLayer = window.dataLayer || [];
+  /* Events are recorded only after the visitor accepts analytics
+     cookies (see js/consent.js). Before that, nothing is collected. */
   const track = (event, params) => {
-    window.dataLayer.push(
-      Object.assign(
-        {
-          event: event,
-          page_path: window.location.pathname,
-          page_title: document.title,
-        },
-        params || {}
-      )
+    if (!(window.SCPConsent && window.SCPConsent.analytics())) return;
+    const payload = Object.assign(
+      { page_path: window.location.pathname, page_title: document.title },
+      params || {}
     );
+    if (typeof window.gtag === "function") {
+      window.gtag("event", event, payload);
+    } else {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: event }, payload));
+    }
   };
 
   document.addEventListener("click", (e) => {

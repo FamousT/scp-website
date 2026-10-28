@@ -1,0 +1,25 @@
+{%- if page.permalink == '/404.html' -%}{%- assign root = site.baseurl | append: '/' -%}{%- else -%}{%- assign root = page.root -%}{%- endif -%}
+{%- assign canon = page.url | replace: 'index.html', '' -%}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description }}" />
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ canon }}" />
+  <meta property="og:site_name" content="SimmonsCooper Partners" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
+  <meta property="og:title" content="{{ page.og_title | default: page.title }}" />
+  <meta property="og:description" content="{{ page.description }}" />
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ canon }}" />
+  <meta property="og:image" content="{{ page.og_image | default: site.og_image }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ page.og_title | default: page.title }}" />
+  <meta name="twitter:description" content="{{ page.description }}" />
+  <meta name="twitter:image" content="{{ page.og_image | default: site.og_image }}" />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preload" href="{{ root }}fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="{{ root }}fonts/libre-baskerville-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="{{ root }}css/fonts.css" />
+  <link rel="stylesheet" href="{{ root }}css/styles.css" />
+  <link rel="icon" type="image/png" href="{{ root }}images/fav.png" />
+  <link rel="apple-touch-icon" href="{{ root }}images/fav.png" />
