@@ -327,9 +327,12 @@
   });
 
   /* ============================================================
-     ENQUIRY FORMS  (brief §12)
-     Source capture + routing. Replace the demo submit handler with
-     a POST to the CRM endpoint (HubSpot) when the back end is live.
+     SOURCE CAPTURE + NEWSLETTER SIGN-UP FORMS
+     Every form posts to FormSubmit and is delivered by email to
+     scprecords@scp-law.com. There is no routing by topic or team.
+     Newsletter forms (form[data-form="newsletter"]) post through
+     FormSubmit's AJAX endpoint so the visitor stays on the page;
+     without JS they submit natively to the same address.
      ============================================================ */
   const pageName = document.body.getAttribute("data-page") || "";
   document.querySelectorAll("[data-source-page]").forEach((i) => {
@@ -339,64 +342,47 @@
     i.value = window.location.href;
   });
 
-  const syncRouting = (form) => {
-    const select = form.querySelector("[data-routing]");
-    const hidden = form.querySelector("[data-routing-team]");
-    if (select && hidden) hidden.value = select.value;
-  };
-  document.querySelectorAll("form").forEach((form) => {
-    syncRouting(form);
-    const select = form.querySelector("[data-routing]");
-    if (select) select.addEventListener("change", () => syncRouting(form));
-  });
-
-  const showStatus = (form, message) => {
+  const showStatus = (form, message, isError) => {
     const box = form.querySelector(".form-status");
     if (!box) return;
     box.textContent = message;
+    box.classList.toggle("is-error", Boolean(isError));
     box.classList.add("is-shown");
   };
 
-  document.querySelectorAll("form[data-form]").forEach((form) => {
+  document.querySelectorAll('form[data-form="newsletter"]').forEach((form) => {
     form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
-
-      syncRouting(form);
-      const kind = form.getAttribute("data-form");
-      const team = (form.querySelector("[data-routing-team]") || {}).value || "";
-
-      track("form_submit", {
-        form_id: form.id || kind,
-        form_type: kind,
-        routing_team: team,
-        source_page: pageName,
-      });
-
-      let message;
-      if (kind === "newsletter") {
-        message = "Thank you — please check your inbox to confirm your subscription.";
-      } else if (kind === "notify") {
-        message = "Thank you — we will email you as soon as this title publishes.";
-      } else if (kind === "application") {
-        message = "Application received. It has been sent to HR and you will hear from us within two weeks.";
-      } else {
-        message =
-          "Thank you — your enquiry has been received" +
-          (team ? " and routed to the " + team + "." : ".") +
-          " A lawyer will reply within 24 hours.";
+      if (typeof form.reportValidity === "function" && !form.reportValidity()) {
+        e.preventDefault();
+        return;
       }
-      showStatus(form, message);
-      form.querySelectorAll("input, textarea, select").forEach((f) => {
-        if (f.type !== "hidden" && f.type !== "submit") {
-          if (f.type === "checkbox") f.checked = false;
-          else if (f.tagName !== "SELECT") f.value = "";
-        }
-      });
+      const action = form.getAttribute("action") || "";
+      if (!window.fetch || action.indexOf("https://formsubmit.co/") !== 0) return; /* native POST */
 
-      /* TODO (back end): POST the FormData to the CRM endpoint here.
-         The routing_team, source_page and source_url fields are already
-         populated and should be passed through to HubSpot. */
+      e.preventDefault();
+      const submit = form.querySelector('button[type="submit"]');
+      if (submit) submit.setAttribute("disabled", "disabled");
+      showStatus(form, "Sending…");
+
+      fetch(action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/"), {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      })
+        .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok, body: j })))
+        .then((res) => {
+          if (!res.ok || String(res.body.success) === "false") throw new Error("failed");
+          form.querySelectorAll('input[type="email"]').forEach((f) => (f.value = ""));
+          showStatus(form, "Thank you — your sign-up has been received. You will get a confirmation by email.");
+          track("form_submit", { form_id: form.id, form_type: "newsletter", ok: true, source_page: pageName });
+        })
+        .catch(() => {
+          showStatus(form, "We could not send that just now. Please try again, or email scprecords@scp-law.com.", true);
+          track("form_submit", { form_id: form.id, form_type: "newsletter", ok: false, source_page: pageName });
+        })
+        .then(() => {
+          if (submit) submit.removeAttribute("disabled");
+        });
     });
   });
 
@@ -710,6 +696,47 @@
             submit.textContent = submit.dataset.label || "Send enquiry";
           }
         });
+    });
+  })();
+
+
+  /* ============================================================
+     CASE STUDY ORDER — shuffled on every page load
+     Our Work: every .matter inside [data-shuffle].
+     Homepage: tabs and panes move together, are renumbered, and
+     the first one in the new order is shown.
+     ============================================================ */
+  function shuffledOrder(n) {
+    const order = Array.from({ length: n }, (_, i) => i);
+    for (let i = n - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    return order;
+  }
+  (function shuffleCaseStudies() {
+    document.querySelectorAll("[data-shuffle]").forEach((list) => {
+      const items = Array.from(list.children).filter((el) => el.classList.contains("matter"));
+      shuffledOrder(items.length).forEach((i) => list.appendChild(items[i]));
+    });
+
+    const cs = document.querySelector("[data-cs-switch]");
+    if (!cs) return;
+    const nav = cs.querySelector(".csx-nav");
+    const stage = cs.querySelector(".csx-stage");
+    const tabs = Array.from(cs.querySelectorAll(".csx-tab"));
+    const panes = Array.from(cs.querySelectorAll(".csx-pane"));
+    if (!nav || !stage || !tabs.length || tabs.length !== panes.length) return;
+    shuffledOrder(tabs.length).forEach((i, pos) => {
+      const t = tabs[i], p = panes[i], on = pos === 0;
+      nav.appendChild(t);
+      stage.appendChild(p);
+      t.classList.toggle("is-active", on);
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      p.classList.toggle("is-active", on);
+      const num = t.querySelector(".csx-num");
+      if (num) num.textContent = String(pos + 1).padStart(2, "0");
     });
   })();
 

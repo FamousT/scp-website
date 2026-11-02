@@ -3897,3 +3897,7 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
 .svc--featured .svc-label { color: var(--accent-text); }
 .newsletter-small { color: rgba(231, 236, 244, 0.78); }
 .newsletter-form .input::placeholder { color: rgba(231, 236, 244, 0.72); }
+
+/* Form status messages on dark (navy) bands: keep the text readable */
+.section--navy .form-status { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.section--navy .form-status.is-error { background: rgba(180, 69, 60, 0.25); }
