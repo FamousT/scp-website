@@ -1254,3 +1254,36 @@
   })();
 
 })();
+
+/* ---------- Homepage practice areas: hover / click / arrow keys switch the group ---------- */
+(function () {
+  document.querySelectorAll("[data-pz]").forEach(function (root) {
+    var tabs = Array.prototype.slice.call(root.querySelectorAll(".pz-tab"));
+    var imgs = root.querySelectorAll(".pz-img");
+    var chips = root.querySelectorAll(".pz-chips");
+    var current = 0;
+    function show(i) {
+      if (i === current) return;
+      current = i;
+      tabs.forEach(function (t, n) {
+        var on = n === i;
+        t.classList.toggle("is-active", on);
+        t.setAttribute("aria-selected", on ? "true" : "false");
+        t.tabIndex = on ? 0 : -1;
+      });
+      Array.prototype.forEach.call(imgs, function (im, n) { im.classList.toggle("is-active", n === i); });
+      Array.prototype.forEach.call(chips, function (c, n) { c.hidden = n !== i; c.classList.toggle("is-active", n === i); });
+    }
+    tabs.forEach(function (t, n) {
+      t.tabIndex = n === 0 ? 0 : -1;
+      t.addEventListener("click", function () { show(n); });
+      t.addEventListener("mouseenter", function () { if (window.matchMedia("(hover: hover)").matches) show(n); });
+      t.addEventListener("keydown", function (e) {
+        var k = e.key, to = null;
+        if (k === "ArrowDown" || k === "ArrowRight") to = (n + 1) % tabs.length;
+        if (k === "ArrowUp" || k === "ArrowLeft") to = (n - 1 + tabs.length) % tabs.length;
+        if (to !== null) { e.preventDefault(); show(to); tabs[to].focus(); }
+      });
+    });
+  });
+})();
