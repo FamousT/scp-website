@@ -1129,6 +1129,49 @@
     window.addEventListener("resize", () => { if (!box.hidden) paint(); });
   })();
 
+
+  /* ============================================================
+     SELECTED MATTERS SLIDER  (index.html #work)
+     Native horizontal scroll with snap; the arrows move one card
+     at a time and the bar shows where you are.
+     ============================================================ */
+  (function workSlider() {
+    document.querySelectorAll("[data-wslider]").forEach((wrap) => {
+      const track = wrap.querySelector(".wslider-track");
+      const sec = wrap.closest("section") || document;
+      const prev = sec.querySelector("[data-wslider-prev]");
+      const next = sec.querySelector("[data-wslider-next]");
+      const bar = sec.querySelector("[data-wslider-bar]");
+      if (!track) return;
+      const step = () => {
+        const card = track.querySelector(".work-card");
+        if (!card) return track.clientWidth;
+        const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+        return card.getBoundingClientRect().width + gap;
+      };
+      const update = () => {
+        const max = track.scrollWidth - track.clientWidth;
+        const x = track.scrollLeft;
+        if (prev) prev.disabled = x <= 2;
+        if (next) next.disabled = x >= max - 2;
+        if (bar) {
+          const vis = track.scrollWidth ? track.clientWidth / track.scrollWidth : 1;
+          bar.style.width = Math.min(100, vis * 100) + "%";
+          bar.style.left = (max > 0 ? (x / max) * (100 - vis * 100) : 0) + "%";
+        }
+      };
+      if (prev) prev.addEventListener("click", () => track.scrollBy({ left: -step(), behavior: "smooth" }));
+      if (next) next.addEventListener("click", () => track.scrollBy({ left: step(), behavior: "smooth" }));
+      track.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") { e.preventDefault(); track.scrollBy({ left: step(), behavior: "smooth" }); }
+        if (e.key === "ArrowLeft") { e.preventDefault(); track.scrollBy({ left: -step(), behavior: "smooth" }); }
+      });
+      track.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    });
+  })();
+
   /* ============================================================
      LATEST NEWSLETTER POSTS  (index.html #insights)
      The four cards are written into the page as a fallback, then
