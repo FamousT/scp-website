@@ -4245,3 +4245,9 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
   .pz-tab, .pz-tab-desc, .pz-tab-arrow, .pz-img, .evc-card, .evc-media img { transition: none; }
   .pz-chips.is-active { animation: none; }
 }
+
+/* Homepage hero on tall portrait screens (tablets, phones): a full-screen
+   hero leaves a large empty band, so size it to its content instead. */
+@media (max-width: 1024px) and (orientation: portrait) {
+  .hero { min-height: clamp(34rem, 62svh, 48rem); }
+}
