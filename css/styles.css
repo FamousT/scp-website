@@ -3901,3 +3901,9 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
 /* Form status messages on dark (navy) bands: keep the text readable */
 .section--navy .form-status { color: #fff; background: rgba(255, 255, 255, 0.08); }
 .section--navy .form-status.is-error { background: rgba(180, 69, 60, 0.25); }
+
+/* ---------- Newsletter consent line ---------- */
+.newsletter-form .newsletter-consent { flex: 1 1 100%; color: rgba(231, 236, 244, 0.82); font-size: 0.8rem; }
+.newsletter-form .newsletter-consent a { color: inherit; text-decoration: underline; }
+.section--white .newsletter-form .newsletter-consent { color: var(--body); }
+.form-status .form-fallback-link { font-weight: 600; text-decoration: underline; color: inherit; }

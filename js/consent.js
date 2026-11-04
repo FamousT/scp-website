@@ -2,9 +2,9 @@
    COOKIE CONSENT  (Nigeria Data Protection Act 2023)
    Nothing non-essential runs until the visitor chooses.
    - Analytics (Google Analytics 4) loads only after "Accept".
-   - Google Maps on the contact page loads with the page (no consent
-     gate). Any iframe given data-consent-src instead of src will
-     still wait for consent.
+   - Google Maps on the contact page loads only after "Accept", the
+     "Maps" switch, or the "Show map" button on the map itself.
+     Each map iframe carries data-consent-src instead of src.
    The choice is remembered across every page (see read/persist
    below) and can be changed at any time from "Cookie settings" in
    the footer.

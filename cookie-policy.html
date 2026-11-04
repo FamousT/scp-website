@@ -95,13 +95,13 @@
   <section class="section section--white">
     <div class="container">
       <div class="legal-doc prose reveal">
-          <p class="legal-updated"><em>Last updated: October 2026</em></p>
+          <p class="legal-updated"><em>Last updated: November 2026</em></p>
 
           <h2 class="legal-h">1. What cookies are</h2>
           <p>Cookies are small files that a website stores on your device. Similar technologies, such as your browser&rsquo;s local storage, work in much the same way. In this policy, &ldquo;cookies&rdquo; covers both.</p>
 
           <h2 class="legal-h">2. Your choice comes first</h2>
-          <p>When you first visit this website, a banner asks whether you accept or reject non-essential cookies. Until you choose, no analytics runs. The office maps on our contact page are provided by Google Maps and load with that page; Google may set its own cookies when they do. Rejecting them does not stop you using the website. You can change your choice at any time through <button type="button" class="footer-cookie-btn" data-cookie-settings>Cookie settings</button>, which also appears at the foot of every page. This approach follows the consent requirements of the Nigeria Data Protection Act 2023.</p>
+          <p>When you first visit this website, a banner asks whether you accept or reject non-essential cookies. Until you choose, no analytics runs and no maps load. The office maps on our contact page are provided by Google Maps; they load only if you accept them in the banner, switch on &ldquo;Maps&rdquo; under Manage preferences, or press &ldquo;Show map&rdquo; on the contact page. Rejecting non-essential cookies does not stop you using the website. You can change your choice at any time through <button type="button" class="footer-cookie-btn" data-cookie-settings>Cookie settings</button>, which also appears at the foot of every page. This approach follows the consent requirements of the Nigeria Data Protection Act 2023.</p>
 
           <h2 class="legal-h">3. The cookies we use</h2>
           <div class="table-wrap">
@@ -110,14 +110,14 @@
             <tbody>
               <tr><td>Strictly necessary</td><td><code>scp-consent</code> (local storage) and <code>scp_consent</code> (cookie)</td><td>SimmonsCooper Partners</td><td>Records your cookie choice so it applies on every page and we do not ask again.</td><td>12 months, or until you clear it</td></tr>
               <tr><td>Analytics (only with consent)</td><td><code>_ga</code>, <code>_ga_*</code></td><td>Google Analytics</td><td>Counts visits and shows us which pages are used, so we can improve the website. IP addresses are anonymised.</td><td>Up to 2 years</td></tr>
-              <tr><td>Maps (contact page only)</td><td>Set by Google, for example <code>NID</code></td><td>Google Maps</td><td>Displays the office maps on our contact page. Loads when you open that page.</td><td>Set by Google</td></tr>
+              <tr><td>Maps (contact page only, with consent)</td><td>Set by Google, for example <code>NID</code></td><td>Google Maps</td><td>Displays the office maps on our contact page. Loads only after you agree.</td><td>Set by Google</td></tr>
             </tbody>
           </table>
           </div>
           <p>We do not use advertising or marketing cookies.</p>
 
           <h2 class="legal-h">4. Withdrawing consent</h2>
-          <p>If you accepted analytics cookies and later reject them through Cookie settings, analytics stops at once and we remove the analytics cookies we can reach. You can also delete cookies through your browser settings.</p>
+          <p>If you accepted analytics cookies and later reject them through Cookie settings, analytics stops at once and we remove the analytics cookies we can reach. If you withdraw consent for maps, the maps will not load on your next visit to the contact page; cookies Google has already set can be removed through your browser settings. You can also delete cookies through your browser settings.</p>
 
           <h2 class="legal-h">5. Third-party cookies</h2>
           <p>Google sets and controls its own cookies under its own privacy policy. We have no access to them. They are set only if you agree.</p>
@@ -184,7 +184,7 @@
       <p class="cookie-eyebrow">Your privacy</p>
     </div>
     <p class="cookie-title" id="cookieTitle">Cookies on this site</p>
-    <p class="cookie-desc" id="cookieDesc">We would like to use analytics to understand how the site is used. It does not run unless you agree, and you can change your mind at any time. Our contact page shows Google Maps of our offices, and Google may set its own cookies when the maps load. <a href="cookie-policy.html">Read our Cookie Policy</a></p>
+    <p class="cookie-desc" id="cookieDesc">We would like to use analytics to understand how the site is used. It does not run unless you agree, and you can change your mind at any time. The office maps on our contact page come from Google Maps and load only if you allow them. <a href="cookie-policy.html">Read our Cookie Policy</a></p>
 
     <div class="cookie-prefs" id="cookiePrefs" hidden>
       <div class="cookie-pref">
@@ -194,6 +194,10 @@
       <label class="cookie-pref">
         <span class="cookie-pref-text"><span class="cookie-pref-name">Analytics</span><span class="cookie-pref-desc">Google Analytics, to measure visits and page use.</span></span>
         <input class="cookie-switch" type="checkbox" role="switch" name="consent-analytics" />
+      </label>
+      <label class="cookie-pref">
+        <span class="cookie-pref-text"><span class="cookie-pref-name">Maps</span><span class="cookie-pref-desc">Google Maps on our contact page. Google may set its own cookies.</span></span>
+        <input class="cookie-switch" type="checkbox" role="switch" name="consent-embeds" />
       </label>
       <button type="button" class="cookie-btn cookie-btn--fill cookie-btn--wide" data-consent="save">Save my choices</button>
     </div>

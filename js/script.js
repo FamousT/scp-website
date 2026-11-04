@@ -342,11 +342,39 @@
     i.value = window.location.href;
   });
 
+  /* ---------- Email fallback ----------
+     If FormSubmit cannot be reached (it has had outages), the visitor
+     is offered a ready-written email instead, so nothing is lost. */
+  const FALLBACK_TO = "scprecords@scp-law.com";
+  const mailtoHref = (subject, lines) =>
+    "mailto:" + FALLBACK_TO + "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(lines.filter(Boolean).join("\n"));
+  const fallbackStatus = (box, lead, href) => {
+    if (!box) return;
+    box.textContent = lead + " ";
+    const a = document.createElement("a");
+    a.href = href;
+    a.className = "form-fallback-link";
+    a.textContent = "Send it by email instead";
+    box.appendChild(a);
+    box.appendChild(document.createTextNode(" — your email app will open with your message filled in."));
+    box.classList.remove("is-ok");
+    box.classList.add("is-error", "is-shown");
+  };
+  /* fetch with a time limit, so a stalled service fails fast */
+  const postWithTimeout = (url, body, ms) => {
+    const ctl = window.AbortController ? new AbortController() : null;
+    const t = ctl ? setTimeout(() => ctl.abort(), ms) : null;
+    return fetch(url, { method: "POST", body, headers: { Accept: "application/json" }, signal: ctl ? ctl.signal : undefined })
+      .finally(() => { if (t) clearTimeout(t); });
+  };
+
   const showStatus = (form, message, isError) => {
     const box = form.querySelector(".form-status");
     if (!box) return;
     box.textContent = message;
-    box.classList.toggle("is-error", Boolean(isError));
+    box.classList.toggle("is-error", isError === true);
+    box.classList.toggle("is-ok", isError === false);
     box.classList.add("is-shown");
   };
 
@@ -364,20 +392,24 @@
       if (submit) submit.setAttribute("disabled", "disabled");
       showStatus(form, "Sending…");
 
-      fetch(action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/"), {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      })
+      postWithTimeout(action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/"), new FormData(form), 15000)
         .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok, body: j })))
         .then((res) => {
-          if (!res.ok || String(res.body.success) === "false") throw new Error("failed");
-          form.querySelectorAll('input[type="email"]').forEach((f) => (f.value = ""));
-          showStatus(form, "Thank you — your sign-up has been received. You will get a confirmation by email.");
+          if (!res.ok || String(res.body.success) === "false") throw new Error(res.body.message || "failed");
+          form.reset();
+          showStatus(form, "Thank you — your sign-up has been received. You will get a confirmation by email.", false);
           track("form_submit", { form_id: form.id, form_type: "newsletter", ok: true, source_page: pageName });
         })
         .catch(() => {
-          showStatus(form, "We could not send that just now. Please try again, or email scprecords@scp-law.com.", true);
+          const em = form.querySelector('input[type="email"]');
+          fallbackStatus(form.querySelector(".form-status"), "We could not send your sign-up just now.",
+            mailtoHref("Newsletter sign-up", [
+              "Please add me to the SimmonsCooper Partners email updates.",
+              "",
+              "Email: " + (em ? em.value.trim() : ""),
+              "I agree to receive email updates and can unsubscribe at any time.",
+              "(Sent from: " + pageName + " — " + document.title + ")",
+            ]));
           track("form_submit", { form_id: form.id, form_type: "newsletter", ok: false, source_page: pageName });
         })
         .then(() => {
@@ -671,7 +703,7 @@
       }
       setStatus("Sending your enquiry…", null);
 
-      fetch(AJAX, { method: "POST", body: data, headers: { Accept: "application/json" } })
+      postWithTimeout(AJAX, data, 15000)
         .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok, body: j })))
         .then((res) => {
           const success = res.ok && String(res.body.success) !== "false";
@@ -684,10 +716,16 @@
           track("enquiry_form_submit", { ok: true });
         })
         .catch(() => {
-          setStatus(
-            "We could not send that just now. Please try again, email scprecords@scp-law.com directly, or message us on WhatsApp.",
-            "is-error"
-          );
+          const v = (n) => ((form.elements[n] && form.elements[n].value) || "").trim();
+          fallbackStatus(status, "We could not send your enquiry just now.",
+            mailtoHref("Website enquiry — " + v("name"), [
+              "Name: " + v("name"),
+              "Phone: " + v("phone"),
+              "Email: " + v("email"),
+              v("organisation") ? "Organisation: " + v("organisation") : "",
+              "",
+              v("enquiry"),
+            ]));
           track("enquiry_form_submit", { ok: false });
         })
         .then(() => {
@@ -1089,6 +1127,87 @@
     });
 
     window.addEventListener("resize", () => { if (!box.hidden) paint(); });
+  })();
+
+  /* ============================================================
+     LATEST NEWSLETTER POSTS  (index.html #insights)
+     The four cards are written into the page as a fallback, then
+     replaced with the latest four posts from the Newsletter
+     category on resource.scp-law.com (WordPress REST API).
+     ============================================================ */
+  (function latestNewsletter() {
+    const wrap = document.querySelector("[data-wp-feed]");
+    if (!wrap || !window.fetch) return;
+    const lead = wrap.querySelector(".il-lead");
+    const list = wrap.querySelector(".il-list");
+    if (!lead || !list) return;
+
+    const plain = (html) => {
+      /* DOMParser never runs scripts or loads images from the feed */
+      const d = new DOMParser().parseFromString(html || "", "text/html");
+      return (d.body.textContent || "").replace(/\s+/g, " ").replace(/\s*\[(…|&hellip;|\.\.\.)\]\s*$/, "").trim();
+    };
+    const shorten = (text, max) => {
+      if (text.length <= max) return text;
+      const cut = text.slice(0, max);
+      const dot = cut.lastIndexOf(". ");
+      if (dot > max * 0.5) return cut.slice(0, dot + 1);
+      return cut.slice(0, cut.lastIndexOf(" ")) + "…";
+    };
+    const fmtDate = (iso) => {
+      const d = new Date(iso);
+      if (isNaN(d)) return "";
+      return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "Africa/Lagos" });
+    };
+    const safeUrl = (u) => (/^https:\/\//i.test(u || "") ? u : "");
+    const image = (post) => {
+      const m = post._embedded && post._embedded["wp:featuredmedia"] && post._embedded["wp:featuredmedia"][0];
+      if (!m) return "";
+      const sizes = (m.media_details && m.media_details.sizes) || {};
+      const pick = sizes["post-thumbnail"] || sizes.large || sizes.medium_large || sizes.full;
+      return safeUrl((pick && pick.source_url) || m.source_url);
+    };
+    const el = (tag, cls, text) => {
+      const n = document.createElement(tag);
+      if (cls) n.className = cls;
+      if (text != null) n.textContent = text;
+      return n;
+    };
+    const meta = (post) => el("p", "il-meta", fmtDate(post.date) + " • Newsletter");
+
+    window
+      .fetch(wrap.getAttribute("data-wp-feed"), { headers: { Accept: "application/json" } })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error("feed " + r.status))))
+      .then((posts) => {
+        posts = (Array.isArray(posts) ? posts : []).filter((p) => safeUrl(p.link) && p.title);
+        if (!posts.length) return;
+        posts = posts.slice(0, 4);
+
+        /* lead card */
+        const first = posts[0];
+        lead.setAttribute("href", first.link);
+        const img = image(first);
+        const leadImg = lead.querySelector(".il-img img");
+        if (img && leadImg) leadImg.setAttribute("src", img);
+        lead.querySelector(".il-meta").replaceWith(meta(first));
+        lead.querySelector(".il-title").textContent = plain(first.title.rendered);
+        lead.querySelector(".il-desc").textContent = shorten(plain(first.excerpt && first.excerpt.rendered), 170);
+
+        /* list rows */
+        const rows = posts.slice(1).map((post) => {
+          const a = el("a", "il-row");
+          a.href = post.link;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.setAttribute("data-type", "Newsletter");
+          a.appendChild(meta(post));
+          a.appendChild(el("h3", "il-title", plain(post.title.rendered)));
+          a.appendChild(el("p", "il-desc", shorten(plain(post.excerpt && post.excerpt.rendered), 160)));
+          return a;
+        });
+        list.replaceChildren(...rows);
+      })
+      .catch(() => { /* keep the cards already in the page */ });
   })();
 
 })();
