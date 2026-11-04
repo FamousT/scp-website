@@ -754,7 +754,7 @@
   }
   (function shuffleCaseStudies() {
     document.querySelectorAll("[data-shuffle]").forEach((list) => {
-      const items = Array.from(list.children).filter((el) => el.classList.contains("matter"));
+      const items = Array.from(list.children).filter((el) => el.classList.contains("matter") || el.classList.contains("work-card"));
       shuffledOrder(items.length).forEach((i) => list.appendChild(items[i]));
     });
 
