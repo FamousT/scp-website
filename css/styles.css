@@ -4334,3 +4334,109 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
 #insights .il-lead .il-desc { margin-top: 1.35rem; }
 #insights .il-row .il-meta { margin-bottom: 0.95rem; }
 #insights .il-row .il-desc { margin-top: 0.95rem; }
+
+/* ============================================================
+   PRACTICE AREAS PAGE — groups with image cards
+   ============================================================ */
+.pag-index {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+.pag-index-link {
+  display: flex; flex-direction: column; gap: 0.5rem;
+  padding: 1.25rem 1.25rem 1.3rem 0; margin-right: 1.25rem;
+  font-family: var(--sans); font-size: 0.86rem; line-height: 1.45; color: var(--ink);
+  border-right: 1px solid var(--line); transition: color 0.3s var(--ease);
+}
+.pag-index-link:last-child { border-right: 0; margin-right: 0; }
+.pag-index-link:hover { color: var(--accent); }
+.pag-index-num { font-family: var(--serif); font-size: 1.1rem; color: var(--accent-blue); }
+
+.pag-group { scroll-margin-top: 6rem; }
+.pag-group + .pag-group { margin-top: clamp(4rem, 8vw, 6.5rem); }
+.pag-head {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: end;
+  gap: 0.5rem clamp(1.25rem, 3vw, 2.5rem);
+  padding-bottom: 1.5rem; margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  border-bottom: 1px solid var(--line);
+}
+.pag-num { font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 3.8rem); line-height: 0.9; color: var(--accent-blue); }
+.pag-title { font-family: var(--serif); font-weight: 400; font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2.2rem); line-height: 1.2; color: var(--ink); max-width: 26ch; }
+.pag-desc { margin-top: 0.6rem; font-size: 0.95rem; line-height: 1.7; color: var(--muted); max-width: 58ch; }
+.pag-count { font-family: var(--sans); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label); white-space: nowrap; }
+
+.pag-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.75rem); }
+.pag-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* four practices: 2 x 2 */
+.pag-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.pag-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--white); border: 1px solid var(--line); color: inherit;
+  transition: box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+}
+.pag-card:hover { border-color: transparent; box-shadow: 0 22px 40px -22px rgba(20, 33, 63, 0.35); }
+.pag-card:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 3px; }
+.pag-media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--navy); }
+.pag-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s var(--ease); }
+.pag-card:hover .pag-media img { transform: scale(1.05); }
+.pag-body { display: flex; flex-direction: column; flex: 1; padding: clamp(1.4rem, 2.2vw, 1.9rem); }
+.pag-name { font-family: var(--serif); font-weight: 400; font-size: clamp(1.15rem, 1.4vw, 1.35rem); line-height: 1.3; color: var(--ink); transition: color 0.3s var(--ease); }
+.pag-card:hover .pag-name { color: var(--navy); }
+.pag-text { margin-top: 0.6rem; font-size: 0.9rem; line-height: 1.65; color: var(--muted); }
+.pag-more {
+  display: inline-flex; align-items: center; gap: 0.5rem; margin-top: auto; padding-top: 1.3rem;
+  font-family: var(--sans); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy);
+}
+.pag-more svg { width: 15px; height: 15px; transition: transform 0.35s var(--ease); }
+.pag-card:hover .pag-more svg { transform: translateX(4px); }
+
+/* a single practice: image beside the text, full width */
+.pag-grid--1 { grid-template-columns: 1fr; }
+.pag-grid--1 .pag-card { flex-direction: row; }
+.pag-grid--1 .pag-media { flex: 0 0 55%; aspect-ratio: auto; min-height: 20rem; }
+.pag-grid--1 .pag-body { justify-content: center; padding: clamp(1.75rem, 4vw, 3.25rem); }
+.pag-grid--1 .pag-name { font-size: clamp(1.4rem, 2vw, 1.8rem); }
+.pag-grid--1 .pag-text { font-size: 0.98rem; max-width: 40ch; }
+.pag-grid--1 .pag-more { margin-top: 1.6rem; padding-top: 0; }
+
+@media (max-width: 1000px) {
+  .pag-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pag-index-link:nth-child(2) { border-right: 0; margin-right: 0; }
+  .pag-index-link:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .pag-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pag-grid--1 { grid-template-columns: 1fr; }
+  .pag-grid--1 .pag-media { flex-basis: 50%; min-height: 15rem; }
+  .pag-grid--3 .pag-card:first-child { grid-column: 1 / -1; flex-direction: row; }
+  .pag-grid--3 .pag-card:first-child .pag-media { flex: 0 0 50%; aspect-ratio: auto; min-height: 15rem; }
+  .pag-grid--3 .pag-card:first-child .pag-body { justify-content: center; }
+  .pag-grid--3 .pag-card:first-child .pag-more { margin-top: 1.3rem; padding-top: 0; }
+  .pag-head { grid-template-columns: auto 1fr; }
+  .pag-count { grid-column: 2; }
+}
+@media (max-width: 640px) {
+  .pag-index { grid-template-columns: 1fr; }
+  .pag-index-link { flex-direction: row; align-items: baseline; gap: 0.9rem; padding: 0.9rem 0; margin-right: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .pag-index-link:last-child { border-bottom: 0; }
+  .pag-head { grid-template-columns: 1fr; align-items: start; }
+  .pag-count { grid-column: 1; }
+  .pag-grid, .pag-grid--2, .pag-grid--4 { grid-template-columns: 1fr; }
+  .pag-grid--1 .pag-card, .pag-grid--3 .pag-card:first-child { flex-direction: column; }
+  .pag-grid--1 .pag-media, .pag-grid--3 .pag-card:first-child .pag-media { flex: none; aspect-ratio: 16 / 10; min-height: 0; }
+  .pag-grid--1 .pag-more, .pag-grid--3 .pag-card:first-child .pag-more { margin-top: auto; padding-top: 1.3rem; }
+}
+@media (prefers-reduced-motion: reduce) { .pag-media img, .pag-more svg { transition: none; } }
+
+/* Practice Areas: each group is its own full-width band, alternating tones */
+.pag .pag-index { margin-bottom: clamp(3rem, 6vw, 4.5rem); }
+.pag-band { padding-block: clamp(4rem, 8vw, 6.5rem); }
+.pag-group + .pag-group { margin-top: 0; }
+.pag-band--white { background: var(--white); border-top: 1px solid var(--line-navy); border-bottom: 1px solid var(--line-navy); }
+.pag-band--paper { background: var(--paper); }
+/* cards contrast with whichever band they sit on */
+.pag-band--white .pag-card { background: var(--paper); }
+.pag-band--paper .pag-card { background: var(--white); }
+.pag-group { scroll-margin-top: 4.5rem; }
+@media (max-width: 640px) { .pag-band { padding-block: 3.5rem; } }
+#practice-groups.pag { padding-bottom: 0; }
