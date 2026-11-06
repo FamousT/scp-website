@@ -99,21 +99,14 @@
       <div class="reveal">
         <p class="eyebrow"><span class="rule"></span>Apply</p>
         <h2 class="section-title">Send your application.</h2>
-        <p class="section-note mt-lg">Apply using the form. Attach a CV and a covering letter — one page each is plenty. We acknowledge every application and respond to shortlisted candidates within two weeks.</p>
+        <p class="section-note mt-lg">Fill in the form and we will open an email for you to send, with your CV and covering letter attached — one page each is plenty. We acknowledge every application and respond to shortlisted candidates within two weeks.</p>
       </div>
 
       <div class="form-card reveal">
         <h3 class="section-title" style="font-size:1.5rem;max-width:24ch;margin-bottom:1.6rem;">Application form</h3>
-        <form class="form" id="careersForm" novalidate
-              action="https://formsubmit.co/scprecords@scp-law.com" method="POST"
-              enctype="multipart/form-data">
-          <!-- FormSubmit configuration -->
-          <input type="hidden" name="_subject" value="Careers application &#8212; SimmonsCooper Partners" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_autoresponse" value="Thank you for applying to SimmonsCooper Partners. We have received your application and will respond to shortlisted candidates within two weeks." />
-          <input type="hidden" name="_next" value="https://scp-law.com/careers.html" />
-          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <form class="form" id="careersForm" data-careers-form novalidate
+              action="mailto:scprecords@scp-law.com" method="POST"
+              enctype="text/plain">
           <div class="form-grid">
             <div class="field">
               <label class="field-label" for="careers-name">Full name <span class="req">*</span></label>
@@ -138,14 +131,7 @@
               </select>
             </div>
             <div class="field field--full">
-              <label class="field-label" for="careers-cv">CV <span class="req">*</span></label>
-              <input class="input" id="careers-cv" name="cv" type="file" accept=".pdf,.doc,.docx" required />
-              <p class="field-hint">PDF or Word, up to 5&nbsp;MB.</p>
-            </div>
-            <div class="field field--full">
-              <label class="field-label" for="careers-letter">Covering letter <span class="req">*</span></label>
-              <input class="input" id="careers-letter" name="cover_letter" type="file" accept=".pdf,.doc,.docx" required />
-              <p class="field-hint">PDF or Word, up to 5&nbsp;MB.</p>
+              <p class="field-hint careers-attach-note"><strong>Your CV and covering letter:</strong> when you press Submit, your email app opens with an application to scprecords@scp-law.com already written. Attach your CV and covering letter (PDF or Word) to that email, then send it.</p>
             </div>
             <div class="field field--full">
               <label class="field-label" for="careers-note">Anything else we should know?</label>
@@ -161,7 +147,7 @@
           <input type="hidden" name="source_page" value="" data-source-page />
           <div class="form-actions">
             <button class="btn btn--primary" type="submit" data-track="form:submit:careers">Submit application</button>
-            <p class="form-note">You will receive an acknowledgement by email as soon as you apply.</p>
+            <p class="form-note">Submit opens your email app. Remember to attach your CV and covering letter before you send.</p>
           </div>
           <div class="form-status" role="status"></div>
         </form>

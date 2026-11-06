@@ -113,12 +113,10 @@
         <p class="newsletter-desc">Updates on the ministries, commissions and agencies that decide whether regulated business gets done: what changed, what it means, and what to do about it.</p>
       </div>
       <div class="reveal">
-        <form class="newsletter-form" id="newsletterAbuja" data-form="newsletter" action="https://formsubmit.co/scprecords@scp-law.com" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Newsletter sign-up — Abuja page" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_autoresponse" value="Thank you for signing up to updates from SimmonsCooper Partners. We have received your request and will add your address to our mailing list. You can unsubscribe at any time by replying to any issue." />
-          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <form class="newsletter-form" id="newsletterAbuja" data-form="newsletter" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="subject" value="Newsletter sign-up — Abuja page" />
+          <input type="hidden" name="from_name" value="SimmonsCooper Partners website" />
+          <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label class="field-label is-hidden" for="newsletterAbuja-email">Email address</label>
           <input class="input" id="newsletterAbuja-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required />
           <button class="btn btn--primary" type="submit" data-track="form:submit:newsletterAbuja">Subscribe</button>
@@ -149,7 +147,7 @@
           <a class="person-link" href="people/ikem-isiekwena.html">View profile</a>
         </div>
         <div class="person reveal">
-          <div class="person-photo"><img src="images/team/babtunde%20irukera.jpeg" alt="Babatunde Irukera" loading="lazy" /></div>
+          <div class="person-photo"><img src="images/team/Babatunde%20Irukera.jpeg?v=20261106" alt="Babatunde Irukera" loading="lazy" /></div>
           <p class="person-name">Babatunde Irukera</p>
           <p class="person-role">Senior Partner &amp; Of Counsel</p>
           <p class="person-areas">Competition Law, Corporate Restructuring</p>

@@ -328,11 +328,11 @@
 
   /* ============================================================
      SOURCE CAPTURE + NEWSLETTER SIGN-UP FORMS
-     Every form posts to FormSubmit and is delivered by email to
-     scprecords@scp-law.com. There is no routing by topic or team.
-     Newsletter forms (form[data-form="newsletter"]) post through
-     FormSubmit's AJAX endpoint so the visitor stays on the page;
-     without JS they submit natively to the same address.
+     Enquiry and newsletter forms post to Web3Forms, which delivers
+     them by email to scprecords@scp-law.com (the inbox the access key
+     below was issued to). There is no routing by topic or team.
+     Careers applications open the applicant's own email app instead,
+     so they can attach a CV and covering letter.
      ============================================================ */
   const pageName = document.body.getAttribute("data-page") || "";
   document.querySelectorAll("[data-source-page]").forEach((i) => {
@@ -342,8 +342,29 @@
     i.value = window.location.href;
   });
 
+  /* ---------- Web3Forms access key ----------
+     Get a free key at https://web3forms.com (enter scprecords@scp-law.com;
+     the key arrives by email) and paste it between the quotes below.
+     Until a real key is set, forms skip straight to the email fallback. */
+  const WEB3FORMS_KEY = "7f9f5190-6e73-44d4-a857-3d4faecc2aeb";
+  const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+  const hasWeb3Key = /^[0-9a-f-]{30,}$/i.test(WEB3FORMS_KEY);
+  const web3Data = (form) => {
+    const fd = new FormData(form);
+    fd.set("access_key", WEB3FORMS_KEY);
+    return fd;
+  };
+  /* Web3Forms answers {success: true|false, message} */
+  const web3Send = (form) =>
+    (hasWeb3Key ? postWithTimeout(WEB3FORMS_URL, web3Data(form), 15000) : Promise.reject(new Error("no access key")))
+      .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok, body: j })))
+      .then((res) => {
+        if (!res.ok || res.body.success !== true) throw new Error(res.body.message || "failed");
+        return res;
+      });
+
   /* ---------- Email fallback ----------
-     If FormSubmit cannot be reached (it has had outages), the visitor
+     If the form service cannot be reached, the visitor
      is offered a ready-written email instead, so nothing is lost. */
   const FALLBACK_TO = "scprecords@scp-law.com";
   const mailtoHref = (subject, lines) =>
@@ -384,20 +405,17 @@
         e.preventDefault();
         return;
       }
-      const action = form.getAttribute("action") || "";
-      if (!window.fetch || action.indexOf("https://formsubmit.co/") !== 0) return; /* native POST */
+      if (!window.fetch) return; /* native POST */
 
       e.preventDefault();
       const submit = form.querySelector('button[type="submit"]');
       if (submit) submit.setAttribute("disabled", "disabled");
       showStatus(form, "Sending…");
 
-      postWithTimeout(action.replace("https://formsubmit.co/", "https://formsubmit.co/ajax/"), new FormData(form), 15000)
-        .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok, body: j })))
-        .then((res) => {
-          if (!res.ok || String(res.body.success) === "false") throw new Error(res.body.message || "failed");
+      web3Send(form)
+        .then(() => {
           form.reset();
-          showStatus(form, "Thank you — your sign-up has been received. You will get a confirmation by email.", false);
+          showStatus(form, "Thank you — your sign-up has been received.", false);
           track("form_submit", { form_id: form.id, form_type: "newsletter", ok: true, source_page: pageName });
         })
         .catch(() => {
@@ -612,9 +630,9 @@
 
   /* ============================================================
      ENQUIRY FORM  (contact.html)
-     Validates, then posts to FormSubmit's AJAX endpoint so the
-     visitor stays on the page. Without JS the form still submits
-     natively to the same endpoint.
+     Validates, then posts to Web3Forms so the visitor stays on
+     the page. If that fails, the visitor is offered a ready-written
+     email instead.
      ============================================================ */
   (function enquiryForm() {
     const form = document.querySelector("[data-enquiry-form]");
@@ -622,10 +640,6 @@
 
     const status = form.querySelector("[data-form-status]");
     const submit = form.querySelector('button[type="submit"]');
-    const AJAX = form.getAttribute("action").replace(
-      "https://formsubmit.co/",
-      "https://formsubmit.co/ajax/"
-    );
 
     const setStatus = (msg, kind) => {
       if (!status) return;
@@ -695,7 +709,6 @@
       if (!window.fetch) return; /* let the native POST happen */
 
       e.preventDefault();
-      const data = new FormData(form);
       if (submit) {
         submit.setAttribute("disabled", "disabled");
         submit.dataset.label = submit.textContent;
@@ -703,14 +716,11 @@
       }
       setStatus("Sending your enquiry…", null);
 
-      postWithTimeout(AJAX, data, 15000)
-        .then((r) => r.json().catch(() => ({})).then((j) => ({ ok: r.ok, body: j })))
-        .then((res) => {
-          const success = res.ok && String(res.body.success) !== "false";
-          if (!success) throw new Error(res.body.message || "Submission failed");
+      web3Send(form)
+        .then(() => {
           form.reset();
           setStatus(
-            "Thank you — your enquiry has been sent. You will receive an acknowledgement by email, and a substantive reply from a lawyer within 24 hours.",
+            "Thank you — your enquiry has been sent. A lawyer will reply within 24 hours.",
             "is-ok"
           );
           track("enquiry_form_submit", { ok: true });
@@ -737,6 +747,49 @@
     });
   })();
 
+
+  /* ============================================================
+     CAREERS APPLICATION  (careers.html)
+     Opens the applicant's email app with the application written
+     out, addressed to the firm, so they can attach their CV and
+     covering letter before sending.
+     ============================================================ */
+  (function careersForm() {
+    const form = document.querySelector("[data-careers-form]");
+    if (!form) return;
+    const status = form.querySelector(".form-status");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
+      const v = (n) => ((form.elements[n] && form.elements[n].value) || "").trim();
+      const href = mailtoHref("Careers application — " + v("name") + " — " + v("role"), [
+        "Dear SimmonsCooper Partners,",
+        "",
+        "Please find my application below. My CV and covering letter are attached.",
+        "",
+        "Name: " + v("name"),
+        "Email: " + v("email"),
+        "Role: " + v("role"),
+        "Preferred office: " + v("office"),
+        v("message") ? "\nAnything else:\n" + v("message") : "",
+        "",
+        "I consent to SimmonsCooper Partners storing and processing my application in line with the Privacy Policy and the Nigeria Data Protection Act.",
+      ]);
+      window.location.href = href;
+      if (status) {
+        status.textContent = "Your email app should now be open with your application written out. Attach your CV and covering letter, then press Send. ";
+        const a = document.createElement("a");
+        a.href = href;
+        a.className = "form-fallback-link";
+        a.textContent = "Nothing opened? Click here";
+        status.appendChild(a);
+        status.appendChild(document.createTextNode(", or email your application to " + FALLBACK_TO + "."));
+        status.classList.remove("is-error");
+        status.classList.add("is-ok", "is-shown");
+      }
+      track("form_submit", { form_id: form.id, form_type: "careers_email", ok: true, source_page: pageName });
+    });
+  })();
 
   /* ============================================================
      CASE STUDY ORDER — shuffled on every page load
@@ -903,6 +956,14 @@
     const inBtn = box.querySelector('[data-lb="in"]');
     const outBtn = box.querySelector('[data-lb="out"]');
     const resetBtn = box.querySelector('[data-lb="reset"]');
+    const prevBtn = box.querySelector('[data-lb="prev"]');
+    const nextBtn = box.querySelector('[data-lb="next"]');
+    const countEl = box.querySelector("[data-lb-count]");
+
+    /* gallery state: a trigger may list several images in data-gallery="a|b|c" */
+    let gallery = [];
+    let gIndex = 0;
+    let baseAlt = "";
 
     const MIN = 1;
     const MAX = 6;
@@ -965,27 +1026,51 @@
     };
 
     /* ---- opening ---- */
+    const setImage = (src, alt) => {
+      reset();
+      img.setAttribute("src", src);
+      img.setAttribute("alt", alt || "");
+      if (getBtn) {
+        getBtn.setAttribute("href", src);
+        let name = src.split("?")[0].split("/").pop() || "notice";
+        try { name = decodeURIComponent(name); } catch (err) { /* keep raw */ }
+        getBtn.setAttribute("download", name);
+      }
+    };
+
+    const showAt = (i) => {
+      if (!gallery.length) return;
+      gIndex = (i + gallery.length) % gallery.length;
+      const multi = gallery.length > 1;
+      setImage(gallery[gIndex], multi ? baseAlt + " (image " + (gIndex + 1) + " of " + gallery.length + ")" : baseAlt);
+      if (countEl) { countEl.hidden = !multi; countEl.textContent = (gIndex + 1) + " / " + gallery.length; }
+      if (prevBtn) prevBtn.hidden = !multi;
+      if (nextBtn) nextBtn.hidden = !multi;
+      /* warm the neighbours so stepping feels instant */
+      if (multi) [gIndex + 1, gIndex - 1].forEach((n) => { const pre = new Image(); pre.src = gallery[(n + gallery.length) % gallery.length]; });
+    };
+    const step = (d) => { if (gallery.length > 1) showAt(gIndex + d); };
+
     document.querySelectorAll("[data-lightbox]").forEach((trigger) => {
       trigger.addEventListener("click", () => {
         const src = trigger.getAttribute("data-lightbox");
         if (!src || !img) return;
         lastFocus = trigger;
-        reset();
-        img.setAttribute("src", src);
+        const list = (trigger.getAttribute("data-gallery") || "").split("|").map((x) => x.trim()).filter(Boolean);
+        gallery = list.length ? list : [src];
+        const start = gallery.indexOf(src);
         const inner = trigger.querySelector("img");
-        img.setAttribute("alt", inner ? inner.getAttribute("alt") || "" : "");
-        if (getBtn) {
-          getBtn.setAttribute("href", src);
-          let name = src.split("/").pop() || "notice";
-          try { name = decodeURIComponent(name); } catch (err) { /* keep raw */ }
-          getBtn.setAttribute("download", name);
-        }
+        baseAlt = inner ? inner.getAttribute("alt") || "" : "";
+        showAt(start < 0 ? 0 : start);
         box.hidden = false;
         document.body.style.overflow = "hidden";
         window.requestAnimationFrame(() => { box.classList.add("is-shown"); paint(); });
         if (closeBtn) closeBtn.focus();
       });
     });
+
+    if (prevBtn) prevBtn.addEventListener("click", (e) => { e.stopPropagation(); step(-1); });
+    if (nextBtn) nextBtn.addEventListener("click", (e) => { e.stopPropagation(); step(1); });
 
     /* ---- toolbar ---- */
     if (inBtn) inBtn.addEventListener("click", () => zoomTo(scale * STEP));
@@ -1095,6 +1180,15 @@
       });
 
       const release = (e) => {
+        /* swipe left / right between gallery images when not zoomed */
+        if (points.size === 1 && points.has(e.pointerId) && scale <= 1.001 && gallery.length > 1 && e.type === "pointerup") {
+          const sdx = e.clientX - startX;
+          const sdy = e.clientY - startY;
+          if (Math.abs(sdx) > 50 && Math.abs(sdx) > Math.abs(sdy) * 1.2) {
+            moved = true;
+            step(sdx < 0 ? 1 : -1);
+          }
+        }
         if (points.has(e.pointerId)) points.delete(e.pointerId);
         if (points.size < 2) pinchDist = 0;
         if (points.size === 0) {
@@ -1123,7 +1217,9 @@
       if (e.key === "Escape") { close(); return; }
       if (e.key === "+" || e.key === "=") { e.preventDefault(); zoomTo(scale * STEP); return; }
       if (e.key === "-" || e.key === "_") { e.preventDefault(); zoomTo(scale / STEP); return; }
-      if (e.key === "0") { e.preventDefault(); reset(); }
+      if (e.key === "0") { e.preventDefault(); reset(); return; }
+      if (e.key === "ArrowLeft" && scale <= 1.001) { e.preventDefault(); step(-1); return; }
+      if (e.key === "ArrowRight" && scale <= 1.001) { e.preventDefault(); step(1); }
     });
 
     window.addEventListener("resize", () => { if (!box.hidden) paint(); });
@@ -1216,7 +1312,7 @@
       if (text != null) n.textContent = text;
       return n;
     };
-    const meta = (post) => el("p", "il-meta", fmtDate(post.date) + " • Newsletter");
+    const meta = (post) => el("p", "il-meta", fmtDate(post.date));
 
     window
       .fetch(wrap.getAttribute("data-wp-feed"), { headers: { Accept: "application/json" } })

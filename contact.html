@@ -90,12 +90,12 @@
     <div class="container">
       <p class="page-eyebrow"><span class="rule"></span>Contact</p>
       <h1 class="page-title">Tell us what you <em>are working on.</em></h1>
-      <p class="page-lede">Send us an enquiry using the form below. You will receive an acknowledgement by email straight away and a substantive reply from a lawyer within 24 hours.</p>
+      <p class="page-lede">Send us an enquiry using the form below. You will see a confirmation as soon as it is sent, and a lawyer will reply within 24 hours.</p>
     </div>
   </section>
   <!-- ============ ENQUIRY BAND ============
        Left: what happens next. Right: the enquiry form, which posts to
-       FormSubmit and is delivered by email to scprecords@scp-law.com.
+       Web3Forms and is delivered by email to scprecords@scp-law.com.
        Every enquiry form and link on the site leads here.
   -->
   <section class="section enquiry-band" id="enquire">
@@ -105,7 +105,7 @@
         <h2 class="enquiry-band-title reveal">Tell us what <em>you need.</em></h2>
         <p class="enquiry-band-lede reveal">Describe your matter briefly and a lawyer will come back to you. For a job application, please use the <a href="careers.html">careers page</a>.</p>
         <ul class="enquiry-facts enquiry-facts--split reveal">
-          <li><span class="enquiry-fact-k">Acknowledgement</span><span class="enquiry-fact-v">Immediate, by email</span></li>
+          <li><span class="enquiry-fact-k">Acknowledgement</span><span class="enquiry-fact-v">Immediate, on screen</span></li>
           <li><span class="enquiry-fact-k">Substantive reply</span><span class="enquiry-fact-v">From a lawyer within 24 hours</span></li>
           <li><span class="enquiry-fact-k">Sent to</span><span class="enquiry-fact-v">Our central enquiries inbox</span></li>
           <li><span class="enquiry-fact-k">Your data</span><span class="enquiry-fact-v">Held under the Nigeria Data Protection Act</span></li>
@@ -114,16 +114,14 @@
 
       <div class="enquiry-form-col reveal">
         <form class="form form-card enquiry-form" id="enquiryForm" data-enquiry-form
-              action="https://formsubmit.co/scprecords@scp-law.com" method="POST" novalidate>
+              action="https://api.web3forms.com/submit" method="POST" novalidate>
           <p class="card-cat">Send an enquiry</p>
           <h3 class="enquiry-form-title">Write to us directly.</h3>
 
-          <!-- FormSubmit configuration -->
-          <input type="hidden" name="_subject" value="Website enquiry &#8212; SimmonsCooper Partners" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_autoresponse" value="Thank you for contacting SimmonsCooper Partners. We have received your enquiry and a lawyer will reply within 24 hours. Please do not send confidential or privileged material by email until we have confirmed we can act for you." />
-          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <!-- Web3Forms configuration (access key is added by js/script.js) -->
+          <input type="hidden" name="subject" value="Website enquiry &#8212; SimmonsCooper Partners" />
+          <input type="hidden" name="from_name" value="SimmonsCooper Partners website" />
+          <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
           <div class="form-grid">
             <div class="field field--full">
@@ -224,12 +222,10 @@
         <p class="newsletter-desc">Sign up for email updates on regulatory changes and new writing from the practice.</p>
       </div>
       <div class="reveal newsletter-cta">
-        <form class="newsletter-form" id="newsletterContact" data-form="newsletter" action="https://formsubmit.co/scprecords@scp-law.com" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Newsletter sign-up &#8212; contact page" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_autoresponse" value="Thank you for signing up to updates from SimmonsCooper Partners. We have received your request and will add your address to our mailing list. You can unsubscribe at any time by replying to any issue." />
-          <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <form class="newsletter-form" id="newsletterContact" data-form="newsletter" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="subject" value="Newsletter sign-up &#8212; contact page" />
+          <input type="hidden" name="from_name" value="SimmonsCooper Partners website" />
+          <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label class="field-label is-hidden" for="newsletterContact-email">Email address</label>
           <input class="input" id="newsletterContact-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required />
           <button class="btn btn--primary" type="submit" data-track="form:submit:newsletterContact">Subscribe</button>
