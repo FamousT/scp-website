@@ -2031,17 +2031,17 @@ body[data-page="people"] .people-grid {
    PRACTICE AREAS — team grid: three columns
    ============================================================ */
 body[data-page="practice"] #team .people-grid,
-body[data-page="abuja"] #team .people-grid {
+body[data-page="offices"] #team .people-grid {
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(1.4rem, 2.8vw, 2.2rem);
 }
 @media (max-width: 900px) {
   body[data-page="practice"] #team .people-grid,
-body[data-page="abuja"] #team .people-grid { grid-template-columns: repeat(2, 1fr); }
+body[data-page="offices"] #team .people-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
   body[data-page="practice"] #team .people-grid,
-body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
+body[data-page="offices"] #team .people-grid { grid-template-columns: 1fr; }
 }
 
 /* ---------- Footer: two office columns ---------- */
@@ -4098,7 +4098,7 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
   /* --- people cards: three across, not two oversized portraits --- */
   body[data-page="people"] .people-grid,
   body[data-page="practice"] #team .people-grid,
-  body[data-page="abuja"] #team .people-grid {
+  body[data-page="offices"] #team .people-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem 1.2rem;
   }
@@ -4339,7 +4339,7 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
    PRACTICE AREAS PAGE — groups with image cards
    ============================================================ */
 .pag-index {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
   border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
   margin-bottom: clamp(3rem, 6vw, 5rem);
 }
@@ -4403,8 +4403,8 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
 
 @media (max-width: 1000px) {
   .pag-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pag-index-link:nth-child(2) { border-right: 0; margin-right: 0; }
-  .pag-index-link:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .pag-index-link:nth-child(even) { border-right: 0; margin-right: 0; }
+  .pag-index-link:nth-child(-n+4) { border-bottom: 1px solid var(--line); }
   .pag-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pag-grid--1 { grid-template-columns: 1fr; }
   .pag-grid--1 .pag-media { flex-basis: 50%; min-height: 15rem; }
@@ -4440,3 +4440,113 @@ body[data-page="abuja"] #team .people-grid { grid-template-columns: 1fr; }
 .pag-group { scroll-margin-top: 4.5rem; }
 @media (max-width: 640px) { .pag-band { padding-block: 3.5rem; } }
 #practice-groups.pag { padding-bottom: 0; }
+
+/* Practice areas: sub-categories listed under each group (tags on profiles link here) */
+.pag-also { margin-top: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem 1.25rem; }
+.pag-also--lead { margin-top: 0; }
+.pag-also-label { font-family: var(--sans); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label); }
+.pag-also-list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.pag-also-list li { font-size: 0.86rem; color: var(--ink); border: 1px solid var(--line); padding: 0.4rem 0.8rem; scroll-margin-top: 7rem; }
+a.tag { transition: color 0.2s, border-color 0.2s; }
+a.tag:hover, a.tag:focus-visible { color: var(--navy); border-color: var(--accent-blue); }
+
+/* Our Offices page: Lagos and Abuja side by side */
+.office-card h3.office-name { font-weight: 400; }
+.office-sub { font-family: var(--sans); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--label); margin-bottom: 0.5rem; }
+.office-focus p:not(.office-sub) { font-size: 0.94rem; line-height: 1.7; color: var(--body); }
+.office-team-list { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 1.25rem; font-size: 0.88rem; line-height: 1.9; }
+.office-team-list a { color: var(--ink); border-bottom: 1px solid transparent; transition: border-color 0.3s var(--ease); }
+.office-team-list a:hover { border-bottom-color: currentColor; }
+@media (max-width: 560px) { .office-team-list { columns: 1; } }
+
+/* About Us page */
+.about-h { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; color: var(--ink); margin-top: 1.8rem; margin-bottom: 0.4rem; }
+.about-groups { padding-left: 1.1rem; }
+.about-groups li { margin-bottom: 0.8rem; line-height: 1.7; }
+.about-groups a { color: var(--navy); font-weight: 600; border-bottom: 1px solid var(--line); }
+.about-groups a:hover { border-bottom-color: currentColor; }
+
+/* Our People: office label on cards, office filter, lawyer/back-office groups */
+.person-office { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 0.3rem; }
+.people-office-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem; margin: 0 0 clamp(2rem, 4vw, 3rem); }
+.people-office-label { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--label); margin-right: 0.4rem; }
+.people-group-head h2 { font-family: var(--sans); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--label); }
+
+/* Headings: one upright style throughout (no italic run-ins) */
+h1 em, h2 em, h3 em, h4 em, h5 em, h6 em,
+h1 i, h2 i, h3 i, h4 i, h5 i, h6 i,
+.page-title em, .hero-title em, .section-title em, .enquiry-band-title em { font-style: normal; color: inherit; }
+
+/* ============ About page (redesign) ============ */
+.ab-banner .page-banner-bg img { object-position: center 60%; }
+.ab-split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
+.ab-intro-text p:not(.eyebrow) { margin-top: 1.2rem; line-height: 1.8; color: var(--body); max-width: 60ch; }
+.ab-intro-text .section-title { max-width: 22ch; }
+.ab-intro-text .link-underline { display: inline-block; margin-top: 1.8rem; }
+.ab-figure { margin: 0; }
+.ab-figure img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; border-radius: 2px; }
+.ab-figure--tall { aspect-ratio: 4 / 5; position: relative; }
+.ab-figure figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5rem 1.2rem 1rem; font-size: 0.78rem; letter-spacing: 0.04em; color: var(--paper-on-navy); background: linear-gradient(to top, rgba(20, 33, 63, 0.85), rgba(20, 33, 63, 0)); border-radius: 0 0 2px 2px; }
+.ab-facts { background: var(--navy); color: var(--paper-on-navy); padding-block: clamp(2.5rem, 5vw, 3.5rem); }
+.ab-facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.ab-fact { border-left: 1px solid var(--line-light); padding-left: 1.4rem; }
+.ab-fact-num { font-family: var(--serif); font-size: clamp(2rem, 3.6vw, 2.8rem); line-height: 1; color: #fff; }
+.ab-fact-label { margin-top: 0.7rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-on-navy); line-height: 1.5; }
+.ab-principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.ab-principle { background: var(--white); border: 1px solid var(--line); border-radius: 2px; padding: clamp(1.6rem, 3vw, 2.4rem); }
+.ab-principle-num { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; color: var(--accent-blue); }
+.ab-principle-title { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; line-height: 1.35; color: var(--ink); margin: 0.9rem 0 0.8rem; }
+.ab-principle p:not(.ab-principle-num) { line-height: 1.8; color: var(--body); font-size: 0.95rem; }
+.ab-practices { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line-navy); }
+.ab-practices li { border-bottom: 1px solid var(--line-navy); }
+.ab-practices a { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr) minmax(0, 1.2fr); gap: 1.5rem; align-items: baseline; padding: 1.6rem 0; color: inherit; text-decoration: none; transition: background 0.3s var(--ease), padding 0.3s var(--ease); }
+.ab-practices a:hover { background: var(--paper); padding-inline: 1rem; }
+.ab-p-num { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; color: var(--label); }
+.ab-p-name { font-family: var(--serif); font-size: 1.25rem; line-height: 1.35; color: var(--ink); }
+.ab-p-areas { font-size: 0.93rem; line-height: 1.7; color: var(--muted); }
+.ab-offices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.ab-office { background: var(--white); border: 1px solid var(--line); border-radius: 2px; overflow: hidden; display: flex; flex-direction: column; }
+.ab-office-media { aspect-ratio: 5 / 4; overflow: hidden; background: var(--navy); }
+.ab-office-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s var(--ease); }
+.ab-office:hover .ab-office-media img { transform: scale(1.03); }
+.ab-office-body { padding: clamp(1.4rem, 3vw, 2rem); }
+.ab-office-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--label); }
+.ab-office-name { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; color: var(--ink); margin: 0.5rem 0 0.6rem; }
+.ab-office-addr { color: var(--body); line-height: 1.7; margin-bottom: 1.2rem; }
+@media (max-width: 900px) {
+  .ab-split { grid-template-columns: 1fr; }
+  .ab-figure--tall { aspect-ratio: 4 / 3; }
+  .ab-facts-grid { grid-template-columns: repeat(2, 1fr); row-gap: 2rem; }
+  .ab-principles, .ab-offices { grid-template-columns: 1fr; }
+  .ab-practices a { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 0.4rem 1rem; }
+  .ab-p-areas { grid-column: 2; }
+}
+
+/* Profile pages: practice areas listed under Sectors */
+.prose .profile-tags { margin-top: 0.9rem; }
+.prose .profile-tags .tag { text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color 0.3s var(--ease), color 0.3s var(--ease); }
+.prose .profile-tags .tag:hover { color: var(--navy); border-color: var(--label); }
+
+/* ============ Careers page (redesign) ============ */
+.cr-banner .page-banner-bg img { object-position: center 35%; }
+.cr-banner-actions { margin-top: 2rem; }
+.cr-points { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.6rem; }
+.cr-points li { border-left: 2px solid var(--accent-blue); padding-left: 1.2rem; }
+.cr-points h3 { font-family: var(--serif); font-weight: 400; font-size: 1.2rem; color: var(--ink); margin-bottom: 0.4rem; }
+.cr-points p { line-height: 1.75; color: var(--body); max-width: 56ch; }
+.cr-offices { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.cr-office { background: var(--white); border: 1px solid var(--line); border-radius: 2px; padding: clamp(1.4rem, 3vw, 2rem); }
+.cr-office-tag { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--label); }
+.cr-office h3 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; color: var(--ink); margin: 0.5rem 0 0.3rem; }
+.cr-office p:not(.cr-office-tag) { color: var(--muted); }
+.cr-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; counter-reset: none; }
+.cr-steps li { border-top: 1px solid var(--line-navy); padding-top: 1.4rem; }
+.cr-step-num { font-family: var(--serif); font-size: 2.2rem; line-height: 1; color: var(--accent-blue); }
+.cr-steps h3 { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; color: var(--ink); margin: 1rem 0 0.5rem; }
+.cr-steps p { line-height: 1.75; color: var(--body); }
+.cr-apply .form-card { background: var(--white); color: var(--body); }
+.cr-apply .form-card p { color: var(--muted); }
+.cr-form-title { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; color: var(--ink) !important; margin-bottom: 1.6rem; }
+@media (max-width: 900px) {
+  .cr-offices, .cr-steps { grid-template-columns: 1fr; }
+}

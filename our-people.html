@@ -39,39 +39,58 @@
       </a>
 
       <nav class="nav" id="primaryNav" aria-label="Primary">
+        <a href="about-us.html" class="nav-link">About Us</a>
         <div class="nav-item">
           <a href="practice-areas.html" class="nav-link" aria-haspopup="true">Practice Areas<span class="nav-caret" aria-hidden="true"></span></a>
           <div class="nav-panel nav-panel--groups">
           <div class="nav-group">
             <p class="nav-group-title">Corporate Commercial &amp; General Transactions</p>
             <a href="practice/competition-law.html">Competition</a>
+            <a href="practice-areas.html#corporate-commercial">Mergers &amp; Acquisitions</a>
+            <a href="practice/capital-markets-capital-raise.html">Finance</a>
+            <a href="practice/capital-markets-capital-raise.html">Private Equity</a>
             <a href="practice/corporate-restructuring.html">Corporate Restructuring</a>
             <a href="practice/labour-employment.html">Labour &amp; Employment</a>
-            <a href="practice/capital-markets-capital-raise.html">Capital Markets &amp; Capital Raise</a>
+            <a href="practice/capital-markets-capital-raise.html">Capital Formation &amp; Capital Raise</a>
           </div>
           <div class="nav-group">
             <p class="nav-group-title">Specialised Transactions</p>
-            <a href="practice/energy.html">Energy (H&amp;R)</a>
-            <a href="practice/tech-ai.html">Tech &amp; AI</a>
+            <a href="practice/energy.html">Energy (Hydrocarbons &amp; Renewables)</a>
+            <a href="practice-areas.html#specialised-transactions">Projects</a>
+            <a href="practice/tech-ai.html">Tech &amp; IP</a>
+            <a href="practice-areas.html#specialised-transactions">Transport</a>
+            <a href="practice/tech-ai.html">Media</a>
             <a href="practice/international-trade-law.html">International Trade Law</a>
           </div>
           <div class="nav-group">
-            <p class="nav-group-title">Individual &amp; Family Funds &amp; Enterprise Advisory</p>
-            <a href="practice/wealth-management-smes.html">Wealth Management &amp; SMEs</a>
+            <p class="nav-group-title">Private Client &amp; Enterprise Advisory</p>
+            <a href="practice/wealth-management-smes.html">Wealth Management</a>
+            <a href="practice/wealth-management-smes.html">Family Legacy Planning</a>
+            <a href="practice/wealth-management-smes.html">Company Secretariat</a>
+            <a href="practice/wealth-management-smes.html">SME Advisory</a>
           </div>
           <div class="nav-group">
             <p class="nav-group-title">Public Governance &amp; Fiscal Advisory</p>
-            <a href="practice/tax-advisory.html">Tax Advisory</a>
-            <a href="practice/consumer-credit-dml.html">Consumer Credit &amp; Digital Money Lending</a>
+            <a href="practice-areas.html#public-governance-fiscal">Policy</a>
+            <a href="practice/tax-advisory.html">Tax</a>
+            <a href="practice/consumer-credit-dml.html">Consumer Credit</a>
+            <a href="practice/consumer-credit-dml.html">Digital Money Lending</a>
+            <a href="practice-areas.html#public-governance-fiscal">Capacity Building</a>
+          </div>
+          <div class="nav-group">
+            <p class="nav-group-title">Dispute Resolution</p>
+            <a href="practice-areas.html#dispute-resolution">Commercial Litigation</a>
+            <a href="practice-areas.html#dispute-resolution">Arbitration</a>
+            <a href="practice-areas.html#dispute-resolution">Mediation</a>
           </div>
 
-            <div class="nav-panel-foot"><a href="services.html">All paid services &#8594;</a></div>
+            <div class="nav-panel-foot"><a href="services.html">All Services &#8594;</a></div>
           </div>
         </div>
+        <a href="our-people.html" class="nav-link active">Our People</a>
         <a href="our-work.html" class="nav-link">Our Work</a>
         <a href="insights.html" class="nav-link">Insights</a>
-        <a href="abuja.html" class="nav-link">Abuja</a>
-        <a href="our-people.html" class="nav-link active">Our People</a>
+        <a href="our-offices.html" class="nav-link">Our Offices</a>
         <a href="careers.html" class="nav-link">Careers</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
@@ -89,8 +108,8 @@
     <div class="page-banner-bg" aria-hidden="true"><img src="images/team/Lagos4.jpg" alt="" /></div>
     <div class="container">
       <p class="page-eyebrow"><span class="rule"></span>Our People</p>
-      <h1 class="page-title">The lawyers behind <em>the mandates.</em></h1>
-      <p class="page-lede">Listed in order of seniority. Each profile carries a photograph, biography, practice areas, published writing and a direct route to request a meeting.</p>
+      <h1 class="page-title">The lawyers behind the mandates.</h1>
+      <p class="page-lede">Lawyers are listed in order of seniority, followed by our back office team. Filter by office to see who is based in Lagos or Abuja. Each profile carries a photograph, biography, practice areas, published writing and a direct route to request a meeting.</p>
     </div>
   </section>
   <section class="section section--paper">
@@ -108,218 +127,256 @@
 
       <p class="people-search-empty is-hidden" data-people-empty>No one matches that search. <button class="chip" type="button" data-people-clear>Clear search</button></p>
 
-      <div class="people-grid people-grid--all">
-        <div class="person reveal">
+      <div class="people-office-filter reveal" role="group" aria-label="Filter by office">
+        <span class="people-office-label">Office</span>
+        <button class="chip is-active" type="button" data-office-filter="all" aria-pressed="true">All offices</button>
+        <button class="chip" type="button" data-office-filter="lagos" aria-pressed="false">Lagos (Head Office)</button>
+        <button class="chip" type="button" data-office-filter="abuja" aria-pressed="false">Abuja</button>
+      </div>
+
+      <div class="people-group" id="lawyers">
+        <div class="people-group-head"><h2>Lawyers</h2><span>25</span></div>
+        <div class="people-grid people-grid--all">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/dapo-akinosun.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Oladapo%20Akinosun.JPG" alt="Dapo Akinosun, SAN" loading="lazy" /></div></a>
           <p class="person-name">Dapo Akinosun, SAN</p>
           <p class="person-role">Founding &amp; Senior Partner</p>
-          <p class="person-areas">Energy (Hydrocarbon &amp; Renewable), Dispute Resolution</p>
-          <a class="person-link" href="people/dapo-akinosun.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Energy (Hydrocarbons &amp; Renewables), Dispute Resolution</p>
+          <a class="person-link" href="people/dapo-akinosun.html" aria-label="View profile of Dapo Akinosun, SAN">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/babatunde-irukera.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Babatunde%20Irukera.jpeg?v=20261106" alt="Babatunde Irukera" loading="lazy" /></div></a>
           <p class="person-name">Babatunde Irukera</p>
-          <p class="person-role">Senior Partner &amp; Of Counsel</p>
-          <p class="person-areas">Competition Law, Corporate Restructuring</p>
-          <a class="person-link" href="people/babatunde-irukera.html">View profile</a>
+          <p class="person-role">Founding Partner &amp; Of Counsel</p>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Competition, Corporate Restructuring</p>
+          <a class="person-link" href="people/babatunde-irukera.html" aria-label="View profile of Babatunde Irukera">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/ikem-isiekwena.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Ikem%20001.jpg" alt="Ikem Isiekwena" loading="lazy" /></div></a>
           <p class="person-name">Ikem Isiekwena</p>
           <p class="person-role">Managing Partner</p>
-          <p class="person-areas">Competition Law, Corporate Restructuring, Finance, Private Equity, Capital Markets &amp; Capital Raise, Energy (Hydrocarbon &amp; Renewable), International Trade Law</p>
-          <a class="person-link" href="people/ikem-isiekwena.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Competition, Corporate Restructuring, Finance, Private Equity, Capital Formation &amp; Capital Raise, Energy (Hydrocarbons &amp; Renewables), International Trade Law</p>
+          <a class="person-link" href="people/ikem-isiekwena.html" aria-label="View profile of Ikem Isiekwena">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/funmilola-mesaiyete.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Funmilola%20Mesaiyete%20003.jpg" alt="Funmilola Mesaiyete" loading="lazy" /></div></a>
           <p class="person-name">Funmilola Mesaiyete</p>
           <p class="person-role">Deputy Managing Partner</p>
-          <p class="person-areas">Family Office, Wealth Management &amp; SMEs, Company Secretariat, Competition Law</p>
-          <a class="person-link" href="people/funmilola-mesaiyete.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Family Legacy Planning, Wealth Management, SME Advisory, Company Secretariat, Competition, International Trade Law</p>
+          <a class="person-link" href="people/funmilola-mesaiyete.html" aria-label="View profile of Funmilola Mesaiyete">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/victoria-alonge.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Victoria%20Alonge%20003.jpg" alt="Victoria Alonge" loading="lazy" /></div></a>
           <p class="person-name">Victoria Alonge</p>
           <p class="person-role">Partner</p>
-          <p class="person-areas">Litigation, Public Sector &amp; Regulatory Advisory, International Trade Law</p>
-          <a class="person-link" href="people/victoria-alonge.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Commercial Litigation, Policy, International Trade Law</p>
+          <a class="person-link" href="people/victoria-alonge.html" aria-label="View profile of Victoria Alonge">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/bashir-ramoni.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Bashir%20Ramoni.jpg" alt="Bashir Ramoni" loading="lazy" /></div></a>
           <p class="person-name">Bashir Ramoni</p>
           <p class="person-role">Partner</p>
-          <p class="person-areas">Tax Advisory, Commercial &amp; Civil Litigation, Arbitration &amp; Mediation, Tech &amp; AI</p>
-          <a class="person-link" href="people/bashir-ramoni.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Tax, Commercial Litigation, Arbitration, Mediation, Tech &amp; IP</p>
+          <a class="person-link" href="people/bashir-ramoni.html" aria-label="View profile of Bashir Ramoni">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/adegoke-adedoyin.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Adegoke%20Adedoyin.jpg" alt="Adegoke Adedoyin" loading="lazy" /></div></a>
           <p class="person-name">Adegoke Adedoyin</p>
           <p class="person-role">Partner</p>
-          <p class="person-areas">Dispute Resolution, Arbitration &amp; Mediation, Energy (Hydrocarbon &amp; Renewable), Projects, Transport, Media, Renewables, Climate, Tech &amp; AI</p>
-          <a class="person-link" href="people/adegoke-adedoyin.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Dispute Resolution, Arbitration, Mediation, Energy (Hydrocarbons &amp; Renewables), Projects, Transport, Media, Tech &amp; IP</p>
+          <a class="person-link" href="people/adegoke-adedoyin.html" aria-label="View profile of Adegoke Adedoyin">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/akintayo-iwilade.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Akintayo%20Iwilade.jpg" alt="Akintayo Iwilade" loading="lazy" /></div></a>
           <p class="person-name">Akintayo Iwilade</p>
           <p class="person-role">Partner</p>
-          <p class="person-areas">China Desk &middot; International Trade, Consumer Credit &amp; Digital Money Lending, Rules Making &amp; Policy, Bonds, Budgets, Procurement &amp; Capacity Building, Tax Advisory</p>
-          <a class="person-link" href="people/akintayo-iwilade.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">China Desk &middot; International Trade, Consumer Credit &amp; Digital Money Lending, Policy, Capacity Building, Tax</p>
+          <a class="person-link" href="people/akintayo-iwilade.html" aria-label="View profile of Akintayo Iwilade">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/samuel-oyenitun.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Samuel%20Oyenitun.jpg" alt="Samuel Oyenitun" loading="lazy" /></div></a>
           <p class="person-name">Samuel Oyenitun</p>
           <p class="person-role">Managing Senior Associate</p>
-          <p class="person-areas">Tax Advisory, Bonds, Budgets, Procurement &amp; Capacity Building, Rules Making &amp; Policy, Subsidiary Legislation Drafting, International Trade Law</p>
-          <a class="person-link" href="people/samuel-oyenitun.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Tax, Capacity Building, Policy, International Trade Law</p>
+          <a class="person-link" href="people/samuel-oyenitun.html" aria-label="View profile of Samuel Oyenitun">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/oluwadara-omoyele.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Oluwadara%20Omoyele%20003.jpg" alt="Oluwadara Omoyele" loading="lazy" /></div></a>
           <p class="person-name">Oluwadara Omoyele</p>
           <p class="person-role">Senior Associate</p>
-          <p class="person-areas">Competition Law, M&amp;A, Finance, Private Equity, Capital Markets &amp; Capital Raise, Corporate Restructuring</p>
-          <a class="person-link" href="people/oluwadara-omoyele.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Competition, Mergers &amp; Acquisitions, Finance, Private Equity, Capital Formation &amp; Capital Raise, Corporate Restructuring</p>
+          <a class="person-link" href="people/oluwadara-omoyele.html" aria-label="View profile of Oluwadara Omoyele">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/temi-koya.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Temi%20Koya%20003.jpg" alt="Temi Koya" loading="lazy" /></div></a>
           <p class="person-name">Temi Koya</p>
           <p class="person-role">Senior Associate</p>
-          <p class="person-areas">Energy (Hydrocarbon &amp; Renewable), Tech &amp; IP, Media, M&amp;A, Finance, Competition Law, Consumer Credit &amp; Digital Money Lending, Tech &amp; AI, Corporate Restructuring</p>
-          <a class="person-link" href="people/temi-koya.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Energy (Hydrocarbons &amp; Renewables), Tech &amp; IP, Media, Mergers &amp; Acquisitions, Finance, Competition, Consumer Credit &amp; Digital Money Lending, Corporate Restructuring</p>
+          <a class="person-link" href="people/temi-koya.html" aria-label="View profile of Temi Koya">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="abuja">
           <a class="person-photo-link" href="people/john-ojelabi.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/John%20Ojelabi%20003.JPG" alt="John Ojelabi" loading="lazy" /></div></a>
           <p class="person-name">John Ojelabi</p>
           <p class="person-role">Senior Associate</p>
-          <p class="person-areas">Family Office, Wealth Management &amp; SMEs, Company Secretariat, Commercial &amp; Civil Litigation, Arbitration &amp; Mediation, Tech &amp; AI</p>
-          <a class="person-link" href="people/john-ojelabi.html">View profile</a>
+          <p class="person-office">Abuja office</p>
+          <p class="person-areas">Family Legacy Planning, Wealth Management, SME Advisory, Company Secretariat, Commercial Litigation, Arbitration, Mediation, Tech &amp; IP</p>
+          <a class="person-link" href="people/john-ojelabi.html" aria-label="View profile of John Ojelabi">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/paul-ordam.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Paul%20Ordam.jpg" alt="Paul Ordam" loading="lazy" /></div></a>
           <p class="person-name">Paul Ordam</p>
           <p class="person-role">Senior Associate</p>
-          <p class="person-areas">Commercial &amp; Civil Litigation, Arbitration &amp; Mediation, Tech &amp; AI</p>
-          <a class="person-link" href="people/paul-ordam.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Commercial Litigation, Arbitration, Mediation, Tech &amp; IP</p>
+          <a class="person-link" href="people/paul-ordam.html" aria-label="View profile of Paul Ordam">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="abuja">
           <a class="person-photo-link" href="people/ema-ogbe.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Ema%20Ogbe.JPG" alt="Ema Ogbe" loading="lazy" /></div></a>
           <p class="person-name">Ema Ogbe</p>
           <p class="person-role">Senior Associate</p>
-          <p class="person-areas">Competition Law, International Trade Law, Energy (Hydrocarbon &amp; Renewable), M&amp;A, Finance, Subsidiary Legislation Drafting, Corporate Restructuring</p>
-          <a class="person-link" href="people/ema-ogbe.html">View profile</a>
+          <p class="person-office">Abuja office</p>
+          <p class="person-areas">Competition, International Trade Law, Energy (Hydrocarbons &amp; Renewables), Mergers &amp; Acquisitions, Finance, Policy, Corporate Restructuring</p>
+          <a class="person-link" href="people/ema-ogbe.html" aria-label="View profile of Ema Ogbe">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/olayinka-alao.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Olayinka%20Alao%20002.jpg" alt="Olayinka Alao" loading="lazy" /></div></a>
           <p class="person-name">Olayinka Alao</p>
           <p class="person-role">Senior Associate</p>
-          <p class="person-areas">Commercial &amp; Civil Litigation, Arbitration &amp; Mediation, Tech &amp; IP, Transport, Climate, Tech &amp; AI, Energy (Hydrocarbon &amp; Renewable)</p>
-          <a class="person-link" href="people/olayinka-alao.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Commercial Litigation, Arbitration, Mediation, Tech &amp; IP, Transport, Energy (Hydrocarbons &amp; Renewables)</p>
+          <a class="person-link" href="people/olayinka-alao.html" aria-label="View profile of Olayinka Alao">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/dayo-bello.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Dayo%20Bello.jpg" alt="Dayo Bello" loading="lazy" /></div></a>
           <p class="person-name">Dayo Bello</p>
           <p class="person-role">Senior Associate</p>
-          <p class="person-areas">Commercial &amp; Civil Litigation, Labour &amp; Employment</p>
-          <a class="person-link" href="people/dayo-bello.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Commercial Litigation, Labour &amp; Employment</p>
+          <a class="person-link" href="people/dayo-bello.html" aria-label="View profile of Dayo Bello">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="abuja">
           <a class="person-photo-link" href="people/ritason-emurobome.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Ritason.jpeg" alt="Ritason Emurobome" loading="lazy" /></div></a>
           <p class="person-name">Ritason Emurobome</p>
           <p class="person-role">Senior Associate</p>
-          <p class="person-areas">Commercial &amp; Civil Litigation, Rules Making &amp; Policy, Subsidiary Legislation Drafting, Procurement &amp; Capacity Building, Consumer Credit &amp; Digital Money Lending</p>
-          <a class="person-link" href="people/ritason-emurobome.html">View profile</a>
+          <p class="person-office">Abuja office</p>
+          <p class="person-areas">Competition, Mergers &amp; Acquisitions, Consumer Credit &amp; Digital Money Lending, Corporate Restructuring, Energy (Hydrocarbons &amp; Renewables), Policy, Commercial Litigation</p>
+          <a class="person-link" href="people/ritason-emurobome.html" aria-label="View profile of Ritason Emurobome">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/mercy-ikeokwu.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Mercy%20Ikeokwu%20003.jpg" alt="Mercy Ikeokwu" loading="lazy" /></div></a>
           <p class="person-name">Mercy Ikeokwu</p>
           <p class="person-role">Associate</p>
-          <p class="person-areas">Competition Law, M&amp;A, Finance, Private Equity, Corporate Restructuring, International Trade Law</p>
-          <a class="person-link" href="people/mercy-ikeokwu.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Competition, Mergers &amp; Acquisitions, Finance, Private Equity, Corporate Restructuring, International Trade Law</p>
+          <a class="person-link" href="people/mercy-ikeokwu.html" aria-label="View profile of Mercy Ikeokwu">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="abuja">
           <a class="person-photo-link" href="people/sharon-omoregie.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Sharon%20Omoregie.JPG" alt="Sharon Omoregie" loading="lazy" /></div></a>
           <p class="person-name">Sharon Omoregie</p>
           <p class="person-role">Associate</p>
-          <p class="person-areas">M&amp;A, Capital Markets &amp; Capital Raise, Wealth Management &amp; SMEs, Company Secretariat, Consumer Credit &amp; Digital Money Lending, Corporate Restructuring</p>
-          <a class="person-link" href="people/sharon-omoregie.html">View profile</a>
+          <p class="person-office">Abuja office</p>
+          <p class="person-areas">Mergers &amp; Acquisitions, Capital Formation &amp; Capital Raise, Wealth Management, SME Advisory, Company Secretariat, Consumer Credit &amp; Digital Money Lending, Corporate Restructuring</p>
+          <a class="person-link" href="people/sharon-omoregie.html" aria-label="View profile of Sharon Omoregie">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/onyinye-igweonu.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Onyinye%20Igweonu.jpg" alt="Onyinye Igweonu" loading="lazy" /></div></a>
           <p class="person-name">Onyinye Igweonu</p>
           <p class="person-role">Associate</p>
-          <p class="person-areas">Corporate Restructuring, Finance, Bonds, Budgets, Procurement &amp; Capacity Building, Tax Advisory, International Trade Law</p>
-          <a class="person-link" href="people/onyinye-igweonu.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Corporate Restructuring, Finance, Capacity Building, Tax, International Trade Law</p>
+          <a class="person-link" href="people/onyinye-igweonu.html" aria-label="View profile of Onyinye Igweonu">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/oluwadolapo-owoyokun.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Dolapo%20Owoyokun.jpg" alt="Oluwadolapo Owoyokun" loading="lazy" /></div></a>
           <p class="person-name">Oluwadolapo Owoyokun</p>
           <p class="person-role">Associate</p>
-          <p class="person-areas">Tax Advisory, Energy (Hydrocarbon &amp; Renewable), Commercial &amp; Civil Litigation, Arbitration &amp; Mediation, Tech &amp; AI</p>
-          <a class="person-link" href="people/oluwadolapo-owoyokun.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Tax, Energy (Hydrocarbons &amp; Renewables), Commercial Litigation, Arbitration, Mediation, Tech &amp; IP</p>
+          <a class="person-link" href="people/oluwadolapo-owoyokun.html" aria-label="View profile of Oluwadolapo Owoyokun">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/judith-didigu.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Judith%20Didigu.jpg" alt="Judith Didigu" loading="lazy" /></div></a>
           <p class="person-name">Judith Didigu</p>
           <p class="person-role">Associate</p>
-          <p class="person-areas">Energy (Hydrocarbon &amp; Renewable), Capital Markets &amp; Capital Raise, Commercial &amp; Civil Litigation, Corporate Restructuring, International Trade Law</p>
-          <a class="person-link" href="people/judith-didigu.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Energy (Hydrocarbons &amp; Renewables), Capital Formation &amp; Capital Raise, Commercial Litigation, Corporate Restructuring, International Trade Law</p>
+          <a class="person-link" href="people/judith-didigu.html" aria-label="View profile of Judith Didigu">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/oluwaseyi-adebayo.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Oluwaseyi%20Adebayo.jpg" alt="Oluwaseyi Adebayo" loading="lazy" /></div></a>
           <p class="person-name">Oluwaseyi Adebayo</p>
           <p class="person-role">Associate</p>
-          <p class="person-areas">Wealth Management &amp; SMEs, Estate Planning, Commercial &amp; Civil Litigation, Company Secretariat, Energy (Hydrocarbon &amp; Renewable)</p>
-          <a class="person-link" href="people/oluwaseyi-adebayo.html">View profile</a>
+          <p class="person-office">Lagos office</p>
+          <p class="person-areas">Wealth Management, SME Advisory, Family Legacy Planning, Commercial Litigation, Company Secretariat, Energy (Hydrocarbons &amp; Renewables)</p>
+          <a class="person-link" href="people/oluwaseyi-adebayo.html" aria-label="View profile of Oluwaseyi Adebayo">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="abuja">
           <a class="person-photo-link" href="people/chinelo-obiekwe.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Chinelo%20Obiekwe.JPG" alt="Chinelo Obiekwe" loading="lazy" /></div></a>
           <p class="person-name">Chinelo Obiekwe</p>
           <p class="person-role">Associate</p>
-          <p class="person-areas">Company Secretariat, Commercial &amp; Civil Litigation, Arbitration &amp; Mediation, Rules Making, Subsidiary Legislation Drafting, Tech &amp; AI, Wealth Management &amp; SMEs, International Trade Law</p>
-          <a class="person-link" href="people/chinelo-obiekwe.html">View profile</a>
+          <p class="person-office">Abuja office</p>
+          <p class="person-areas">Company Secretariat, Commercial Litigation, Arbitration, Mediation, Policy, Tech &amp; IP, Wealth Management, SME Advisory, International Trade Law</p>
+          <a class="person-link" href="people/chinelo-obiekwe.html" aria-label="View profile of Chinelo Obiekwe">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="abuja">
           <a class="person-photo-link" href="people/victor-balogun.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Victor%20Balogun%20002.JPG" alt="Victor Balogun" loading="lazy" /></div></a>
           <p class="person-name">Victor Balogun</p>
           <p class="person-role">Associate</p>
-          <p class="person-areas">Commercial &amp; Civil Litigation, Arbitration &amp; Mediation, Procurement &amp; Capacity Building, Labour &amp; Employment, Tech &amp; AI, International Trade Law</p>
-          <a class="person-link" href="people/victor-balogun.html">View profile</a>
+          <p class="person-office">Abuja office</p>
+          <p class="person-areas">Commercial Litigation, Arbitration, Mediation, Capacity Building, Labour &amp; Employment, Tech &amp; IP, International Trade Law</p>
+          <a class="person-link" href="people/victor-balogun.html" aria-label="View profile of Victor Balogun">View profile</a>
         </div>
-        <div class="person reveal">
-          <a class="person-photo-link" href="people/rosecarmel-odeh.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Rosecarmel%20Odeh%20002.JPG" alt="Rosecarmel Odeh" loading="lazy" /></div></a>
-          <p class="person-name">Rosecarmel Odeh</p>
-          <p class="person-role">Associate</p>
-          <p class="person-areas">Energy (Hydrocarbon &amp; Renewable), Dispute Resolution</p>
-          <a class="person-link" href="people/rosecarmel-odeh.html">View profile</a>
         </div>
-        <div class="person reveal">
+      </div>
+
+      <div class="people-group" id="back-office">
+        <div class="people-group-head"><h2>Back Office</h2><span>4</span></div>
+        <div class="people-grid people-grid--all">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/love-adeniji.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Love%20Adeniji.jpg" alt="Love Adeniji" loading="lazy" /></div></a>
           <p class="person-name">Love Adeniji</p>
           <p class="person-role">Human Resource Manager</p>
+          <p class="person-office">Lagos office</p>
           <p class="person-areas">Talent Management, Knowledge Management, Business Risk</p>
-          <a class="person-link" href="people/love-adeniji.html">View profile</a>
+          <a class="person-link" href="people/love-adeniji.html" aria-label="View profile of Love Adeniji">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/oluwatoyosi-kukoyi.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Toyosi%20Kukoyi%20003.jpg" alt="Oluwatoyosi Kukoyi" loading="lazy" /></div></a>
           <p class="person-name">Oluwatoyosi Kukoyi</p>
           <p class="person-role">Information Resource/Document Management Manager</p>
+          <p class="person-office">Lagos office</p>
           <p class="person-areas">Information Resource, Document Management</p>
-          <a class="person-link" href="people/oluwatoyosi-kukoyi.html">View profile</a>
+          <a class="person-link" href="people/oluwatoyosi-kukoyi.html" aria-label="View profile of Oluwatoyosi Kukoyi">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/temitope-omotayo.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Temitope%20Omotayo.jpg" alt="Temitope Omotayo" loading="lazy" /></div></a>
           <p class="person-name">Temitope Omotayo</p>
           <p class="person-role">Accountant</p>
+          <p class="person-office">Lagos office</p>
           <p class="person-areas">Finance, Audit</p>
-          <a class="person-link" href="people/temitope-omotayo.html">View profile</a>
+          <a class="person-link" href="people/temitope-omotayo.html" aria-label="View profile of Temitope Omotayo">View profile</a>
         </div>
-        <div class="person reveal">
+        <div class="person reveal" data-office="lagos">
           <a class="person-photo-link" href="people/ifeoluwa-fashola.html" tabindex="-1" aria-hidden="true"><div class="person-photo"><img src="images/team/Ifeoluwa%20Fashola%20003.jpg" alt="Ifeoluwa Fashola" loading="lazy" /></div></a>
           <p class="person-name">Ifeoluwa Fashola</p>
-          <p class="person-role">Senior Executive Assistant</p>
+          <p class="person-role">Executive Assistant</p>
+          <p class="person-office">Lagos office</p>
           <p class="person-areas">Administration, Stakeholder Engagement</p>
-          <a class="person-link" href="people/ifeoluwa-fashola.html">View profile</a>
+          <a class="person-link" href="people/ifeoluwa-fashola.html" aria-label="View profile of Ifeoluwa Fashola">View profile</a>
         </div>
-            </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -349,7 +406,7 @@
 
 
       <div class="footer-col footer-offices">
-        <h2 class="footer-h">Lagos <span class="footer-hq">Head Office</span></h2>
+        <p class="footer-h">Lagos <span class="footer-hq">Head Office</span></p>
         <div class="footer-office">
           <span class="footer-addr">9th Floor Fortune Towers, 27/29 Adeyemo Alakija Street, Victoria Island, Lagos</span>
           <span class="footer-office-phone"><a href="tel:+23414614016">+234-1-461 4016-7</a></span>
@@ -358,7 +415,7 @@
       </div>
 
       <div class="footer-col footer-offices">
-        <h2 class="footer-h">Abuja</h2>
+        <p class="footer-h">Abuja</p>
         <div class="footer-office">
           <span class="footer-addr">No 9, Rima Street, Maitama, Abuja FCT</span>
           <span class="footer-office-phone"><a href="tel:+2349030710071">+234 903 071 0071</a></span>

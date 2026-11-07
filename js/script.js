@@ -522,12 +522,27 @@
       return {
         card: card,
         group: card.closest(".people-group"),
+        office: card.getAttribute("data-office") || "",
         haystack: norm([pick(".person-name"), pick(".person-role"), pick(".person-areas")].join(" ")),
       };
     });
 
     const total = records.length;
     let lastQuery = null;
+
+    /* Office filter (Lagos / Abuja). Also honours ?office=lagos|abuja in the URL. */
+    const officeChips = Array.from(document.querySelectorAll("[data-office-filter]"));
+    let office = "all";
+    try {
+      const fromUrl = (new URLSearchParams(window.location.search).get("office") || "").toLowerCase();
+      if (officeChips.some((c) => c.getAttribute("data-office-filter") === fromUrl)) office = fromUrl;
+    } catch (e) {}
+    const syncChips = () =>
+      officeChips.forEach((c) => {
+        const on = c.getAttribute("data-office-filter") === office;
+        c.classList.toggle("is-active", on);
+        c.setAttribute("aria-pressed", on ? "true" : "false");
+      });
 
     /* Remember each group's published headcount before any filtering. */
     groups.forEach((group) => {
@@ -540,7 +555,10 @@
     const setCount = (visible, query) => {
       if (!status) return;
       if (!query) {
-        status.textContent = total + " " + (total === 1 ? "person" : "people") + " listed.";
+        status.textContent =
+          office === "all"
+            ? total + " " + (total === 1 ? "person" : "people") + " listed."
+            : visible + " " + (visible === 1 ? "person" : "people") + " in the " + (office === "lagos" ? "Lagos" : "Abuja") + " office.";
         return;
       }
       status.textContent =
@@ -551,14 +569,15 @@
 
     const apply = () => {
       const query = norm(input.value);
-      if (query === lastQuery) return;
-      lastQuery = query;
+      if (query + "|" + office === lastQuery) return;
+      lastQuery = query + "|" + office;
+      const filtering = query !== "" || office !== "all";
 
       const terms = query ? query.split(" ") : [];
       let visible = 0;
 
       records.forEach((rec) => {
-        const ok = terms.every((t) => rec.haystack.indexOf(t) !== -1);
+        const ok = terms.every((t) => rec.haystack.indexOf(t) !== -1) && (office === "all" || rec.office === office);
         rec.card.classList.toggle("is-hidden", !ok);
         /* Cards revealed after the observer has passed still need the reveal class. */
         if (ok) {
@@ -572,12 +591,12 @@
       groups.forEach((group) => {
         const inGroup = records.filter((r) => r.group === group);
         const shown = inGroup.filter((r) => !r.card.classList.contains("is-hidden")).length;
-        group.classList.toggle("is-hidden", terms.length > 0 && shown === 0);
+        group.classList.toggle("is-hidden", filtering && shown === 0);
         const countEl = group.querySelector(".people-group-head span");
-        if (countEl) countEl.textContent = terms.length ? String(shown) : countEl.getAttribute("data-total") || String(inGroup.length);
+        if (countEl) countEl.textContent = filtering ? String(shown) : countEl.getAttribute("data-total") || String(inGroup.length);
       });
 
-      if (empty) empty.classList.toggle("is-hidden", visible > 0 || !terms.length);
+      if (empty) empty.classList.toggle("is-hidden", visible > 0 || !filtering);
 
       form.querySelectorAll("[data-people-clear]").forEach((btn) => {
         btn.hidden = !query;
@@ -619,7 +638,18 @@
       });
     });
 
-    setCount(total, "");
+    officeChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        office = chip.getAttribute("data-office-filter");
+        syncChips();
+        apply();
+        track("people_office_filter", { office: office });
+      });
+    });
+
+    syncChips();
+    if (office !== "all") apply();
+    else setCount(total, "");
   })();
 
 
@@ -720,7 +750,7 @@
         .then(() => {
           form.reset();
           setStatus(
-            "Thank you — your enquiry has been sent. A lawyer will reply within 24 hours.",
+            "Thank you — your enquiry has been sent. A lawyer will get in touch with you.",
             "is-ok"
           );
           track("enquiry_form_submit", { ok: true });

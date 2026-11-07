@@ -6,39 +6,58 @@
       </a>
 
       <nav class="nav" id="primaryNav" aria-label="Primary">
+        <a href="{{ root }}about-us.html" class="nav-link{% if page.nav == 'about' %} active{% endif %}">About Us</a>
         <div class="nav-item">
           <a href="{{ root }}practice-areas.html" class="nav-link{% if page.nav == 'practice' %} active{% endif %}" aria-haspopup="true">Practice Areas<span class="nav-caret" aria-hidden="true"></span></a>
           <div class="nav-panel nav-panel--groups">
           <div class="nav-group">
             <p class="nav-group-title">Corporate Commercial &amp; General Transactions</p>
             <a href="{{ root }}practice/competition-law.html">Competition</a>
+            <a href="{{ root }}practice-areas.html#corporate-commercial">Mergers &amp; Acquisitions</a>
+            <a href="{{ root }}practice/capital-markets-capital-raise.html">Finance</a>
+            <a href="{{ root }}practice/capital-markets-capital-raise.html">Private Equity</a>
             <a href="{{ root }}practice/corporate-restructuring.html">Corporate Restructuring</a>
             <a href="{{ root }}practice/labour-employment.html">Labour &amp; Employment</a>
-            <a href="{{ root }}practice/capital-markets-capital-raise.html">Capital Markets &amp; Capital Raise</a>
+            <a href="{{ root }}practice/capital-markets-capital-raise.html">Capital Formation &amp; Capital Raise</a>
           </div>
           <div class="nav-group">
             <p class="nav-group-title">Specialised Transactions</p>
-            <a href="{{ root }}practice/energy.html">Energy (H&amp;R)</a>
-            <a href="{{ root }}practice/tech-ai.html">Tech &amp; AI</a>
+            <a href="{{ root }}practice/energy.html">Energy (Hydrocarbons &amp; Renewables)</a>
+            <a href="{{ root }}practice-areas.html#specialised-transactions">Projects</a>
+            <a href="{{ root }}practice/tech-ai.html">Tech &amp; IP</a>
+            <a href="{{ root }}practice-areas.html#specialised-transactions">Transport</a>
+            <a href="{{ root }}practice/tech-ai.html">Media</a>
             <a href="{{ root }}practice/international-trade-law.html">International Trade Law</a>
           </div>
           <div class="nav-group">
-            <p class="nav-group-title">Individual &amp; Family Funds &amp; Enterprise Advisory</p>
-            <a href="{{ root }}practice/wealth-management-smes.html">Wealth Management &amp; SMEs</a>
+            <p class="nav-group-title">Private Client &amp; Enterprise Advisory</p>
+            <a href="{{ root }}practice/wealth-management-smes.html">Wealth Management</a>
+            <a href="{{ root }}practice/wealth-management-smes.html">Family Legacy Planning</a>
+            <a href="{{ root }}practice/wealth-management-smes.html">Company Secretariat</a>
+            <a href="{{ root }}practice/wealth-management-smes.html">SME Advisory</a>
           </div>
           <div class="nav-group">
             <p class="nav-group-title">Public Governance &amp; Fiscal Advisory</p>
-            <a href="{{ root }}practice/tax-advisory.html">Tax Advisory</a>
-            <a href="{{ root }}practice/consumer-credit-dml.html">Consumer Credit &amp; Digital Money Lending</a>
+            <a href="{{ root }}practice-areas.html#public-governance-fiscal">Policy</a>
+            <a href="{{ root }}practice/tax-advisory.html">Tax</a>
+            <a href="{{ root }}practice/consumer-credit-dml.html">Consumer Credit</a>
+            <a href="{{ root }}practice/consumer-credit-dml.html">Digital Money Lending</a>
+            <a href="{{ root }}practice-areas.html#public-governance-fiscal">Capacity Building</a>
+          </div>
+          <div class="nav-group">
+            <p class="nav-group-title">Dispute Resolution</p>
+            <a href="{{ root }}practice-areas.html#dispute-resolution">Commercial Litigation</a>
+            <a href="{{ root }}practice-areas.html#dispute-resolution">Arbitration</a>
+            <a href="{{ root }}practice-areas.html#dispute-resolution">Mediation</a>
           </div>
 
-            <div class="nav-panel-foot"><a href="{{ root }}services.html">All paid services &#8594;</a></div>
+            <div class="nav-panel-foot"><a href="{{ root }}services.html">All Services &#8594;</a></div>
           </div>
         </div>
+        <a href="{{ root }}our-people.html" class="nav-link{% if page.nav == 'people' %} active{% endif %}">Our People</a>
         <a href="{{ root }}our-work.html" class="nav-link{% if page.nav == 'work' %} active{% endif %}">Our Work</a>
         <a href="{{ root }}insights.html" class="nav-link{% if page.nav == 'insights' %} active{% endif %}">Insights</a>
-        <a href="{{ root }}abuja.html" class="nav-link{% if page.nav == 'abuja' %} active{% endif %}">Abuja</a>
-        <a href="{{ root }}our-people.html" class="nav-link{% if page.nav == 'people' %} active{% endif %}">Our People</a>
+        <a href="{{ root }}our-offices.html" class="nav-link{% if page.nav == 'offices' %} active{% endif %}">Our Offices</a>
         <a href="{{ root }}careers.html" class="nav-link{% if page.nav == 'careers' %} active{% endif %}">Careers</a>
         <a href="{{ root }}contact.html" class="nav-btn{% if page.nav == 'contact' %} active{% endif %}">Contact</a>
       </nav>
