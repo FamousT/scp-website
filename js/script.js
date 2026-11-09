@@ -555,10 +555,7 @@
     const setCount = (visible, query) => {
       if (!status) return;
       if (!query) {
-        status.textContent =
-          office === "all"
-            ? total + " " + (total === 1 ? "person" : "people") + " listed."
-            : visible + " " + (visible === 1 ? "person" : "people") + " in the " + (office === "lagos" ? "Lagos" : "Abuja") + " office.";
+        status.textContent = "";
         return;
       }
       status.textContent =

@@ -4378,6 +4378,7 @@ body[data-page="offices"] #team .people-grid { grid-template-columns: 1fr; }
 }
 .pag-card:hover { border-color: transparent; box-shadow: 0 22px 40px -22px rgba(20, 33, 63, 0.35); }
 .pag-card:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 3px; }
+.pag-card[id] { scroll-margin-top: 7rem; }
 .pag-media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--navy); }
 .pag-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s var(--ease); }
 .pag-card:hover .pag-media img { transform: scale(1.05); }
@@ -4550,3 +4551,10 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i,
 @media (max-width: 900px) {
   .cr-offices, .cr-steps { grid-template-columns: 1fr; }
 }
+
+/* Inline links in practice-page prose */
+.prose a.link-inline { color: var(--navy); border-bottom: 1px solid var(--line); transition: border-color 0.3s var(--ease); }
+.prose a.link-inline:hover { border-bottom-color: currentColor; }
+.pag-also-list li:has(> a) { padding: 0; }
+.pag-also-list a { display: block; padding: 0.4rem 0.8rem; color: inherit; transition: background 0.3s var(--ease), color 0.3s var(--ease); }
+.pag-also-list a:hover { background: var(--navy); color: #fff; }
