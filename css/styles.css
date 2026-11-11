@@ -4489,7 +4489,7 @@ h1 i, h2 i, h3 i, h4 i, h5 i, h6 i,
 .ab-figure--tall { aspect-ratio: 4 / 5; position: relative; }
 .ab-figure figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 2.5rem 1.2rem 1rem; font-size: 0.78rem; letter-spacing: 0.04em; color: var(--paper-on-navy); background: linear-gradient(to top, rgba(20, 33, 63, 0.85), rgba(20, 33, 63, 0)); border-radius: 0 0 2px 2px; }
 .ab-facts { background: var(--navy); color: var(--paper-on-navy); padding-block: clamp(2.5rem, 5vw, 3.5rem); }
-.ab-facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.ab-facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .ab-fact { border-left: 1px solid var(--line-light); padding-left: 1.4rem; }
 .ab-fact-num { font-family: var(--serif); font-size: clamp(2rem, 3.6vw, 2.8rem); line-height: 1; color: #fff; }
 .ab-fact-label { margin-top: 0.7rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-on-navy); line-height: 1.5; }
